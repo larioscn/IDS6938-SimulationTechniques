@@ -16,7 +16,7 @@ hi hi
 Part 1 Results
 ---
 
-####Result Values
+####Result Values - C)
 
 | RK1           | RK2          | RK4           | Exact        |
 |------|--------|------|-------|------|--------|------|-------|
@@ -32,7 +32,11 @@ Part 1 Results
 | -0.971671551  | -1.570878628 | -1.581041974  | -1.580998849 |
 
 
-####Error Values for Numerical Integrations
+| ![](images/Part1-C.jpg?raw=true)  | 
+
+
+
+####Error Values for Numerical Integrations - D)
 
 |Error (RK1) | Error (RK2) | Error (RK4) |
 |-----|------| -----|------|------|------|
@@ -41,4 +45,7 @@ Part 1 Results
 | 0.15345    |  0.016702   |  1.2735e-05 |
 | 0.30881    |  0.023197   |  8.6499e-06 |
 | 0.67775    |  0.038657   |  1.0742e-06 |
+
+
+| ![](images/NIError.jpg?raw=true) |
 
