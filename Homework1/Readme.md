@@ -15,6 +15,13 @@ hi hi
 
 Part 1 Results
 ---
+####A)
+y(x) = e ^ (x/2) sin (5x)
+
+
+####B)
+
+
 
 ####Result Values - C)
 
@@ -32,7 +39,7 @@ Part 1 Results
 | -0.971671551  | -1.570878628 | -1.581041974  | -1.580998849 |
 
 
-| ![](images/Part1-C.jpg?raw=true)  | 
+| ![](images/NIPart1C.jpg?raw=true)  | 
 
 
 
@@ -47,5 +54,22 @@ Part 1 Results
 | 0.67775    |  0.038657   |  1.0742e-06 |
 
 
-| ![](images/NIError.jpg?raw=true) |
+| ![](images/ErrorValueNIs.jpg?raw=true) |
 
+
+####Step Size Variations - E) H=1.0, H=0.8, H=0.5
+
+| ![](images/ValueH1.jpg?raw=true) |
+
+
+
+
+
+
+| ![](images/ValueH8.jpg?raw=true) |
+
+
+
+
+
+| ![](images/ValueH5.jpg?raw=true) |
