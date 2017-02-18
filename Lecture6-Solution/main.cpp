@@ -13,7 +13,7 @@ Compute the dy/dx
 */
 double df(double x, double y)            //function for defining dy/dx
 {
-    return y - (1 / 2)*exp(x / 2)*sin(5 * x) + 5 * exp(x / 2)*cos(5 * x);
+    return y - (1.0 / 2.0)*exp(x / 2.0)*sin(5.0 * x) + 5.0 * exp(x / 2.0)*cos(5.0 * x);
 }
 
 
@@ -22,7 +22,7 @@ Compute the exact answer
 */
 double exact(double x)            //function for defining dy/dx
 {
-    return exp(x / 2)*sin(5 * x);
+    return exp(x / 2.0)*sin(5.0 * x);
 }
 
 
