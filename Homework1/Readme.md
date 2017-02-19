@@ -98,24 +98,26 @@ double exact(double x)
 | ![](images/ValueH5.jpg?raw=true) |
 
 
-
 Error Rate:
 | ![](images/ErrorRateRK4s.jpg?raw=true) |
-
 
 
 #### F) Analyze your results: 
 
 1) Describe how varying the integration method changes the accuracy.
+
 With variations in the integration method, the accuracy becomes more precise to the exact solution. As shown in the numerical integration graph, Euler is the least accurate, followed by Midpoint, and Runge-Kutta. 
 
 
 2) What happens as you increase the x value to the accuracy?
+
 As you increase the x value, the accuracy becomes less precise. For each integration method, the accuracy decreases with respect to the exact solution.
 
 3) How does varying the step size effect the accuracy?
+
 As you increase the step size (e.g., 0.1 to 1.0), the accuracy becomes less precise. As shown with RK4 step sizes, 1.0 is less accurate than 0.5.
 
 4) Which method is the most accurate and why (in particular explain what is taken to account in the solution)?
+
 The most accurate method is the Runge-Kutta Method (RK4) because it considers the curvature of the exact solution and is a fourth order series that derives the first, second, and third error orders to increase the accuracy. The other integration methods are first and second order series that vary in their accuracy estimates, thus have increasingly large error rates than Runge-Kutta.  
 
