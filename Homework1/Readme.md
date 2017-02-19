@@ -16,11 +16,20 @@ hi hi
 Part 1 Results
 ---
 ####A)
-y(x) = e ^ (x/2) sin (5x)
 
+y(x) = e ^ (x/2) sin (5x)
 
 ####B)
 
+double df(double x, double y)            
+{
+    return y - (1.0/ 2.0)*exp(x / 2.0)*sin(5.0 * x) + 5.0 * exp(x / 2.0)*cos(5.0 * x);
+}
+
+double exact(double x)            
+{
+    return exp(x / 2.0)*sin(5.0 * x);
+}
 
 
 ####Result Values - C)
@@ -57,7 +66,7 @@ y(x) = e ^ (x/2) sin (5x)
 | ![](images/ErrorValueNIs.jpg?raw=true) |
 
 
-####Step Size Variations - E) H=1.0, H=0.8, H=0.5
+####Step Size Variations - E) H=1.0, H=0.8, H=0.5 (in order below)
 
 | (RK4)        | Exact          | Error (RK4) |
 |-----|--------| -----|---------|------|------|
@@ -66,19 +75,47 @@ y(x) = e ^ (x/2) sin (5x)
 | -5.346117367 |  2.914387906   |  2.83e-00   |
 | -11.11750527 |  6.745803673   |  2.6481     |
 
-
-
 | ![](images/ValueH1.jpg?raw=true) |
 
 
-
-
-
+| (RK4)        | Exact          | Error (RK4) |
+|-----|--------| -----|---------|------|------|
+| -1.520493899 |  -1.129016654  |  -0.34674   |
+| 2.071810169  |  2.201857271   |  0.059062   |
+| -2.642378236 |  -1.781484825  |  -0.48324   |
+| -3.87078297  |  -1.425994463  |  -1.7144    |
 
 | ![](images/ValueH8.jpg?raw=true) |
 
 
-
-
+| (RK4)        | Exact         | Error (RK4) |
+|-----|--------| -----|--------|------|------|
+| 0.762834386  |  0.768453444  | 0.0073122   |
+| -1.616611002 |  -1.580998849 | -0.022525   |
+| 1.99051666   |  1.985745966  | 0.0024025   |
+| -1.558087801 |  -1.4788027   | -0.053614   |
 
 | ![](images/ValueH5.jpg?raw=true) |
+
+
+
+Error Rate:
+| ![](images/ErrorRateRK4s.jpg?raw=true) |
+
+
+
+#### F) Analyze your results: 
+
+1) Describe how varying the integration method changes the accuracy.
+With variations in the integration method, the accuracy becomes more precise to the exact solution. As shown in the numerical integration graph, Euler is the least accurate, followed by Midpoint, and Runge-Kutta. 
+
+
+2) What happens as you increase the x value to the accuracy?
+As you increase the x value, the accuracy becomes less precise. For each integration method, the accuracy decreases with respect to the exact solution.
+
+3) How does varying the step size effect the accuracy?
+As you increase the step size (e.g., 0.1 to 1.0), the accuracy becomes less precise. As shown with RK4 step sizes, 1.0 is less accurate than 0.5.
+
+4) Which method is the most accurate and why (in particular explain what is taken to account in the solution)?
+The most accurate method is the Runge-Kutta Method (RK4) because it considers the curvature of the exact solution and is a fourth order series that derives the first, second, and third error orders to increase the accuracy. The other integration methods are first and second order series that vary in their accuracy estimates, thus have increasingly large error rates than Runge-Kutta.  
+
