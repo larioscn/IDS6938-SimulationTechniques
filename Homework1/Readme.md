@@ -119,5 +119,5 @@ As you increase the step size (e.g., 0.1 to 1.0), the accuracy becomes less prec
 
 4) Which method is the most accurate and why (in particular explain what is taken to account in the solution)?
 
-The most accurate method is the Runge-Kutta Method (RK4) because it considers the curvature of the exact solution and is a fourth order series that derives the first, second, and third error orders to increase the accuracy. The other integration methods are first and second order series that vary in their accuracy estimates, thus have increasingly large error rates than Runge-Kutta.  
+The most accurate method is the Runge-Kutta Method (RK4) because it is a fourth order series that derives the first, second, and third error orders to increase the accuracy. The other integration methods are first and second order series that vary in their accuracy estimates, thus have increasingly large error rates than Runge-Kutta.  
 
