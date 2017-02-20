@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\fps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\vec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\world.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\clock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\fps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\vec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{26F35F01-E71B-352E-AC24-63FA62DB4351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AB08ACBA-4014-3217-9301-885DE1146057}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
