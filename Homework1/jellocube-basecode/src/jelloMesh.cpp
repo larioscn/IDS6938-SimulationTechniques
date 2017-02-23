@@ -438,10 +438,10 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		// TODO
 		vec3 diff = a.position - b.position;
 		double dist = diff.Length();
-		double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
-		double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
+		//double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
+		//double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
 		if (dist != 0) {
-			vec3 force = - [m_Ks + m_Kd];    //FORCE EQUATION
+			vec3 force = //- [m_Ks + m_Kd];    //FORCE EQUATION
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}
@@ -475,6 +475,9 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
+	p.velocity =    //F(x,y,z) =ax +by +cz +d=0   for collision
+
+
 
 	return false;
 }
@@ -488,6 +491,7 @@ bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 	double cylinderRadius = cylinder->r;
 
 	// TODO
+
 
 	return false;
 }
@@ -571,8 +575,8 @@ void JelloMesh::MidPointIntegrate(double dt)
 				Particle& p = GetParticle(m_vparticles, i, j, k);
 				Particle& k1 = GetParticle(accum1, i, j, k);
 
-				p.velocity = p.velocity + dt * (p.position + halfdt, p.velocity + (halfdt * k1.force));
-				p.position = p.position + dt * (p.velocity + halfdt, p.position + (halfdt * k1.force));
+				p.velocity = p.velocity + dt * (p.position + dt/2, p.velocity + (dt/2 * k1.force));
+				p.position = p.position + dt * (p.velocity + dt/2, p.position + (dt/2 * k1.force));
 			}
 		}
 	}
