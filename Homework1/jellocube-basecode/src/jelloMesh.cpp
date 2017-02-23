@@ -438,8 +438,10 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		// TODO
 		vec3 diff = a.position - b.position;
 		double dist = diff.Length();
+		double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
+		double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
 		if (dist != 0) {
-			vec3 force = -[p.m_Ks (abs(vec3 diff) - dist) + p.Kd( *)];    //FORCE EQUATION
+			vec3 force = - [m_Ks + m_Kd];    //FORCE EQUATION
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}

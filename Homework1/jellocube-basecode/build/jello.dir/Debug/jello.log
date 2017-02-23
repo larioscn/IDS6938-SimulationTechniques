@@ -1,17 +1,139 @@
 ﻿  jelloMesh.cpp
 C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(255): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2065: 'p': undeclared identifier
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2228: left of '.m_Ks' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2228: left of '.m_Kd' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(571): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(571): note: while trying to match the argument list '(vec3, double)'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(572): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
-  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(572): note: while trying to match the argument list '(vec3, double)'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(441): error C3867: 'vec3::Length': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(441): error C2678: binary '-': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(200): note: could be 'vec4 operator -(const vec4 &,const vec4 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(154): note: or       'vec3 operator -(const vec3 &,const vec3 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(104): note: or       'vec2 operator -(const vec2 &,const vec2 &)'
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(441): note: while trying to match the argument list '(vec3, overloaded-function)'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(441): error C3861: 'Ks': identifier not found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(441): error C3861: 'Normalize': identifier not found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2275: 'vec3': illegal use of this type as an expression
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(123): note: see declaration of 'vec3'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2146: syntax error: missing ')' before identifier 'p'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C2143: syntax error: missing ']' before '+'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C3481: 'm_Ks': lambda capture variable not found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C3260: '+': skipping unexpected token(s) before lambda body
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(453): error C4573: the usage of 'JelloMesh::m_vcontacts' requires the compiler to capture 'this' but the current default capture mode does not allow it
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(454): error C4573: the usage of 'JelloMesh::m_vcontacts' requires the compiler to capture 'this' but the current default capture mode does not allow it
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(455): warning C4573: the usage of 'JelloMesh::GetParticle' requires the compiler to capture 'this' but the current default capture mode does not allow it
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(455): error C3493: 'grid' cannot be implicitly captured because no default capture mode has been specified
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(462): error C2440: 'initializing': cannot convert from 'int' to 'vec3'
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(462): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(462): error C2144: syntax error: 'void' should be preceded by ';'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(463): error C2601: 'JelloMesh::ResolveCollisions': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(476): error C2601: 'JelloMesh::FloorIntersection': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(484): error C2601: 'JelloMesh::CylinderIntersection': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(497): error C2601: 'JelloMesh::EulerIntegrate': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(536): error C2601: 'JelloMesh::MidPointIntegrate': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(582): error C2601: 'JelloMesh::RK4Integrate': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(704): error C2143: syntax error: missing ';' before ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(704): error C2059: syntax error: ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(710): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(713): error C2059: syntax error: 'const'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(720): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(724): error C2601: 'JelloMesh::Spring::operator =': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(737): error C2275: 'JelloMesh::SpringType': illegal use of this type as an expression
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(737): note: see declaration of 'JelloMesh::SpringType'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(737): error C2146: syntax error: missing ')' before identifier 't'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(745): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(752): error C2655: 'JelloMesh::Particle::EMPTY': definition or redeclaration illegal in current scope
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\JelloMesh.h(157): note: see declaration of 'JelloMesh::Particle::EMPTY'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(752): error C2086: 'JelloMesh::Particle JelloMesh::Particle::EMPTY': redefinition
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\JelloMesh.h(157): note: see declaration of 'EMPTY'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(754): error C2062: type 'int' unexpected
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(755): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(756): error C2065: 'index': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(756): error C2065: 'idx': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(757): error C2065: 'position': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(757): error C2065: 'p': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(758): error C2065: 'velocity': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(758): error C2065: 'v': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(760): error C2065: 'mass': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(760): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(764): error C2143: syntax error: missing ';' before ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(764): error C2059: syntax error: ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(769): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(772): error C2059: syntax error: 'const'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(778): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(782): error C2601: 'JelloMesh::Particle::operator =': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(799): error C2143: syntax error: missing ';' before ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(799): error C2059: syntax error: ':'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(803): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(806): error C2059: syntax error: 'const'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(811): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(815): error C2601: 'JelloMesh::Intersection::operator =': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(825): error C2275: 'JelloMesh::IntersectionType': illegal use of this type as an expression
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(825): error C2146: syntax error: missing ')' before identifier 'type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(830): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(838): error C2601: 'JelloMesh::FaceMesh::Draw': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(873): error C2601: 'JelloMesh::FaceMesh::DrawNormals': local function definitions are illegal
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(916): error C2059: syntax error: 'const'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(917): error C2143: syntax error: missing ';' before '{'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(918): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(918): error C2228: left of '.m_vparticles' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(918): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(918): error C2530: 'g': references must be initialized
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(919): error C2065: 'f': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(919): error C2050: switch expression not integral
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): error C2065: 'm_strips': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): error C2228: left of '.resize' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): error C2228: left of '.m_rows' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(921): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(922): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(922): error C2228: left of '.m_rows' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(922): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(923): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(923): error C2228: left of '.m_cols' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(923): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(924): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(924): error C2228: left of '.m_rows' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(924): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(925): error C2065: 'm_strips': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(925): error C2228: left of '.push_back' must have class/struct/union
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(925): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(925): error C2228: left of '.GetIndex' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(925): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(926): error C2065: 'm_strips': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(926): error C2228: left of '.push_back' must have class/struct/union
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(926): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(926): error C2228: left of '.GetIndex' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(926): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2228: left of '.GetIndex' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2228: left of '.m_rows' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2672: 'std::min': no matching overloaded function found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2784: '_Ty std::min(std::initializer_list<_Elem>)': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3654): note: see declaration of 'std::min'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: 'const _Ty &std::min(const _Ty &,const _Ty &) noexcept(<expr>)': expects 2 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3646): note: see declaration of 'std::min'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: '_Ty std::min(std::initializer_list<_Elem>,_Pr)': expects 2 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3635): note: see declaration of 'std::min'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: 'const _Ty &std::min(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)': expects 3 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3625): note: see declaration of 'std::min'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2672: 'std::max': no matching overloaded function found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2784: '_Ty std::max(std::initializer_list<_Elem>)': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3617): note: see declaration of 'std::max'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: 'const _Ty &std::max(const _Ty &,const _Ty &) noexcept(<expr>)': expects 2 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3609): note: see declaration of 'std::max'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: '_Ty std::max(std::initializer_list<_Elem>,_Pr)': expects 2 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3598): note: see declaration of 'std::max'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2780: 'const _Ty &std::max(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)': expects 3 arguments - 1 provided
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3588): note: see declaration of 'std::max'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2228: left of '.m_cols' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): error C2228: left of '.m_stacks' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(930): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): error C2065: 'm': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): error C2228: left of '.GetIndex' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): error C2228: left of '.m_rows' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): error C2672: 'std::min': no matching overloaded function found
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): error C2784: '_Ty std::min(std::initializer_list<_Elem>)': could not deduce template argument for 'std::initializer_list<_Elem>' from 'int'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\algorithm(3654): note: see declaration of 'std::min'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(931): fatal error C1003: error count exceeds 100; stopping compilation
