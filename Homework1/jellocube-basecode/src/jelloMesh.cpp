@@ -441,7 +441,7 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		//double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
 		//double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
 		if (dist != 0) {
-			vec3 force = //- [m_Ks + m_Kd];    //FORCE EQUATION
+			vec3 force = -(spring.m_Ks *(dist - spring.m_restLen) +  ) *(spring.m_Kd* ( * dist / dist))* (dist/dist);
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}
@@ -499,12 +499,9 @@ bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 void JelloMesh::EulerIntegrate(double dt)
 // TODO
 {
-	double halfdt = 0.5 * dt;
-	ParticleGrid target = m_vparticles;  // target is a copy!
 	ParticleGrid& source = m_vparticles;  // source is a ptr!
 
 										  // Step 1
-	ParticleGrid accum1 = m_vparticles;
 	for (int i = 0; i < m_rows + 1; i++)
 	{
 		for (int j = 0; j < m_cols + 1; j++)
@@ -512,25 +509,9 @@ void JelloMesh::EulerIntegrate(double dt)
 			for (int k = 0; k < m_stacks + 1; k++)
 			{
 				Particle& s = GetParticle(source, i, j, k);
-			}
-		}
-	}
 
-	ComputeForces(target);
-
-	// Put it all together
-	for (int i = 0; i < m_rows + 1; i++)
-	{
-		for (int j = 0; j < m_cols + 1; j++)
-		{
-			for (int k = 0; k < m_stacks + 1; k++)
-			{
-				Particle& p = GetParticle(m_vparticles, i, j, k);
-
-				p.velocity = p.velocity + dt * p.position;
-				
-				p.position = p.position + dt * p.velocity;
-				
+				p.velocity = p.velocity + dt * p.force * 1 / p.mass;
+					p.position = p.position + dt * p.velocity;
 			}
 		}
 	}
@@ -576,7 +557,7 @@ void JelloMesh::MidPointIntegrate(double dt)
 				Particle& k1 = GetParticle(accum1, i, j, k);
 
 				p.velocity = p.velocity + dt * (p.position + dt/2, p.velocity + (dt/2 * k1.force));
-				p.position = p.position + dt * (p.velocity + dt/2, p.position + (dt/2 * k1.force));
+				p.position = p.position + dt * (p.velocity + dt/2, p.position + (dt/2 * k1.force)); //fix
 			}
 		}
 	}
