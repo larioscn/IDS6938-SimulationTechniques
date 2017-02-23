@@ -120,3 +120,35 @@ As you increase the step size (e.g., 0.1 to 1.0), the accuracy becomes less prec
 
 The most accurate method is the Runge-Kutta Method (RK4) because it is a fourth order approximator, whereas Euler considers only a 1st order approximation of the slope and the Midpoint considers a 2nd order approximation of the slope. Thus, having more estimates of the slope will produce results that are more accurate to the exact solution.
 
+
+
+
+Part 3 Written Questions
+---
+1. What is the effect of the Ks and Kd parameters on the jello?
+
+
+
+
+2. What are the benefits and te drawbacks of the collision system used here? What are some different ways in which it could be improved?
+
+
+
+
+3. What are some example systems you could model with Mass-spring simulations? Explain how you would construct the model.
+
+
+
+
+4. Does the jello behave realistically? What integration method did you choose to make the Jello stable?
+
+
+
+
+5. How would you model and simulate water (in terms of a continuous simulation)?
+
+
+
+
+
+
