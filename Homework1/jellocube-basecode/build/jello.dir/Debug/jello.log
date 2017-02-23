@@ -1,0 +1,17 @@
+﻿  jelloMesh.cpp
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(255): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2065: 'p': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2228: left of '.m_Ks' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2228: left of '.m_Kd' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(571): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(571): note: while trying to match the argument list '(vec3, double)'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(572): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
+  c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(572): note: while trying to match the argument list '(vec3, double)'

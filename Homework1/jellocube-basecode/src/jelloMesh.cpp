@@ -395,11 +395,11 @@ void JelloMesh::CheckForCollisions(ParticleGrid& grid, const World& world)
 {
 	m_vcontacts.clear();
 	m_vcollisions.clear();
-
+	//for all particles 
 	for (int i = 0; i < m_rows + 1; i++) {
 		for (int j = 0; j < m_cols + 1; j++) {
 			for (int k = 0; k < m_stacks + 1; k++) {
-				Particle& p = GetParticle(grid, i, j, k);
+				Particle& p = GetParticle(m_vparticles, i, j, k);
 
 				// 1. Check collisions with world objects
 				for (unsigned int i = 0; i < world.m_shapes.size(); i++) {
@@ -423,8 +423,8 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 	for (int i = 0; i < m_rows + 1; i++) {
 		for (int j = 0; j < m_cols + 1; j++) {
 			for (int k = 0; k < m_stacks + 1; k++) {
-				Particle& p = GetParticle(grid, i, j, k);
-				p.force = m_externalForces * p.mass;
+				Particle& p = GetParticle(m_vparticles, i, j, k);
+				p.force = m_externalForces * p.mass; //changes here?
 			}
 		}
 	}
@@ -439,7 +439,7 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		vec3 diff = a.position - b.position;
 		double dist = diff.Length();
 		if (dist != 0) {
-			vec3 force = m_Ks + m_Kd;    //FORCE EQUATION
+			vec3 force = -[p.m_Ks (abs(vec3 diff) - dist) + p.Kd( *)];    //FORCE EQUATION
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}
@@ -466,12 +466,14 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 		float dist = result.m_distance;
 
 		// TODO
+
 	}
 }
 
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
+
 	return false;
 }
 
@@ -484,6 +486,7 @@ bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 	double cylinderRadius = cylinder->r;
 
 	// TODO
+
 	return false;
 }
 
