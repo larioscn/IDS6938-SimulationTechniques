@@ -369,7 +369,7 @@ void JelloMesh::Draw(const vec3& eyePos)
 	glEnable(GL_LIGHTING);
 }
 
-void JelloMesh::Update(double dt, const World& world, const vec3& externalForces)
+void JelloMesh::Update(double dt, const World& world, const vec3& externalForces) //floor collision
 {
 	m_externalForces = externalForces;
 
@@ -441,7 +441,7 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		//double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
 		//double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
 		if (dist != 0) {
-			vec3 force = -(spring.m_Ks *(dist - spring.m_restLen) +  ) *(spring.m_Kd* ( * dist / dist))* (dist/dist);
+			vec3 force = -(spring.m_Ks *(dist - spring.m_restLen)) + (spring.m_Kd* ( * diff / dist))* (diff/dist);//missing i
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}
@@ -476,9 +476,18 @@ bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
 	p.velocity =    //F(x,y,z) =ax +by +cz +d=0   for collision
+		if particle.p
+			Intersection.m_normal = 1.0
+			Intersection.m_p = 0.0 
+			Intersection.m_dist = 
+			Intersection.m_type = jellomesh::collision 
+
+			return true
+
+		if
 
 
-
+			return true
 	return false;
 }
 
@@ -509,9 +518,8 @@ void JelloMesh::EulerIntegrate(double dt)
 			for (int k = 0; k < m_stacks + 1; k++)
 			{
 				Particle& s = GetParticle(source, i, j, k);
-
 				p.velocity = p.velocity + dt * p.force * 1 / p.mass;
-					p.position = p.position + dt * p.velocity;
+				p.position = p.position + dt * p.velocity;
 			}
 		}
 	}
