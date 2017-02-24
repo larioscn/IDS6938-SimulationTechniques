@@ -476,7 +476,11 @@ bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
 	p.velocity =    //F(x,y,z) =ax +by +cz +d=0   for collision
-		if particle.p
+
+
+		if Particle& p 
+			//Particle& p = GetParticle(m_vparticles, i, j, k)
+			
 			Intersection.m_normal = 1.0
 			Intersection.m_p = 0.0 
 			Intersection.m_dist = 
@@ -500,7 +504,7 @@ bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 	double cylinderRadius = cylinder->r;
 
 	// TODO
-
+	
 
 	return false;
 }
@@ -564,8 +568,8 @@ void JelloMesh::MidPointIntegrate(double dt)
 				Particle& p = GetParticle(m_vparticles, i, j, k);
 				Particle& k1 = GetParticle(accum1, i, j, k);
 
-				p.velocity = p.velocity + dt * (p.position + dt/2, p.velocity + (dt/2 * k1.force));
-				p.position = p.position + dt * (p.velocity + dt/2, p.position + (dt/2 * k1.force)); //fix
+				p.velocity = p.velocity + dt * (p.force + halfdt), p.velocity + (halfdt * k1.force);
+				p.position = p.position + dt * (p.velocity + halfdt), p.position + (halfdt * k1.force); //fix
 			}
 		}
 	}
