@@ -456,7 +456,11 @@ void JelloMesh::ResolveContacts(ParticleGrid& grid)
 		vec3 normal = contact.m_normal;
 
 		// TODO
+		p.velocity = p.velocity - 2 * (p.velocity * m_normal)float r = 0.8
+
+
 	}
+
 }
 
 void JelloMesh::ResolveCollisions(ParticleGrid& grid)
@@ -475,8 +479,7 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
-	p.velocity =    //F(x,y,z) =ax +by +cz +d=0   for collision
-
+//F(x,y,z) =ax +by +cz +d=0   for collision
 
 		if Particle& p 
 			//Particle& p = GetParticle(m_vparticles, i, j, k)
