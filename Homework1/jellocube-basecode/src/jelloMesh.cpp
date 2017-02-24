@@ -456,7 +456,7 @@ void JelloMesh::ResolveContacts(ParticleGrid& grid)
 		vec3 normal = contact.m_normal;
 
 		// TODO
-		p.velocity = p.velocity - 2 * (p.velocity * m_normal)float r = 0.8
+		p.velocity = p.velocity - 2 * (p.velocity * m_normal)float r = 0.8  //still working on it..what is N
 
 
 	}
@@ -571,8 +571,8 @@ void JelloMesh::MidPointIntegrate(double dt)
 				Particle& p = GetParticle(m_vparticles, i, j, k);
 				Particle& k1 = GetParticle(accum1, i, j, k);
 
-				p.velocity = p.velocity + dt * (p.force + halfdt), p.velocity + (halfdt * k1.force);
-				p.position = p.position + dt * (p.velocity + halfdt), p.position + (halfdt * k1.force); //fix
+				p.velocity = p.velocity + dt * ((p.force + halfdt), p.velocity + (halfdt * k1.force));
+				p.position = p.position + dt * ((p.velocity + halfdt), p.position + (halfdt * k1.force)); //fix
 			}
 		}
 	}
