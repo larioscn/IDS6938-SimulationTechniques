@@ -1,27 +1,32 @@
 ﻿  jelloMesh.cpp
 C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(255): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C2059: syntax error: ')'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(479): error C2059: syntax error: 'if'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(483): error C2653: 'jellomesh': is not a class or namespace name
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): error C2065: 'p': undeclared identifier
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): error C2228: left of '.velocity' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): error C2228: left of '.force' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): error C2228: left of '.mass' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(522): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(523): error C2065: 'p': undeclared identifier
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(523): error C2228: left of '.position' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(523): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(523): error C2228: left of '.velocity' must have class/struct/union
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(523): note: type is 'unknown-type'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(568): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2100: illegal indirection
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2088: '/': illegal for class
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(479): error C2065: 'm_normal': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(481): error C2144: syntax error: 'float' should be preceded by ';'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(492): error C2059: syntax error: ';'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(493): error C2059: syntax error: ';'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(501): error C2065: 'COLLISION_DELTA': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(507): error C2143: syntax error: missing ';' before 'return'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): error C2065: 'p': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): error C2228: left of '.velocity' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): error C2228: left of '.force' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): error C2228: left of '.mass' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(540): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(541): error C2065: 'p': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(541): error C2228: left of '.position' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(541): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(541): error C2228: left of '.velocity' must have class/struct/union
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(541): note: type is 'unknown-type'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(586): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(568): note: while trying to match the argument list '(vec3, double)'
-C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(569): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(586): note: while trying to match the argument list '(vec3, double)'
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(587): error C2678: binary '+': no operator found which takes a left-hand operand of type 'vec3' (or there is no acceptable conversion)
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(199): note: could be 'vec4 operator +(const vec4 &,const vec4 &)'
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(153): note: or       'vec3 operator +(const vec3 &,const vec3 &)'
   c:\users\cnl\desktop\spring 2017\simtech\all_lectures\ids6938-simulationtechniques\homework1\jellocube-basecode\src\vec.h(103): note: or       'vec2 operator +(const vec2 &,const vec2 &)'
-  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(569): note: while trying to match the argument list '(vec3, double)'
+  C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(587): note: while trying to match the argument list '(vec3, double)'

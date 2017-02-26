@@ -15,9 +15,9 @@ hi hi
 Part 1 Results
 ---
 ####A)
-
+~~~
 y(x) = e ^ (x/2) sin (5x)
-
+~~~
 ####B)
 
 double df(double x, double y)            
@@ -130,7 +130,7 @@ Part 3 Written Questions
 
 
 
-2. What are the benefits and te drawbacks of the collision system used here? What are some different ways in which it could be improved?
+2. What are the benefits and the drawbacks of the collision system used here? What are some different ways in which it could be improved?
 
 
 

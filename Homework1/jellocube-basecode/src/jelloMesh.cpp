@@ -2,7 +2,7 @@
 #include <GL/glut.h>
 #include <algorithm>
 
-// TODO
+// TODO -- these cannot be 0
 double JelloMesh::g_structuralKs = 0.0;
 double JelloMesh::g_structuralKd = 0.0;
 double JelloMesh::g_attachmentKs = 0.0;
@@ -424,7 +424,7 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		for (int j = 0; j < m_cols + 1; j++) {
 			for (int k = 0; k < m_stacks + 1; k++) {
 				Particle& p = GetParticle(m_vparticles, i, j, k);
-				p.force = m_externalForces * p.mass; //changes here?
+				p.force = m_externalForces * p.mass; 
 			}
 		}
 	}
@@ -438,10 +438,9 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
 		// TODO
 		vec3 diff = a.position - b.position;
 		double dist = diff.Length();
-		//double m_ks = -Ks((a.position - b.position) - diff.Length) * Normalize(a.position - b.position);//F_elastic equation
-		//double m_kd = -Kd(vec3 p.velocity * (a.position - b.position)) / (abs(a.position - b.position)) * Normalize(a.position - b.position);//F_damp
 		if (dist != 0) {
-			vec3 force = -(spring.m_Ks *(dist - spring.m_restLen)) + (spring.m_Kd* ( * diff / dist))* (diff/dist);//missing i
+			vec3 force = -(spring.m_Ks *(dist - spring.m_restLen)) + (spring.m_Kd* ( * diff / dist))* (diff/dist);
+			//missing i (teacher: watch your brackets, negative has to be applied to elastic and damp )
 			 a.force += force;
 			b.force += -force;   //  Newtons 3rd law
 		}
@@ -455,9 +454,13 @@ void JelloMesh::ResolveContacts(ParticleGrid& grid)
 		Particle& p = GetParticle(grid, contact.m_p);
 		vec3 normal = contact.m_normal;
 
-		// TODO
-		p.velocity = p.velocity - 2 * (p.velocity * m_normal)float r = 0.8  //still working on it..what is N
-
+		// TODO (teacher: there are many correct answers, one would be to apply a penalty force to a particle
+		//pt.force = SPRING FORCE with   g_penaltyKs  and  g_penaltyKd
+		//You can get the diff and dist
+		//double dist = result.m_distance;
+		//vec3 diff = -dist * normal;
+		//But since there are many solutions you can also change the velocity
+		//and position based on some other things we discussed in class.
 
 	}
 
@@ -470,8 +473,13 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 		Particle& pt = GetParticle(grid, result.m_p);
 		vec3 normal = result.m_normal;
 		float dist = result.m_distance;
+		// TODO (teacher: m_vcontacts, Contact is “penetration”. m_vcollisions, Collision is “about to collide”)
+		//for collision response you should have a gentle impulse, change in
+		//momentum manifested as a change in velocity applied to them
+		pt.velocity = pt.velocity - 2 * (pt.velocity * m_normal)
 
-		// TODO
+			float r = 0.8;//still working on it..what is N , equation - v' = v - 2 (v*N) N r
+
 
 	}
 }
@@ -479,23 +487,27 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO
-//F(x,y,z) =ax +by +cz +d=0   for collision
 
-		if Particle& p 
-			//Particle& p = GetParticle(m_vparticles, i, j, k)
-			
-			Intersection.m_normal = 1.0
-			Intersection.m_p = 0.0 
-			Intersection.m_dist = 
-			Intersection.m_type = jellomesh::collision 
+	if (p.position[1] < 0) {
+		intersection.m_distance = ;//particle position
+		intersection.m_p = ;//particle index
+		intersection.m_type = JelloMesh::CONTACT;
+		intersection.m_normal = vec3();//for the normal
 
-			return true
-
-		if
+		return true;
+	}
 
 
-			return true
-	return false;
+ else if (p.position[1] < COLLISION_DELTA)   //not done
+ {
+		intersection.m_distance = //particle posiiton
+		intersection.m_p = //particle index
+		intersection.m_type = JelloMesh::CONTACT;
+		intersection.m_normal = vec3()   //for the normal
+	 return true;
+		}
+
+ return false;
 }
 
 bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
@@ -513,7 +525,6 @@ bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 }
 
 void JelloMesh::EulerIntegrate(double dt)
-// TODO
 {
 	ParticleGrid& source = m_vparticles;  // source is a ptr!
 
@@ -572,7 +583,7 @@ void JelloMesh::MidPointIntegrate(double dt)
 				Particle& k1 = GetParticle(accum1, i, j, k);
 
 				p.velocity = p.velocity + dt * ((p.force + halfdt), p.velocity + (halfdt * k1.force));
-				p.position = p.position + dt * ((p.velocity + halfdt), p.position + (halfdt * k1.force)); //fix
+				p.position = p.position + dt * ((p.velocity + halfdt), p.position + (halfdt * k1.force)); //fix ? TODO
 			}
 		}
 	}
