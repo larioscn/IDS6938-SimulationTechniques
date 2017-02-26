@@ -194,12 +194,18 @@ void JelloMesh::InitJelloMesh()
 	for (int i = 0; i < m_rows + 1; i++) {
 		for (int j = 0; j < m_cols + 1; j++) {
 			for (int k = 0; k < m_stacks + 1; k++) {
-				if (j < m_cols)
-					AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 1, k));
-				if (i < m_rows)
-					AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i + 1, j, k));
-				if (k < m_stacks)
-					AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 1));
+				if (j < m_cols) AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 1, k));
+				if (i < m_rows) AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i + 1, j, k));
+				if (k < m_stacks) AddStructuralSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 1));
+
+				if (j < m_cols && i < m_rows) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i + 1, j + 1, k));
+				if (i < m_rows && k < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i + 1, j, k + 1));
+				if (k < m_stacks && j < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 1, k + 1)); //diagonal
+
+				if (j < m_cols - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 2, k));
+				if (i < m_rows - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i + 2, j, k));
+				if (k < m_stacks - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 2));  
+
 			}
 		}
 	}
@@ -456,19 +462,21 @@ void JelloMesh::ResolveContacts(ParticleGrid& grid)
 		Particle& p = GetParticle(grid, contact.m_p);
 		vec3 normal = contact.m_normal;
 		
-		// TODO (teacher: there are many correct answers, one would be to apply a penalty force to a particle
+		// TODO (Professor Joe: there are many correct answers, one would be to apply a penalty force to a particle
 		//pt.force = SPRING FORCE with   g_penaltyKs  and  g_penaltyKd
 		//You can get the diff and dist
 		//double dist = result.m_distance;
 		//vec3 diff = -dist * normal;
 		//But since there are many solutions you can also change the velocity
-		//and position based on some other things we discussed in class.
+		//and position based on some other things we discussed in class.)
+		
 		p.position = p.position - (contact.m_distance*normal);
 		p.force = (-p.force + contact.m_distance*normal);
 		p.velocity = p.velocity - (2 * (p.velocity * normal))*(normal);
-
+		
+		
+		
 	}
-
 }
 
 void JelloMesh::ResolveCollisions(ParticleGrid& grid)
@@ -478,39 +486,42 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
 		Particle& pt = GetParticle(grid, result.m_p);
 		vec3 normal = result.m_normal;
 		float dist = result.m_distance;
-		float r = 0.8;
-		// TODO (teacher: m_vcontacts, Contact is “penetration”. m_vcollisions, Collision is “about to collide”)
+		double r = 0.8;
+		// TODO (Professor: m_vcontacts, Contact is “penetration”. m_vcollisions, Collision is “about to collide”)
 		//for collision response you should have a gentle impulse, change in
 		//momentum manifested as a change in velocity applied to them
-		pt.velocity = pt.velocity - 2 * (pt.velocity * normal)*normal*r; //debugging
-
-		//still working on it..what is N , equation - v' = v - 2 (v*N) N r
-
-
+		pt.velocity = pt.velocity - 2 * (pt.velocity * normal)*normal*r;
+		//equation - v' = v - 2 (v*N) N r
 	}
 }
 
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	// TODO----- DEBUGGING
-		if (p.position.n[1] <= 0.0)
+	float epsilon_delta = 0.5;
+	if (p.position.n[1] < 0.0)
 		{
 			intersection.m_p = p.index;
 			intersection.m_distance = -p.position[1];
 			intersection.m_type = CONTACT;
 			intersection.m_normal = vec3(0.0, 1.0, 0.0);
+			cout << "Contact!" << endl;
 			return true;
 		}
-		else if (p.position[1] >= 0.0 && p.position[1] <= 0.05)
+	else if (p.position[1] < 0.0 + epsilon_delta)
 		{
 			intersection.m_p = p.index;
-			intersection.m_distance = 0.05 - p.position[1];
+			intersection.m_distance = epsilon_delta - p.position[1];
 			intersection.m_type = COLLISION;
 			intersection.m_normal = vec3(0.0, 1.0, 0.0);
+			cout << "Collisions!" << endl;
 			return true;
 		}
-		else
+		else 
+		{
 			return false;
+		}
+		
 	}
 
 bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
