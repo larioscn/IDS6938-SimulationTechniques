@@ -15,9 +15,11 @@ hi hi
 Part 1 Results
 ---
 ####A)
+
 ~~~
 y(x) = e ^ (x/2) sin (5x)
 ~~~
+
 ####B)
 
 double df(double x, double y)            
