@@ -1,3 +1,5 @@
 ﻿  jelloMesh.cpp
 C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(264): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-  jello.vcxproj -> C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\build\Debug\jello.exe
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(548): error C2065: 'time': undeclared identifier
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(564): warning C4138: '*/' found outside of comment
+C:\Users\cnl\Desktop\Spring 2017\SimTech\All_Lectures\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(564): error C2059: syntax error: '/'
