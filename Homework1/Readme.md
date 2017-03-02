@@ -21,7 +21,7 @@ y(x) = e ^ (x/2) sin (5x)
 ~~~
 
 ####B)
-
+~~~
 double df(double x, double y)            
 {
     return y - (1.0/ 2.0)*exp(x / 2.0)*sin(5.0 * x) + 5.0 * exp(x / 2.0)*cos(5.0 * x);
@@ -32,6 +32,7 @@ double exact(double x)
     return exp(x / 2.0)*sin(5.0 * x);
 }
 
+~~~
 
 ####Result Values - C)
 
@@ -144,10 +145,12 @@ Part 3 Written Questions
 
 4. Does the jello behave realistically? What integration method did you choose to make the Jello stable?
 
+My jello cube does not behave in a realistic fashion due to it's explosive nature. However, this simulation can be enhanced to be more realistic by having the jello bounce and maintain it's shape while it hits the cylinders. Midpoint and RK4 are better integration methods that maintain the jello stable. 
 
 
 
 5. How would you model and simulate water (in terms of a continuous simulation)?
+
 
 
 
