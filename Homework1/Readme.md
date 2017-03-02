@@ -12,6 +12,10 @@ The assignment is due: Monday, February 27 at 11:59PM (EST)
 
 hi hi
 
+Cintya: going to request an additional day to complete hw1. 
+Due date: 03/02/2017
+
+
 Part 1 Results
 ---
 ####A)
@@ -157,3 +161,11 @@ My jello cube does not behave in a realistic fashion due to it's explosive natur
 
 
 
+
+
+References:
+---
+I completed this homework with the help of the following students in class:
+Olivia, Karla, Rebecca, Joe, Ashley, Sarah
+
+I got some outside help from my friend (electrical and computer engineer)
