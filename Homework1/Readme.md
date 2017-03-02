@@ -132,19 +132,20 @@ The most accurate method is the Runge-Kutta Method (RK4) because it is a fourth 
 
 Part 3 Written Questions
 ---
+
 1. What is the effect of the Ks and Kd parameters on the jello?
 
-
+The effect of the Ks (stiffness constant) parameter allows the jello to increase it's ocsillation/bounce, whereas the Kd ( damping constant) parameter decreases the oscillation/bounce of the jello. 
 
 
 2. What are the benefits and the drawbacks of the collision system used here? What are some different ways in which it could be improved?
 
-
+The benefits of the collision system used here is that at the start of the simulation, there is a force that is acting to pull the jello cube down. In other words, there is control over the force mechanisms that drive the movement of the jello cube and it's shape is already constructed. On the other hand, this anistropic nature can have set backs. The drawbacks of this system is that you need to configure good springs to the jello cube for it to precisely maintain it's shape while it hits the ground and bounces back.
 
 
 3. What are some example systems you could model with Mass-spring simulations? Explain how you would construct the model.
 
-
+Several example systems to model with a mass-spring simulation would be a pendulum(s) swing, curtains moving against a 'wind', planetary force fields, or falling rocks from a hill side. If I were to construct a moving curtain, I would first have particles that make up a thin 3D square shape. In order for the curtain to move, you would need to add more shear springs and a force that hits the curtain to it's side.  
 
 
 4. Does the jello behave realistically? What integration method did you choose to make the Jello stable?
@@ -152,10 +153,9 @@ Part 3 Written Questions
 My jello cube does not behave in a realistic fashion due to it's explosive nature. However, this simulation can be enhanced to be more realistic by having the jello bounce and maintain it's shape while it hits the cylinders. Midpoint and RK4 are better integration methods that maintain the jello stable. 
 
 
-
 5. How would you model and simulate water (in terms of a continuous simulation)?
 
-
+How I would simulate water would be to make tetrahedron mass springs to connect to each other to make up a large rectangular shape in the ground. You can then play around with the mass and force of particular regions in the rectangle in order to simulate 'water' movement.  
 
 
 
