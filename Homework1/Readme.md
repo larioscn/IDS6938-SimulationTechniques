@@ -140,7 +140,7 @@ The effect of the Ks (stiffness constant) parameter allows the jello to increase
 
 2. What are the benefits and the drawbacks of the collision system used here? What are some different ways in which it could be improved?
 
-The benefits of the collision system used here is that at the start of the simulation, there is a force that is acting to pull the jello cube down. In other words, there is control over the force mechanisms that drive the movement of the jello cube and it's shape is already constructed. On the other hand, this anistropic nature can have set backs. The drawbacks of this system is that you need to configure good springs to the jello cube for it to precisely maintain it's shape while it hits the ground and bounces back.
+The benefits of the collision system used here is that at the start of the simulation, there is a force that is acting to pull the jello cube down. In other words, there is control over the force mechanisms that drive the movement of the jello cube and it's shape is already constructed. On the other hand, this anistropic nature can have set backs. The drawbacks are that you need to configure good springs to the jello cube for it to precisely maintain it's shape while it hits the ground and bounces back. How it can be improved is to have a different kind of mass-spring (tetrahedron, big hexahedron etc) that will need only few tweaks to make the jello cube move and maintain shape.    
 
 
 3. What are some example systems you could model with Mass-spring simulations? Explain how you would construct the model.
