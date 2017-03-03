@@ -224,7 +224,7 @@ VelocityVerlet Code (look at entire code; freezes in simulation :( )
 
 
 #### Ks, Kd, and best integration method
-The more I increased the Ks, the more movement and oscillation the cube had. If I increased the Kd too much, it either did not run or just exploded. I also tried decreasing the Ks to stblize the jellocube more, but this did not work out too well either. The jello cube kept exploding, but it is able to have contact and collision. The best integration method in my simulation is the midpoint and perhaps rk4. Either way, the jellocube kept exploding with the exception of velocity verlet. 
+The more I increased the Ks, the more movement and oscillation the cube had. If I increased the Kd too much, it either did not run or just exploded. I also tried decreasing the Ks to stabilize the jellocube more, but this did not work out too well either. The jello cube kept exploding, but it is able to have contact and collision. The best integration method in my simulation is the midpoint and perhaps rk4. Either way, the jellocube kept exploding with the exception of velocity verlet. 
 
 Extra Credit
 ---
