@@ -54,7 +54,7 @@ double exact(double x)
 | -0.971671551  | -1.570878628 | -1.581041974  | -1.580998849 |
 
 
-| ![](images/NIPart1C.jpg?raw=true)  | 
+  ![](images/NIPart1C.jpg?raw=true)  
 
 
 
@@ -69,7 +69,7 @@ double exact(double x)
 | 0.67775    |  0.038657   |  1.0742e-06 |
 
 
-| ![](images/ErrorValueNIs.jpg?raw=true) |
+ ![](images/ErrorValueNIs.jpg?raw=true) 
 
 
 ####Step Size Variations - E) H=1.0, H=0.8, H=0.5 (in order below)
@@ -81,7 +81,7 @@ double exact(double x)
 | -5.346117367 |  2.914387906   |  2.83e-00   |
 | -11.11750527 |  6.745803673   |  2.6481     |
 
-| ![](images/ValueH1.jpg?raw=true) |
+  ![](images/ValueH1.jpg?raw=true) 
 
 
 | (RK4)        | Exact          | Error (RK4) |
@@ -91,7 +91,7 @@ double exact(double x)
 | -2.642378236 |  -1.781484825  |  -0.48324   |
 | -3.87078297  |  -1.425994463  |  -1.7144    |
 
-| ![](images/ValueH8.jpg?raw=true) |
+  ![](images/ValueH8.jpg?raw=true) 
 
 
 | (RK4)        | Exact         | Error (RK4) |
@@ -101,11 +101,11 @@ double exact(double x)
 | 1.99051666   |  1.985745966  | 0.0024025   |
 | -1.558087801 |  -1.4788027   | -0.053614   |
 
-| ![](images/ValueH5.jpg?raw=true) |
+ ![](images/ValueH5.jpg?raw=true) 
 
 
 Error Rate:
-| ![](images/ErrorRateRK4s.jpg?raw=true) |
+ ![](images/ErrorRateRK4s.jpg?raw=true) 
 
 
 #### F) Analyze your results: 
@@ -126,7 +126,6 @@ As you increase the step size (e.g., 0.1 to 1.0), the accuracy becomes less prec
 4) Which method is the most accurate and why (in particular explain what is taken to account in the solution)?
 
 The most accurate method is the Runge-Kutta Method (RK4) because it is a fourth order approximator, whereas Euler considers only a 1st order approximation of the slope and the Midpoint considers a 2nd order approximation of the slope. Thus, having more estimates of the slope will produce results that are more accurate to the exact solution.
-
 
 
 
@@ -160,6 +159,25 @@ How I would simulate water would be to make tetrahedron mass springs to connect 
 
 Part 4 Final Report
 ---
+
+#### Euler
+
+ ![](images/Euler_Code.JPG?raw=true) 
+ 
+
+#### Midpoint (with formula)
+
+![](images/midpoint1.JPG?raw=true) 
+
+![](images/midpoint2.JPG?raw=true) 
+
+
+
+#### RK4
+
+![](images/rk4.JPG?raw=true) 
+
+
 
 
 
