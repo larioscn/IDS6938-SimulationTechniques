@@ -133,6 +133,7 @@ Part 3 Written Questions
 ---
 
 1) What is the effect of the Ks and Kd parameters on the jello?
+
 The effect of the Ks (stiffness constant) parameter allows the jello to increase it's ocsillation/bounce, whereas the Kd ( damping constant) parameter decreases the oscillation/bounce of the jello. 
 
 2) What are the benefits and the drawbacks of the collision system used here? What are some different ways in which it could be improved?
@@ -255,6 +256,7 @@ Poor quality :( and no matter what I do, the jellocube explodes. However, there 
 In order: Euler, MidPoint, RK4, Velocity Verlet
 
 Stiffness changes:
+
 1)
 
 double JelloMesh::g_structuralKs =5000.0;
