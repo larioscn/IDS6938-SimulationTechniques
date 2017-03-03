@@ -158,7 +158,13 @@ My jello cube does not behave in a realistic fashion due to it's explosive natur
 How I would simulate water would be to make tetrahedron mass springs to connect to each other to make up a large rectangular shape in the ground. You can then play around with the mass and force of particular regions in the rectangle in order to simulate 'water' movement.  
 
 
+Part 4 Final Report
+---
 
+
+
+Extra Features
+---
 
 
 
@@ -168,4 +174,9 @@ References:
 I completed this homework with the help of the following students in class:
 Olivia, Karla, Rebecca, Joe, Ashley, Sarah
 
+I utilized Piazza and any helpful tips on Google Hangouts
+
 I got some outside help from my friend (electrical and computer engineer)
+
+VelocityVelvet Help:
+http://stackoverflow.com/questions/22748196/solar-system-simulation-project-velocity-verlet-help

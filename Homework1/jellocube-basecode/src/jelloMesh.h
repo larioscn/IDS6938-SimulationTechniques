@@ -36,7 +36,7 @@ public:
     virtual float GetDepth() const;
 
     // Set/Get our numerical integration type
-    enum IntegrationType { EULER, MIDPOINT, RK4 };
+    enum IntegrationType { EULER, MIDPOINT, RK4, VELOCITYVERLET};
     virtual void SetIntegrationType(IntegrationType type);
     virtual IntegrationType GetIntegrationType() const;
 
@@ -79,11 +79,14 @@ protected:
 	virtual void ResolveContacts(ParticleGrid& grid);
     virtual bool FloorIntersection(Particle& p, Intersection& intersection);
     virtual bool CylinderIntersection(Particle& p, World::Cylinder* cylinder, Intersection& intersection);
+	virtual bool SphereIntersection(Particle& p, World::Sphere* sphere, Intersection& result);
+
 
     virtual void ComputeForces(ParticleGrid& grid);
 	virtual void EulerIntegrate(double dt);
 	virtual void MidPointIntegrate(double dt);
 	virtual void RK4Integrate(double dt);
+	virtual void VelocityVerlet(double dt);
 
     enum Face {XLEFT, XRIGHT, YTOP, YBOTTOM, ZFRONT, ZBACK};
     class FaceMesh
