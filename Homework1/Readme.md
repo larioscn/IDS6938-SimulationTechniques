@@ -221,7 +221,7 @@ Sphere Intersection (Code and Environment - 4 spheres implemented)
 ![](images/spherenvironment.JPG?raw=true)
 
 
-VelocityVelvet Code (look at entire code; freezes in simulation :( )
+VelocityVerlet Code (look at entire code; freezes in simulation :( )
 
 ![](images/velocityvelvet.JPG?raw=true)
 
@@ -253,5 +253,5 @@ I utilized Piazza and any helpful tips on Google Hangouts
 
 I got some outside help from my friend (electrical and computer engineer)
 
-VelocityVelvet Help:
+VelocityVerlet Help:
 http://stackoverflow.com/questions/22748196/solar-system-simulation-project-velocity-verlet-help
