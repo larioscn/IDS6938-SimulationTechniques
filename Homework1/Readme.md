@@ -163,7 +163,7 @@ Part 4 Final Report
 #### Euler
 
  ![](images/Euler_Code.JPG?raw=true) 
- 
+
 
 #### Midpoint (with formula)
 
@@ -178,11 +178,68 @@ Part 4 Final Report
 ![](images/rk4.JPG?raw=true) 
 
 
+#### Compute Forces
+
+![](images/computeforces.JPG?raw=true)
+
+#### Spring Constants
+
+ Two Different Sets of Spring Constants Used (for video in extra credit):
+
+![](images/kdks.JPG?raw=true)
 
 
+#### CheckforCollisions 
 
-Extra Features
+![](images/checkforcollisions.JPG?raw=true)
+
+#### CylinderIntersection
+![](images/cylinderintersection.JPG?raw=true)
+
+#### FloorIntersection
+
+![](images/floorintersection.JPG?raw=true)
+
+#### Resolve Contacts
+
+![](images/resolvecontacts.JPG?raw=true)
+
+#### Resolve Collisions
+
+![](images/resolvecollisions.JPG?raw=true)
+
+#### Shear and Bend Springs
+
+![](images/structurespringbend.JPG?raw=true)
+
+#### Extra Features
+
+Sphere Intersection (Code and Environment - 4 spheres implemented)
+
+![](images/sphereintersection.JPG?raw=true)
+
+![](images/spherenvironment.JPG?raw=true)
+
+
+VelocityVelvet Code (look at entire code; freezes in simulation :( )
+
+![](images/velocityvelvet.JPG?raw=true)
+
+
+Extra Credit
 ---
+
+#### Different Colored Cubes (did not get instructor permission, but just posting)
+
+Yellow-White Cube
+
+![](images/yellowwhitecolor.JPG?raw=true)
+
+Dark Red Cube
+
+![](images/darkred.JPG?raw=true)
+
+#### Videos
 
 
 
