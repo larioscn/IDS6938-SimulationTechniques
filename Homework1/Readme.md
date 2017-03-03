@@ -226,6 +226,9 @@ VelocityVerlet Code (look at entire code; freezes in simulation :( )
 ![](images/velocityvelvet.JPG?raw=true)
 
 
+#### Ks, Kd, and best integration method
+The more I increased the Ks, the more movement and oscillation the cube had. If I increased the Kd too much, it either did not run or just exploded. I also tried decreasing the Ks to stblize the jellocube more, but this did not work out too well either. The jello cube kept exploding, but it is able to have contact and collision. The best integration method in my simulation is the midpoint and perhaps rk4. Either way, the jellocube kept exploding with the exception of velocity verlet. 
+
 Extra Credit
 ---
 
@@ -241,7 +244,46 @@ Dark Red Cube
 
 #### Videos
 
+Created a movie of the jello cube environment (super high speed!! whyyy :( ))
+~~~
+https://youtu.be/qABC3cQ1NE4 
+~~~
 
+Created a movie of the jello cibe with different integration methods and spring stiffness
+~~~
+https://www.youtube.com/watch?v=d2e-_o3dY4U
+~~~
+
+Poor quality :( and no matter what I do, the jellocube explodes. However, there are differences in the way that they are morphed.
+
+In order: Euler, MidPoint, RK4, Velocity Verlet
+
+Stiffness changes:
+1)
+
+double JelloMesh::g_structuralKs =5000.0;
+double JelloMesh::g_structuralKd = 10.0;
+double JelloMesh::g_attachmentKs = 5000.0;
+double JelloMesh::g_attachmentKd = 10.0;
+double JelloMesh::g_shearKs = 5000.0;
+double JelloMesh::g_shearKd = 10.0;
+double JelloMesh::g_bendKs = 8000.0;
+double JelloMesh::g_bendKd = 10.0;
+double JelloMesh::g_penaltyKs = 5000.0;
+double JelloMesh::g_penaltyKd = 2.0;
+
+2) 
+
+double JelloMesh::g_structuralKs = 500.0;
+double JelloMesh::g_structuralKd = 2.0;
+double JelloMesh::g_attachmentKs = 0.0;
+double JelloMesh::g_attachmentKd = 0.0;
+double JelloMesh::g_shearKs = 500.0;
+double JelloMesh::g_shearKd = 2.0;
+double JelloMesh::g_bendKs = 500.0;
+double JelloMesh::g_bendKd = 2.0;
+double JelloMesh::g_penaltyKs = 0.0;
+double JelloMesh::g_penaltyKd = 0.0;
 
 
 References:

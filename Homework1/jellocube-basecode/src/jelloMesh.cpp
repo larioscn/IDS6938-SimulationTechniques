@@ -3,7 +3,7 @@
 #include <algorithm>
 
 // TODO 
-double JelloMesh::g_structuralKs =5000.0;
+double JelloMesh::g_structuralKs = 5000.0;
 double JelloMesh::g_structuralKd = 10.0;
 double JelloMesh::g_attachmentKs = 5000.0;
 double JelloMesh::g_attachmentKd = 10.0;
