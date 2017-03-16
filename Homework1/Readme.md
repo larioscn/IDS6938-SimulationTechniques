@@ -10,6 +10,7 @@ The assignment is due: Monday, February 27 at 11:59PM (EST)
 | ------------- | ------------- |
 | ![](images/undeformed3.png?raw=true)  | ![](images/deformed3.png?raw=true) |
 
+<<<<<<< HEAD
 hi hi
 
 Cintya: going to request an additional day to complete hw1. 
@@ -295,3 +296,15 @@ I got some outside help from my friend (electrical and computer engineer)
 
 VelocityVerlet Help:
 http://stackoverflow.com/questions/22748196/solar-system-simulation-project-velocity-verlet-help
+=======
+
+
+Something
+
+| RK1  | RK2 | RK4 | Exact |
+| ------------- | ------------- | ------------- | ------------- |
+| 0.1  | 0.2 | 0.3 | 0.4 |
+| 0.1  | 0.2 | 0.3 | 0.4 | 
+| 0.1  | 0.2 | 0.3 | 0.4 | 
+| 0.1  | 0.2 | 0.3 | 0.4 | 
+>>>>>>> 23d72033685c37bcaa9346d05880d4c328958eb0
