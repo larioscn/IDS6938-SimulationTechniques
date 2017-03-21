@@ -35,32 +35,41 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 
 The following were selected for random number engines: 
+
 1) Sobol
+
+![](images/Part1A_Sobol_Uniform.jpg?raw=true) 
+
 Spearman RHO:-0.062406
 
 
-
 2) Mersenne Twister
+
+![](images/Part1A_Mersenne_Uniform.jpg?raw=true)
+
 Spearman RHO:-0.056731
 
 
 3) Knuth B
+
+![](images/Part1A_KnuthB_Uniform.jpg?raw=true)
+
 Spearman RHO:-0.044125
 
 
-
-
 4) RanLux
+
+![](images/Part1A_Ranlux_Uniform.jpg?raw=true)
+
 Spearman RHO:0.122652
 
 
-
 5) Min Std
+
+![](images/Part1A_Min_Uniform.jpg?raw=true)
+
 Spearman RHO:-0.022505
 
-
-
-Spearman RHO: -0.022505
 
 
 
