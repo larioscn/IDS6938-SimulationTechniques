@@ -18,10 +18,10 @@ int main()
 	std::random_device rd;
 
 	// 1) Change random number generators
-	std::mt19937_64 engine(rd());
+	//std::mt19937_64 engine(rd());
 	//std::knuth_b engine(rd());
 	//std::minstd_rand engine(rd());
-	//std::ranlux48 engine(rd());
+	std::ranlux48 engine(rd());
 
 
 	// Another seed intialization routine (this is just here for future reference for you.)
@@ -55,8 +55,8 @@ int main()
 	for (auto p : hist) {
 
 		// Uncomment if you want to see the values
-		//std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-		//	<< p.first << " -  "<< p.second << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+			<< p.first << " -  "<< p.second << std::endl;
 
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
 			<< p.first << "  " << std::string(p.second / (N / 500), '*') << std::endl;

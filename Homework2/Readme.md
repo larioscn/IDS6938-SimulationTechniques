@@ -35,13 +35,32 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 
 The following were selected for random number engines: 
+1) Sobol
+Spearman RHO:-0.062406
 
 
-| Statistics  | Sobol | Mersenne  | Knuth B | RanLux  | Min Std |
-|------|------|---|---|-----|-----|----|----|----|----|----|----|
-| Mean        | 50.0  | 49.9      | 49.9    | 50.0    | 50.1    |
-| St  Dv      | 28.9  | 28.8      | 28.9    | 28.8    | 28.9    |
-| SpearmanRHO | -0.06 | -0.0567   | -0.4413 | 0.1227  | -0.2251 |
+
+2) Mersenne Twister
+Spearman RHO:-0.056731
+
+
+3) Knuth B
+Spearman RHO:-0.044125
+
+
+
+
+4) RanLux
+Spearman RHO:0.122652
+
+
+
+5) Min Std
+Spearman RHO:-0.022505
+
+
+
+Spearman RHO: -0.022505
 
 
 
