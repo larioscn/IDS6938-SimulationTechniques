@@ -37,11 +37,11 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 The following were selected for random number engines: 
 
 
-|  Statistics  | Sobol  | Mersenne Twi | Knuth-B  |  RanLux  | Min Std |
-|-------|------|----|---|--------|-----|----|-----|-----|----|----|----|
-| Mean         | 50.0   | 49.9         | 49.9     | 50.0     | 50.1    |
-| St. Dv.      | 28.9   | 28.8         | 28.9     | 28.8     | 28.9    |
-| Spearman RHO | -0.062 | -0.056731    | -0.44125 | 0.122652 | -0.2251 |
+| Statistics | Sobol | Mersenne Twi | Knuth-B | RanLux | Min Std |
+|-------|----|----|--| -------|-----|----|----|-----|--|----|----|
+| Mean       | 50.0  | 49.9         | 49.9    | 50.0   | 50.1    |
+| St. Dv.    | 28.9  | 28.8         | 28.9    | 28.8   | 28.9    |
+| SpearmanRHO| -0.062| -0.056731    | -0.44125| 0.12265| -0.2251 |
 
 
 
