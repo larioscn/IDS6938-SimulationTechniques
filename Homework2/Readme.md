@@ -34,13 +34,14 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 * **(a) - 3pts:** Output the results of five different random number engines, using a uniform distribution for values between [0-100]. Generate useful charts and statistics from the output to analyze how uniform these values truly are. You are expected to look at some advanced statistics and test, for example: tests like the Kolmogorov-Smirnov test, Chi-square test, Autocorrelation test, and Spearman’s Rank Correlation Coefficient are a few examples of ones your could use.)
 
 
-* **The following were selected for random number engines: 
+The following were selected for random number engines: 
 
-| Statistics   | Sobol  | Mersenne Twister | Knuth-B  |  RanLux  | Min Std |
-|------|-------|----|---|--------|---------|----|-----|-----|----|----|----|
-| Mean         | 50.0   |  49.9            | 49.9     | 50.0     | 50.1    |
-| St. Dv.      | 28.9   |  28.8            | 28.9     | 28.8     | 28.9    |
-| Spearman RHO | -0.062 |  -0.056731       | -0.44125 | 0.122652 | -0.2251 |
+
+|  Statistics  | Sobol  | Mersenne Twi | Knuth-B  |  RanLux  | Min Std |
+|-------|------|----|---|--------|-----|----|-----|-----|----|----|----|
+| Mean         | 50.0   | 49.9         | 49.9     | 50.0     | 50.1    |
+| St. Dv.      | 28.9   | 28.8         | 28.9     | 28.8     | 28.9    |
+| Spearman RHO | -0.062 | -0.056731    | -0.44125 | 0.122652 | -0.2251 |
 
 
 
