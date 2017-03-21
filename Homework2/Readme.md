@@ -36,18 +36,21 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 The following were selected for random number engines: 
 
-| Statistics | Sobol | Mersenne | Knuth-B | RanLux | Mind Std |
-|-----|------|---|---|----|-----|----|----|----|---|-----|----|
-| Mean       | 50.0  | 49.9     | 49.9    | 50.0   | 50.1     |
-| St. Dv.    | 28.9  | 28.8     | 28.9    | 28.8   | 28.9     |
-| SpearmanRHO| -0.06 | -0.0567  | -0.4413 | 0.1227 | -0.2251  |
+
+| Statistics  | Sobol | Mersenne | Knuth-B | RanLux | Mind Std |
+|-----|-------|---|---|----|-----|----|----|----|---|-----|----|
+| Mean        | 50.0  | 49.9     | 49.9    | 50.0   | 50.1     |
+| St. Dv.     | 28.9  | 28.8     | 28.9    | 28.8   | 28.9     |
+| SpearmanRHO | -0.06 | -0.0567  | -0.4413 | 0.1227 | -0.2251  |
 
 
 
 * **(b) - 2pts:**  Vary *N* (amount of samples). How do things change.
 
 Original: N = 100,000
+
 Change N = 1,000
+
 Change N  = 100,000,000
 
 When you decrease N, the count lowers ( mean and std dv decreases) for each values between 0-100. When you increase M, the count increases (mean and st dv increases) fpr each value between 0-100. The computing power is also higher.
