@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <functional> 
 #include <numeric>     
+#include <cmath>
 
 int main()
 {
@@ -22,7 +23,8 @@ int main()
 	//std::knuth_b engine(rd());
 	//std::minstd_rand engine(rd());
 	//std::ranlux48 engine(rd());
-
+	//std::pcg32 engine(rd());
+	//std::subtract_with_carry_engine(rd()); 
 
 	// Another seed intialization routine (this is just here for future reference for you.)
 	// initialize the random number generator with time-dependent seed
@@ -34,14 +36,19 @@ int main()
 	
 
 	//  2) - Change distribution types
-	std::uniform_real_distribution<> dist(0, 100);  // example of a uniform distribution
-	//std::normal_distribution<> dist(50,10);    // example of a normal distribution
-
+	//std::uniform_real_distribution<> dist(0, 100);  // example of a uniform distribution
+	//std::normal_distribution<> dist(50,10);   // example of a normal distribution
+	//std::fisher_f_distribution<> dist(12, 6); //f fisher  --trying to put between 0-100
+	//std::chi_squared_distribution<> dist(10.0);
+	//std::binomial_distribution<> dist(50.0); // 
+	//std::poisson_distribution<> dist(50); //mean at 50
+	//std::exponential_distribution<> dist(0.1);
+	std::lognormal_distribution<> dist(1.0, 0.8); 
 
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N
-	unsigned int N = 10000000000000;  // number of values generated
+	unsigned int N = 100000;  // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 

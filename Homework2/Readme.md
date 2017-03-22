@@ -93,20 +93,22 @@ When you decrease N, the count frequency lowers ( mean and std dv decreases) for
 
 * **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
 
-The following are five different distributions used for Ranlux random engine:
+The following are five different distributions used for Mersenne Twister random engine:
 
 1) Normal Distribution
 
-Spearman's RHO:
 
 
 
 
+2) Fisher F Distribution
 
-2)
 
 
-3)
+
+3) Chi Square Distribution
+
+
 
 
 4)
@@ -115,7 +117,7 @@ Spearman's RHO:
 5)
 
 
-
+6) 
 
 
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
