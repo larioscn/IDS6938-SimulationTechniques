@@ -31,46 +31,53 @@ Read the assignment. Sync your fork with the [main IDS6938 repository](https://g
 
 ##Part 1: Empirical Tests of Randomness (20 pts).
 We looked at different ways to generate [pseudo-random numbers](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) and [quasi random numbers](https://en.wikipedia.org/wiki/Low-discrepancy_sequence). Generating random numbers are crucial to Discrete-Event simulations which rely on random variables and stochastic processes. This problem explores different random number generators, distributions, and statistics. Different [C++ pseudo-random numbers engines are instantiated](http://www.cplusplus.com/reference/random/) already for you. Also a a wide variety of standard distributions are implemented. Two quasi random number generators are also provided.
-* **(a) - 3pts:** Output the results of five different random number engines, using a uniform distribution for values between [0-100]. Generate useful charts and statistics from the output to analyze how uniform these values truly are. You are expected to look at some advanced statistics and test, for example: tests like the Kolmogorov-Smirnov test, Chi-square test, Autocorrelation test, and Spearman’s Rank Correlation Coefficient are a few examples of ones your could use.)
+* **(a) - 3pts:** Output the results of five different random number engines, using a uniform distribution for values between [0-100]. Generate useful charts and statistics from the output to analyze how uniform these values truly are. You are expected to look at some advanced statistics and test, for example: tests like the Kolmogorov-Smirnov test, Chi-square test, Autocorrelation test, and Spearman’s Rank Correlation Coefficient are a few examples of ones you could use.)
 
 
-The following were selected for random number engines: 
+The following were selected for random number engines: Sobol, Mersenne, Knuth B, Ranlux, and Min Std. 
+
+Histogram plots were used to measure the frequency count between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO, there is a weak correlation between the values due to the uniformity of the distribution. Finally, a Chi-Square was used to test all random number engines with their frequency count for the values 0-100. There was a significance shown with all random engines, indicating that they are all showing a similar relationship between the values 0-100 and the frequency counts for each value.
+
 
 1) Sobol
 
 ![](images/Part1A_Sobol_Uniform.jpg?raw=true) 
 
-Spearman RHO:-0.062406
+Spearman RHO:-0.062406 - weak correlation.
+
 
 
 2) Mersenne Twister
 
 ![](images/Part1A_Mersenne_Uniform.jpg?raw=true)
 
-Spearman RHO:-0.056731
+Spearman RHO:-0.056731 - weak correlation
 
 
 3) Knuth B
 
 ![](images/Part1A_KnuthB_Uniform.jpg?raw=true)
 
-Spearman RHO:-0.044125
+Spearman RHO:-0.044125 - weak correlation
 
 
 4) RanLux
 
 ![](images/Part1A_Ranlux_Uniform.jpg?raw=true)
 
-Spearman RHO:0.122652
+Spearman RHO:0.122652 - weak correlation
 
 
 5) Min Std
 
 ![](images/Part1A_Min_Uniform.jpg?raw=true)
 
-Spearman RHO:-0.022505
+Spearman RHO:-0.022505 - weak correlation
 
 
+Chi-Square Test for All Random Number Generators (Uniform Dist.)
+
+![](images/Chi-Square_All_Uniform.JPG?raw=true)
 
 
 * **(b) - 2pts:**  Vary *N* (amount of samples). How do things change.
@@ -81,20 +88,54 @@ Change N = 1,000
 
 Change N  = 100,000,000
 
-When you decrease N, the count lowers ( mean and std dv decreases) for each values between 0-100. When you increase M, the count increases (mean and st dv increases) fpr each value between 0-100. The computing power is also higher.
+When you decrease N, the count frequency lowers ( mean and std dv decreases) for each of the values between 0-100. When you increase N, the count frequency increases (mean and st dv increases) for each of the values between 0-100. The computing power is also higher.
 
 
 * **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
 
+The following are five different distributions used for Ranlux random engine:
 
+1) Normal Distribution
+
+Spearman's RHO:
+
+
+
+
+
+2)
+
+
+3)
+
+
+4)
+
+
+5)
 
 
 
 
 
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
+
+
+
 * **(e)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different distributions. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines. (See [Random Numbers Webcourse page](https://webcourses.ucf.edu/courses/1246518/pages/random-numbers?module_item_id=10541423) for a rough idea what you should produce.)
+
+
+
+
+
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
+
+
+
+
+
+
+
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
