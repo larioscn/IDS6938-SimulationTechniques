@@ -36,7 +36,7 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 The following were selected for random number engines: Sobol, Mersenne, Knuth B, Ranlux, and Min Std. 
 
-Histogram plots were used to measure the frequency count between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO, there is a weak correlation between the values due to the uniformity of the distribution. Finally, a Chi-Square was used to test all random number engines with their frequency count for the values 0-100. There was a significance shown with all random engines, indicating that they are all showing a similar relationship between the values 0-100 and the frequency counts for each value.
+Histogram plots were used to measure the frequency count between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a weak correlation between the values due to the uniformity of the distribution. Finally, a Chi-Square was used to test all random number engines with their frequency count for the values 0-100. There was a significance shown with all random engines, indicating that they are all showing a similar relationship between the values 0-100 and the frequency counts for each value.
 
 
 1) Sobol
@@ -93,31 +93,46 @@ When you decrease N, the count frequency lowers ( mean and std dv decreases) for
 
 * **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
 
-The following are five different distributions used for Mersenne Twister random engine:
+
+Scatter plots were used to represent each distribution to show the "frequency" as the number of values increases. These graphs are able to show how each distribution varies in shape and how it can be used in queue systems. Mean and standard deviation were calculated. Spearman RHO (two tailed), was used to display the correlation. 
+The following are seven different distributions used for Mersenne Twister random engine:
 
 1) Normal Distribution
 
-
+![](images/Part1C_Norm.JPG?raw=true)
 
 
 
 2) Fisher F Distribution
 
-
+![](images/Part1C_Fisher.JPG?raw=true)
 
 
 3) Chi Square Distribution
 
+![](images/Part1C_Chi.JPG?raw=true)
 
 
+4) Binomial Distribution
 
-4)
-
-
-5)
+![](images/Part1C_Binomial.JPG?raw=true)
 
 
-6) 
+5) Poisson Distribution
+
+![](images/Part1C_Poisson.JPG?raw=true)
+
+
+6) Exponential Distribution
+
+![](images/Part1C_Exponential.JPG?raw=true)
+
+
+7) LogNormal Distribution 
+
+![](images/Part1C_Lognormal.JPG?raw=true)
+
+
 
 
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
