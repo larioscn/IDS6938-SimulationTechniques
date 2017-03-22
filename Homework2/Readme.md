@@ -99,38 +99,38 @@ The following are seven different distributions used for Mersenne Twister random
 
 1) Normal Distribution
 
-![](images/Part1C_Norm.JPG?raw=true)
+![](images/Part1C_Norm.jpg?raw=true)
 
 
 
 2) Fisher F Distribution
 
-![](images/Part1C_Fisher.JPG?raw=true)
+![](images/Part1C_Fisher.jpg?raw=true)
 
 
 3) Chi Square Distribution
 
-![](images/Part1C_Chi.JPG?raw=true)
+![](images/Part1C_Chi.jpg?raw=true)
 
 
 4) Binomial Distribution
 
-![](images/Part1C_Binomial.JPG?raw=true)
+![](images/Part1C_Binomial.jpg?raw=true)
 
 
 5) Poisson Distribution
 
-![](images/Part1C_Poisson.JPG?raw=true)
+![](images/Part1C_Poisson.jpg?raw=true)
 
 
 6) Exponential Distribution
 
-![](images/Part1C_Exponential.JPG?raw=true)
+![](images/Part1C_Exponential.jpg?raw=true)
 
 
 7) LogNormal Distribution 
 
-![](images/Part1C_Lognormal.JPG?raw=true)
+![](images/Part1C_Lognormal.jpg?raw=true)
 
 
 
