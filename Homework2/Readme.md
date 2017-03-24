@@ -92,7 +92,7 @@ Histogram of Frequency Count Values between 0-100
 
 3) Knuth B
 
-===
+~~~
 Spearman RHO: 2.7192e-04
 
 Kolmogorov-Smirnov test: 0.9693
@@ -102,7 +102,7 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.86350
 
 Mean: 49.92638
-===
+~~~
 
 Histogram showing the range of values:
 ![](images/Part1A_Knuth_Hist.jpg?raw=true) 
