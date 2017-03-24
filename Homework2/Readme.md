@@ -39,11 +39,16 @@ The following were selected for random number engines: Sobol, Mersenne, Knuth B,
 Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test (goodness of fit for one sample data), for each random engine, the test shows a high probability of residuals being normally distributed.
 
 
-1) Sobol - 
+1) **Sobol - 
+
 Spearman RHO: 1.0276e-05
+
 Kolmogorov-Smirnov (KS): 0.9695
+
 Critical Value of KS: 0.0043
+
 Standard DV: 28.86751
+
 Mean: 49.99933
 
 Histogram showing the range of values:
@@ -61,10 +66,15 @@ Histogram of Frequency Count Values between 0-100
 
 
 2) Mersenne Twister
+
 Spearman RHO: 4.1768e-04
+
 Kolmogorov-Smirnov (KS): 0.9693 
+
 Critical Value of KS: 0.0014
+
 Standard DV: 28.88464 
+
 Mean: 50.01418
 
 Histogram showing the range of values:
@@ -81,10 +91,15 @@ Histogram of Frequency Count Values between 0-100
 
 
 3) Knuth B
+
 Spearman RHO: 2.7192e-04
+
 Kolmogorov-Smirnov test: 0.9693
+
 Critical Value of KS: 0.0014 
+
 Standard Dv: 28.86350
+
 Mean: 49.92638
 
 Histogram showing the range of values:
@@ -100,10 +115,15 @@ Histogram of Frequency Count Values between 0-100
 
 
 4) RanLux
+
 Spearman RHO: -1.6082e-04
+
 Kolmogorov-Smirnov (KS): 0.9698
+
 Critical Value of KS: 0.0014
+
 Standard Dv: 28.85609
+
 Mean: 50.03906
 
 Histogram showing the range of values:
@@ -119,10 +139,15 @@ Histogram of Frequency Count Values between 0-100
 
 
 5) Min Std
+
 Spearman RHO: -0.0015
+
 Kolmogorov-Smirnov (KS): 0.9696
+
 Critical Value of KS: 0.0014
+
 Standard Dv: 28.87423
+
 Mean: 49.95904
 
 Histogram showing the range of values:
