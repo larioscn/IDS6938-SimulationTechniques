@@ -10,22 +10,24 @@
 #include <functional> 
 #include <numeric>     
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
+
 
 int main()
 {
 	// Get a random seed
-	
+
 	//use a random device
 	std::random_device rd;
 
 	// 1) Change random number generators
-	std::mt19937_64 engine(rd());
+	//std::mt19937_64 engine(rd());
 	//std::knuth_b engine(rd());
 	//std::minstd_rand engine(rd());
-	//std::ranlux48 engine(rd());
-	//std::pcg32 engine(rd());
-	//std::subtract_with_carry_engine(rd()); 
+	std::ranlux48 engine(rd());
 
+	
 	// Another seed intialization routine (this is just here for future reference for you.)
 	// initialize the random number generator with time-dependent seed
 	//uint64_t timeSeed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
@@ -33,22 +35,22 @@ int main()
 	//std::mt19937_64 e2;
 	//e2.seed(ss);
 
-	
+
 
 	//  2) - Change distribution types
-	//std::uniform_real_distribution<> dist(0, 100);  // example of a uniform distribution
-	//std::normal_distribution<> dist(50,10);   // example of a normal distribution
+	std::uniform_real_distribution<> dist(0,100);  // example of a uniform distribution
+	//std::normal_distribution<> dist(0.5,0.1);   // example of a normal distribution
 	//std::fisher_f_distribution<> dist(12, 6); //f fisher  --trying to put between 0-100
 	//std::chi_squared_distribution<> dist(10.0);
 	//std::binomial_distribution<> dist(50.0); // 
 	//std::poisson_distribution<> dist(50); //mean at 50
 	//std::exponential_distribution<> dist(0.1);
-	std::lognormal_distribution<> dist(1.0, 0.8); 
+	//std::lognormal_distribution<> dist(1.0, 0.8); 
 
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N
-	unsigned int N = 100000;  // number of values generated
+	unsigned int N = 1000000; //100000 // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 
@@ -57,15 +59,39 @@ int main()
 	for (unsigned int i = 0; i < N; ++i) {
 		randomValue = generator();
 		
+			
 		++hist[std::round(randomValue)]; // count the values
 		raw.push_back(randomValue);  //push the raw values
 	}
 
+
+
+
+	//Unit Square
+
+
+
+	//Unit circle
+	//website fsu edu 
+	//void circle_rule(int nt, double w[], double t[]); 
+	//	{
+	//	int it;
+	//	double r8_pi = 3.141592653589793;
+
+	//	for (it = 0; it < 1.0; it++)
+	//	{
+	//		w[it] = 1.0 / (double)(1.0);
+	//		t[it] = 2.0 * r8_pi * (double)(it) / (double)(1.0);
+	//	}
+	//	return;
+	//}
+
+
 	for (auto p : hist) {
 		
 		// Uncomment if you want to see the values
-		//std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-		//	<< p.first << " -  "<< p.second << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+			<< p.first << " -  "<< p.second << std::endl;
 
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
 			<< p.first << "  " << std::string(p.second / (N/500), '*') << std::endl;

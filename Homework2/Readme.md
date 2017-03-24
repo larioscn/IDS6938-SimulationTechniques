@@ -36,48 +36,74 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 The following were selected for random number engines: Sobol, Mersenne, Knuth B, Ranlux, and Min Std. 
 
-Histogram plots were used to measure the frequency count between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a weak correlation between the values due to the uniformity of the distribution. Finally, a Chi-Square was used to test all random number engines with their frequency count for the values 0-100. There was a significance shown with all random engines, indicating that they are all showing a similar relationship between the values 0-100 and the frequency counts for each value.
+Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test, for each random engine, the test shows a high probability of residuals being normally distributed.
 
 
-1) Sobol
+1) Sobol - 
+Spearman RHO: 1.0276e-05
+Kolmogorov-Smirnov (KS): 0.9695
+Critical Value of KS: 0.0043
+Standard DV: 28.86751
+Mean: 49.99933
 
-![](images/Part1A_Sobol_Uniform.jpg?raw=true) 
 
-Spearman RHO:-0.062406 - weak correlation.
+![](images/    .jpg?raw=true) 
+
+
 
 
 
 2) Mersenne Twister
+Spearman RHO: 4.1768e-04
+Kolmogorov-Smirnov (KS): 0.9693 
+Critical Value of KS: 0.0014
+Standard DV: 28.88464 
+Mean: 50.01418
 
-![](images/Part1A_Mersenne_Uniform.jpg?raw=true)
 
-Spearman RHO:-0.056731 - weak correlation
+![](images/    .jpg?raw=true)
+
 
 
 3) Knuth B
+Spearman RHO: 2.7192e-04
+Kolmogorov-Smirnov test: 0.9693
+Critical Value of KS: 0.0014 
+Standard Dv: 28.86350
+Mean: 49.92638
 
-![](images/Part1A_KnuthB_Uniform.jpg?raw=true)
+![](images/  .jpg?raw=true)
 
-Spearman RHO:-0.044125 - weak correlation
+
 
 
 4) RanLux
+Spearman RHO: -1.6082e-04
+Kolmogorov-Smirnov (KS): 0.9698
+Critical Value of KS: 0.0014
+Standard Dv: 28.85609
+Mean: 50.03906
 
-![](images/Part1A_Ranlux_Uniform.jpg?raw=true)
 
-Spearman RHO:0.122652 - weak correlation
+![](images/ .jpg?raw=true)
+
+
 
 
 5) Min Std
+Spearman RHO: -0.0015
+Kolmogorov-Smirnov (KS): 0.9696
+Critical Value of KS: 0.0014
+Standard Dv: 28.87423
+Mean: 49.95904
 
-![](images/Part1A_Min_Uniform.jpg?raw=true)
-
-Spearman RHO:-0.022505 - weak correlation
 
 
-Chi-Square Test for All Random Number Generators (Uniform Dist.)
+![](images/   .jpg?raw=true)
 
-![](images/Chi-Square_All_Uniform.JPG?raw=true)
+
+
+
 
 
 * **(b) - 2pts:**  Vary *N* (amount of samples). How do things change.
@@ -99,38 +125,41 @@ The following are seven different distributions used for Mersenne Twister random
 
 1) Normal Distribution
 
-![](images/Part1C_Norm.jpg?raw=true)
+![](images/ .jpg?raw=true)
 
 
 
 2) Fisher F Distribution
 
-![](images/Part1C_Fisher.jpg?raw=true)
+![](images/ .jpg?raw=true)
 
 
 3) Chi Square Distribution
 
-![](images/Part1C_Chi.jpg?raw=true)
+![](images/   .jpg?raw=true)
 
 
 4) Binomial Distribution
 
-![](images/Part1C_Binomial.jpg?raw=true)
+![](images/   .jpg?raw=true)
 
 
 5) Poisson Distribution
 
-![](images/Part1C_Poisson.jpg?raw=true)
+![](images/   .jpg?raw=true)
 
 
 6) Exponential Distribution
 
-![](images/Part1C_Exponential.jpg?raw=true)
+![](images/   .jpg?raw=true)
 
 
 7) LogNormal Distribution 
 
-![](images/Part1C_Lognormal.jpg?raw=true)
+![](images/    .jpg?raw=true)
+
+
+8) 
 
 
 
