@@ -36,7 +36,7 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 The following were selected for random number engines: Sobol, Mersenne, Knuth B, Ranlux, and Min Std. 
 
-Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test, for each random engine, the test shows a high probability of residuals being normally distributed.
+Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test (goodness of fit for one sample data), for each random engine, the test shows a high probability of residuals being normally distributed.
 
 
 1) Sobol - 
@@ -46,9 +46,16 @@ Critical Value of KS: 0.0043
 Standard DV: 28.86751
 Mean: 49.99933
 
+Histogram showing the range of values:
+![](images/Part1A_Sobol_Hist.jpg?raw=true) 
 
-![](images/    .jpg?raw=true) 
 
+Scatter Plot showing the density of the random number generation:
+![](images/Part1A_Sobol.jpg?raw=true)
+
+
+Histogram of Frequency Count Values between 0-100
+![](images/Part1A_Sobol_Uniform.jpg?raw=true)
 
 
 
@@ -60,8 +67,16 @@ Critical Value of KS: 0.0014
 Standard DV: 28.88464 
 Mean: 50.01418
 
+Histogram showing the range of values:
+![](images/Part1A_Mersenne_Hist.jpg?raw=true) 
 
-![](images/    .jpg?raw=true)
+
+Scatter Plot showing the density of the random number generation:
+![](images/Part1A_Mersenne.jpg?raw=true)
+
+
+Histogram of Frequency Count Values between 0-100
+![](images/Part1A_Mersenne_Uniform.jpg?raw=true)
 
 
 
@@ -72,9 +87,16 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.86350
 Mean: 49.92638
 
-![](images/  .jpg?raw=true)
+Histogram showing the range of values:
+![](images/Part1A_Knuth_Hist.jpg?raw=true) 
 
 
+Scatter Plot showing the density of the random number generation:
+![](images/Part1A_Knuth.jpg?raw=true)
+
+
+Histogram of Frequency Count Values between 0-100
+![](images/Part1A_KnuthB_Uniform.jpg?raw=true)
 
 
 4) RanLux
@@ -84,10 +106,16 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.85609
 Mean: 50.03906
 
+Histogram showing the range of values:
+![](images/Part1A_Ranlux_Hist.jpg?raw=true) 
 
-![](images/ .jpg?raw=true)
+
+Scatter Plot showing the density of the random number generation:
+![](images/Part1A_Ranlux.jpg?raw=true)
 
 
+Histogram of Frequency Count Values between 0-100
+![](images/Part1A_Ranlux_Uniform.jpg?raw=true)
 
 
 5) Min Std
@@ -97,11 +125,16 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.87423
 Mean: 49.95904
 
+Histogram showing the range of values:
+![](images/Part1A_Minstd_Hist.jpg?raw=true) 
 
 
-![](images/   .jpg?raw=true)
+Scatter Plot showing the density of the random number generation:
+![](images/Part1A_Minstd.jpg?raw=true)
 
 
+Histogram of Frequency Count Values between 0-100
+![](images/Part1A_Min_Uniform.jpg?raw=true)
 
 
 
