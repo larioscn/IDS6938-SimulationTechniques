@@ -39,7 +39,7 @@ The following were selected for random number engines: Sobol, Mersenne, Knuth B,
 Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test (goodness of fit for one sample data), for each random engine, the test shows a high probability of residuals being normally distributed.
 
 
-1) **Sobol - 
+1) Sobol - 
 
 Spearman RHO: 1.0276e-05
 
@@ -92,6 +92,7 @@ Histogram of Frequency Count Values between 0-100
 
 3) Knuth B
 
+===
 Spearman RHO: 2.7192e-04
 
 Kolmogorov-Smirnov test: 0.9693
@@ -101,6 +102,7 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.86350
 
 Mean: 49.92638
+===
 
 Histogram showing the range of values:
 ![](images/Part1A_Knuth_Hist.jpg?raw=true) 
@@ -172,7 +174,7 @@ Change N = 1,000
 
 Change N  = 100,000,000
 
-When you decrease N, the count frequency lowers ( mean and std dv decreases) for each of the values between 0-100. When you increase N, the count frequency increases (mean and st dv increases) for each of the values between 0-100. The computing power is also higher.
+When you decrease N, the range of number generation decreases ( mean and std dv decreases) for each of the values between 0-100. This means that there are far lesser points that will show up in a histogram/scatter plot. When you increase N, the number generator increases for the N range (mean and st dv increases) for each of the values between 0-100. The computing power is also higher.
 
 
 * **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
