@@ -1,19 +1,140 @@
-int size = 0;  //TODO
+int size = 10.0;  //TODO
 Eigen::MatrixXf TransitionMatrix(size, size);
 Eigen::VectorXf v(size);
 
 unsigned int ROLLS = 0; //TODO
 
-double prob = 0.0 ;  //TODO
+double prob = 1.0/6.0;  
 
-
+//TODO
 
 
 void SetTransitionMatrix()
+{ TransitionMatrix.setZero();
+
+//TODO
+
+//change for int i = 1
+for (int i = 0; i < TransitionMatrix.rows() - 6; i++)
 {
-	TransitionMatrix.setZero();
 
-	//TODO
+	TransitionMatrix(i, i + 1) = prob;
+	TransitionMatrix(i, i + 2) = prob;
+	TransitionMatrix(i, i + 3) = prob;
+	TransitionMatrix(i, i + 4) = prob;
+	TransitionMatrix(i, i + 5) = prob;
+	TransitionMatrix(i, i + 6) = prob;
+	//TransitionMatrix(i, i + 7) = prob;
+	//TransitionMatrix(i, i + 8) = prob;
+	//TransitionMatrix(i, i + 9) = prob;
+	//TransitionMatrix(i, i + 10) = prob;
+	//TransitionMatrix(i, i + 11) = prob;
+	//TransitionMatrix(i, i + 12) = prob;
+	//TransitionMatrix(i, i + 13) = prob;
+	//TransitionMatrix(i, i + 14) = prob;
+	//TransitionMatrix(i, i + 15) = prob;
+	//TransitionMatrix(i, i + 16) = prob;
+	//TransitionMatrix(i, i + 17) = prob;
+	//TransitionMatrix(i, i + 18) = prob;
+	//TransitionMatrix(i, i + 19) = prob;
+	//TransitionMatrix(i, i + 20) = prob;
+	//TransitionMatrix(i, i + 21) = prob;
+	//TransitionMatrix(i, i + 22) = prob;
+	//TransitionMatrix(i, i + 23) = prob;
+	//TransitionMatrix(i, i + 24) = prob;
+	//TransitionMatrix(i, i + 25) = prob;
+	//TransitionMatrix(i, i + 26) = prob;
+	//TransitionMatrix(i, i + 27) = prob;
+	//TransitionMatrix(i, i + 28) = prob;
+	//TransitionMatrix(i, i + 29) = prob;
+	//TransitionMatrix(i, i + 30) = prob;
+	//TransitionMatrix(i, i + 31) = prob;
+	//TransitionMatrix(i, i + 32) = prob;
+	//TransitionMatrix(i, i + 33) = prob;
+	//TransitionMatrix(i, i + 34) = prob;
+	//TransitionMatrix(i, i + 35) = prob;
+	//TransitionMatrix(i, i + 36) = prob;
+	//TransitionMatrix(i, i + 37) = prob;
+	//TransitionMatrix(i, i + 38) = prob;
+	//TransitionMatrix(i, i + 39) = prob;
+	//TransitionMatrix(i, i + 40) = prob;
+	//TransitionMatrix(i, i + 41) = prob;
+	//TransitionMatrix(i, i + 42) = prob;
+	//TransitionMatrix(i, i + 43) = prob;
+	//TransitionMatrix(i, i + 44) = prob;
+	//TransitionMatrix(i, i + 45) = prob;
+	//TransitionMatrix(i, i + 46) = prob;
+	//TransitionMatrix(i, i + 47) = prob;
+	//TransitionMatrix(i, i + 48) = prob;
+	//TransitionMatrix(i, i + 49) = prob;
+	//TransitionMatrix(i, i + 50) = prob;
+	//TransitionMatrix(i, i + 51) = prob;
+	//TransitionMatrix(i, i + 52) = prob;
+	//TransitionMatrix(i, i + 53) = prob;
+	//TransitionMatrix(i, i + 54) = prob;
+	//TransitionMatrix(i, i + 55) = prob;
+	//TransitionMatrix(i, i + 56) = prob;
+	//TransitionMatrix(i, i + 57) = prob;
+	//TransitionMatrix(i, i + 58) = prob;
+	//TransitionMatrix(i, i + 59) = prob;
+	//TransitionMatrix(i, i + 60) = prob;
+	//TransitionMatrix(i, i + 61) = prob;
+	//TransitionMatrix(i, i + 62) = prob;
+	//TransitionMatrix(i, i + 63) = prob;
+	//TransitionMatrix(i, i + 64) = prob;
+	//TransitionMatrix(i, i + 65) = prob;
+	//TransitionMatrix(i, i + 66) = prob;
+	//TransitionMatrix(i, i + 67) = prob;
+	//TransitionMatrix(i, i + 68) = prob;
+	//TransitionMatrix(i, i + 69) = prob;
+	//TransitionMatrix(i, i + 70) = prob;
+	//TransitionMatrix(i, i + 71) = prob;
+	//TransitionMatrix(i, i + 72) = prob;
+	//TransitionMatrix(i, i + 73) = prob;
+	//TransitionMatrix(i, i + 74) = prob;
+	//TransitionMatrix(i, i + 75) = prob;
+	//TransitionMatrix(i, i + 76) = prob;
+	//TransitionMatrix(i, i + 77) = prob;
+	//TransitionMatrix(i, i + 78) = prob;
+	//TransitionMatrix(i, i + 79) = prob;
+	//TransitionMatrix(i, i + 80) = prob;
+	//TransitionMatrix(i, i + 81) = prob;
+	//TransitionMatrix(i, i + 82) = prob;
+	//TransitionMatrix(i, i + 83) = prob;
+	//TransitionMatrix(i, i + 84) = prob;
+	//TransitionMatrix(i, i + 85) = prob;
+	//TransitionMatrix(i, i + 86) = prob;
+	//TransitionMatrix(i, i + 87) = prob;
+	//TransitionMatrix(i, i + 88) = prob;
+	//TransitionMatrix(i, i + 89) = prob;
+	//TransitionMatrix(i, i + 90) = prob;
+	//TransitionMatrix(i, i + 91) = prob;
+	//TransitionMatrix(i, i + 92) = prob;
+	//TransitionMatrix(i, i + 93) = prob;
+	//TransitionMatrix(i, i + 94) = prob;
+	//TransitionMatrix(i, i + 95) = prob;
+	//TransitionMatrix(i, i + 96) = prob;
+	//TransitionMatrix(i, i + 97) = prob;
+	//TransitionMatrix(i, i + 98) = prob;
+	//TransitionMatrix(i, i + 99) = prob;
+	//TransitionMatrix(i, i + 100) = prob;
+	//TransitionMatrix(i, i + 101) = prob;
+ }
+		for (int i = 1; i < TransitionMatrix.rows() - 6; i++)
+		{
 
+			TransitionMatrix(i, i + 1) = prob;
+			TransitionMatrix(i, i + 2) = prob;
+			TransitionMatrix(i, i + 3) = prob;
+			TransitionMatrix(i, i + 4) = prob;
+			TransitionMatrix(i, i + 5) = prob;
+			TransitionMatrix(i, i + 6) = prob;
+			TransitionMatrix(i, i + 7) = prob;
+
+
+		std::cout << TransitionMatrix << std::endl;
+		exit(1);
+
+	}
 
 }

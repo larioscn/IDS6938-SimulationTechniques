@@ -32,6 +32,9 @@ int main() {
 		
 		//TODO (add DTMC, and histogram lines.)
 
+		//look at discrete 3 dtmc function and put this here--times you run to win
+
+
 		// Code if you wanted to print out results at each step
 		//for (auto elem : discreteMC)
 		//	std::cout << elem << std::endl;
