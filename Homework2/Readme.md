@@ -36,7 +36,7 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 
 The following were selected for random number engines: Sobol, Mersenne, Knuth B, Ranlux, and Min Std. 
 
-Histogram plots and scatter plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test (goodness of fit for one sample data), for each random engine, the test shows a high probability of residuals being normally distributed.
+Histogram plots and line plots were used to measure the random generation of numbers (frequency) between the values 0-100 for each random engine. These plots exemplify that all random number engines construct similar uniform discrete distributions as shown through the means and standard deviations of each plot. Using a Spearman RHO (two-tailed) there is a high chance that there is weak correlation between the values due to the uniformity of the distributions. Using a Kolmogorov-Smirnov test (goodness of fit for one sample data), for each random engine, the test shows a high probability of residuals being normally distributed.
 
 
 1) Sobol - 
@@ -57,7 +57,7 @@ Histogram showing the range of values:
 ![](images/Part1A_Sobol_Hist.jpg?raw=true) 
 
 
-Scatter Plot showing the density of the random number generation:
+Line Plot showing the density of the random number generation:
 ![](images/Part1A_Sobol.jpg?raw=true)
 
 
@@ -85,7 +85,7 @@ Histogram showing the range of values:
 ![](images/Part1A_Mersenne_Hist.jpg?raw=true) 
 
 
-Scatter Plot showing the density of the random number generation:
+Line Plot showing the density of the random number generation:
 ![](images/Part1A_Mersenne.jpg?raw=true)
 
 
@@ -112,7 +112,7 @@ Histogram showing the range of values:
 ![](images/Part1A_Knuth_Hist.jpg?raw=true) 
 
 
-Scatter Plot showing the density of the random number generation:
+Line Plot showing the density of the random number generation:
 ![](images/Part1A_Knuth.jpg?raw=true)
 
 
@@ -138,7 +138,7 @@ Histogram showing the range of values:
 ![](images/Part1A_Ranlux_Hist.jpg?raw=true) 
 
 
-Scatter Plot showing the density of the random number generation:
+Line Plot showing the density of the random number generation:
 ![](images/Part1A_Ranlux.jpg?raw=true)
 
 
@@ -164,7 +164,7 @@ Histogram showing the range of values:
 ![](images/Part1A_Minstd_Hist.jpg?raw=true) 
 
 
-Scatter Plot showing the density of the random number generation:
+Line Plot showing the density of the random number generation:
 ![](images/Part1A_Minstd.jpg?raw=true)
 
 
@@ -182,52 +182,231 @@ Change N = 1,000
 
 Change N  = 100,000,000
 
-When you decrease N, the range of number generation decreases ( mean and std dv decreases) for each of the values between 0-100. This means that there are far lesser points that will show up in a histogram/scatter plot. When you increase N, the number generator increases for the N range (mean and st dv increases) for each of the values between 0-100. The computing power is also higher.
+When you decrease N, the range of number generation decreases for each of the values between 0-100. This means that there are far lesser points that will show up in a histogram/scatter plot. When you increase N, the number generator increases for the N range for each of the values between 0-100. The computing power is also higher.
 
 
 * **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
 
 
-Scatter plots were used to represent each distribution to show the "frequency" as the number of values increases. These graphs are able to show how each distribution varies in shape and how it can be used in queue systems. Mean and standard deviation were calculated. Spearman RHO (two tailed), was used to display the correlation. 
+Line and histogram plots were used to represent each distribution to show the "frequency" as the number of random values increases. The distribution for all were set as close to the values of 0-100. These graphs are able to show how each distribution varies in shape and how it can be used in queue systems. Mean and standard deviation were calculated. Spearman RHO (two tailed), was used to calculate the overall correlation of the values.  Kolmogorov-Smirnov (goodness of fit for 1 sample) was used to calculate a specified distribution.
+
 The following are seven different distributions used for Mersenne Twister random engine:
 
 1) Normal Distribution
 
-![](images/ .jpg?raw=true)
+~~~
+Spearman RHO: 0.0013
+
+Kolmogorov-Smirnov (KS): 1.0000
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 10.02621
+
+Mean: 50.00305
+
+
+Spearman displays a weak correlation, while the Kolmogorov-Smirnov displays a strong goodnes to fit to the KS statistical distribution.
+~~~
+
+Line Plot
+![](images/PartC_Norm.jpg?raw=true)
+
+Histogram
+![](images/PartC_Norm_Hist.jpg?raw=true)
 
 
 
 2) Fisher F Distribution
 
-![](images/ .jpg?raw=true)
+~~~
+Spearman RHO: 1.4367e-04
+
+Kolmogorov-Smirnov (KS): 0.5817
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 1.61137
+
+Mean: 1.49947
+
+Spearman: Strong negative correlation; Kolmogorov-Smirov displays a moderate similarity to the KS distribution.
+~~~
+
+Line Plot
+![](images/PartC_Fisher.jpg?raw=true)
+
+Histogram
+![](images/PartC_Fisher_Hist.jpg?raw=true)
+
 
 
 3) Chi Square Distribution
 
-![](images/   .jpg?raw=true)
+~~~
+Spearman RHO: 9.5335e-04
+
+Kolmogorov-Smirnov (KS): 0.9851 
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 4.47145
+
+Mean: 9.98966
+
+Spearman: A strong negative correlation; KS: strong support for similarity to KS distribution
+~~~
+
+Line Plot
+![](images/PartC_Chi.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Chi_Hist.jpg?raw=true)
+
 
 
 4) Binomial Distribution
 
-![](images/   .jpg?raw=true)
+~~~
+Spearman RHO: -0.0024
+
+Kolmogorov-Smirnov (KS): 1 
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 3.53172
+
+Mean: 24.99208
+
+Spearman: not a strong relationship, KS: strong similiarity to KS distribution curve. 
+~~~
+
+Line Plot
+![](images/PartC_Binomial.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Binomial_Hist.jpg?raw=true)
+
 
 
 5) Poisson Distribution
 
-![](images/   .jpg?raw=true)
+~~~
+Spearman RHO: 0.0023
+
+Kolmogorov-Smirnov (KS): 1 
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 7.08603
+
+Mean: 50.03232
+
+Spearman: not a very strong relationship between the values; KS: strong similarity between KS distribution for goodness of fit.
+~~~
+
+Line Plot
+![](images/PartC_Poisson.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Poisson_Hist.jpg?raw=true)
+
 
 
 6) Exponential Distribution
 
-![](images/   .jpg?raw=true)
+~~~
+Spearman RHO: 0.0016
+
+Kolmogorov-Smirnov (KS): 0.7991
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 9.99942
+
+Mean: 10.01414
+
+Spearman: not a very strong relationship between the values; KS: slightly strong relationship between KS goodness of fit curve.
+~~~
+
+Line Plot
+![](images/PartC_Exponential.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Exponential_Hist.jpg?raw=true)
+
 
 
 7) LogNormal Distribution 
 
-![](images/    .jpg?raw=true)
+~~~
+Spearman RHO: -0.0026
+
+Kolmogorov-Smirnov (KS): 0.7362
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 3.55935
+
+Mean: 3.76900
+~~~
+
+Line Plot
+![](images/PartC_Log.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Log_Hist.jpg?raw=true)
 
 
-8) 
+
+8) Gamma Distribution
+
+~~~
+Spearman RHO: -0.0024
+
+Kolmogorov-Smirnov (KS): 0.9665
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 14.10126
+
+Mean: 19.97375
+
+Spearman: not a very strong correlation between the values; KS: strong relationship between KS goodness of fit curve and values.
+~~~
+
+Line Plot
+![](images/PartC_Gamma.jpg?raw=true)
+
+
+Histogram 
+![](images/PartC_Gamma_Hist.jpg?raw=true)
+
+
+
+9) Weibull Distribution
+
+~~~
+Spearman RHO: 0.0019
+
+Kolmogorov-Smirnov (KS): 0.9890
+
+Critical Value of KS: 0.0043
+
+Standard Dv: 13.88102
+
+Mean: 26.55862 
+
+Spearman: not a very strong relationship; KS: strong relationship between values and KS goodness of fit distribution.
+~~~
+
+Line Plot
+![](images/PartC_Wei.jpg?raw=true)
+
+Histogram 
+![](images/PartC_Wei_Hist.jpg?raw=true)
+
+
 
 
 
