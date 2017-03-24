@@ -41,6 +41,7 @@ Histogram plots and scatter plots were used to measure the random generation of 
 
 1) Sobol - 
 
+~~~
 Spearman RHO: 1.0276e-05
 
 Kolmogorov-Smirnov (KS): 0.9695
@@ -50,6 +51,7 @@ Critical Value of KS: 0.0043
 Standard DV: 28.86751
 
 Mean: 49.99933
+~~~
 
 Histogram showing the range of values:
 ![](images/Part1A_Sobol_Hist.jpg?raw=true) 
@@ -67,6 +69,7 @@ Histogram of Frequency Count Values between 0-100
 
 2) Mersenne Twister
 
+~~~
 Spearman RHO: 4.1768e-04
 
 Kolmogorov-Smirnov (KS): 0.9693 
@@ -76,6 +79,7 @@ Critical Value of KS: 0.0014
 Standard DV: 28.88464 
 
 Mean: 50.01418
+~~~
 
 Histogram showing the range of values:
 ![](images/Part1A_Mersenne_Hist.jpg?raw=true) 
@@ -118,6 +122,7 @@ Histogram of Frequency Count Values between 0-100
 
 4) RanLux
 
+~~~
 Spearman RHO: -1.6082e-04
 
 Kolmogorov-Smirnov (KS): 0.9698
@@ -127,6 +132,7 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.85609
 
 Mean: 50.03906
+~~~
 
 Histogram showing the range of values:
 ![](images/Part1A_Ranlux_Hist.jpg?raw=true) 
@@ -142,6 +148,7 @@ Histogram of Frequency Count Values between 0-100
 
 5) Min Std
 
+~~~
 Spearman RHO: -0.0015
 
 Kolmogorov-Smirnov (KS): 0.9696
@@ -151,6 +158,7 @@ Critical Value of KS: 0.0014
 Standard Dv: 28.87423
 
 Mean: 49.95904
+~~~
 
 Histogram showing the range of values:
 ![](images/Part1A_Minstd_Hist.jpg?raw=true) 
