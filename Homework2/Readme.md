@@ -413,11 +413,13 @@ Histogram
 
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
 
+~~~
 For N Values:
 First Row - 500
 Second Row - 1500
 Third Row - 2500
 Uniform Distribution was used for this part.
+~~~
 
 ![](images/Part1D.jpg?raw=true)
 
