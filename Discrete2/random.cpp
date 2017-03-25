@@ -22,10 +22,10 @@ int main()
 	std::random_device rd;
 
 	// 1) Change random number generators
-	std::mt19937_64 engine(rd());
+	//std::mt19937_64 engine(rd());
 	//std::knuth_b engine(rd());
 	//std::minstd_rand engine(rd());
-	//std::ranlux48 engine(rd());
+	std::ranlux48 engine(rd());
 
 	
 	// Another seed intialization routine (this is just here for future reference for you.)
@@ -47,12 +47,28 @@ int main()
 	//std::exponential_distribution<> dist(0.1);
 	//std::lognormal_distribution<> dist(1.0, 0.8); 
 	//std::gamma_distribution<> dist(2.0, 10.0);
-	std::weibull_distribution<> dist(2.0, 30.0);
+	//std::weibull_distribution<> dist(2.0, 30.0);
+
+	//For Unit Square  -- distributions between 0 to 1
+	std::uniform_real_distribution<> dist(0, 1);  // example of a uniform distribution
+													//std::normal_distribution<> dist(50, 10);   //0.5, 0.1)// example of a normal distribution
+													//std::fisher_f_distribution<> dist(12, 6); //f fisher  --trying to put between 0-100
+													//std::chi_squared_distribution<> dist(10.0);
+													//std::binomial_distribution<> dist(50.0); // 
+													//std::poisson_distribution<> dist(50); //mean at 50
+													//std::exponential_distribution<> dist(0.1);
+													//std::lognormal_distribution<> dist(1.0, 0.8); 
+													//std::gamma_distribution<> dist(2.0, 10.0);
+													//std::weibull_distribution<> dist(2.0, 30.0)
+
+
+
+
 
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N
-	unsigned int N = 100000; //100000 // number of values generated
+	unsigned int N = 2500; //100000 // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 

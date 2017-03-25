@@ -210,10 +210,10 @@ Spearman displays a weak correlation, while the Kolmogorov-Smirnov displays a st
 ~~~
 
 Line Plot
-![](images/PartC_Norm.jpg?raw=true)
+![](images/Part1C_Norm.jpg?raw=true)
 
 Histogram
-![](images/PartC_Norm_Hist.jpg?raw=true)
+![](images/Part1C_Norm_Hist.jpg?raw=true)
 
 
 
@@ -234,10 +234,10 @@ Spearman: Strong negative correlation; Kolmogorov-Smirov displays a moderate sim
 ~~~
 
 Line Plot
-![](images/PartC_Fisher.jpg?raw=true)
+![](images/Part1C_Fisher.jpg?raw=true)
 
 Histogram
-![](images/PartC_Fisher_Hist.jpg?raw=true)
+![](images/Part1C_Fisher_Hist.jpg?raw=true)
 
 
 
@@ -258,10 +258,10 @@ Spearman: A strong negative correlation; KS: strong support for similarity to KS
 ~~~
 
 Line Plot
-![](images/PartC_Chi.jpg?raw=true)
+![](images/Part1C_Chi.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Chi_Hist.jpg?raw=true)
+![](images/Part1C_Chi_Hist.jpg?raw=true)
 
 
 
@@ -282,10 +282,10 @@ Spearman: not a strong relationship, KS: strong similiarity to KS distribution c
 ~~~
 
 Line Plot
-![](images/PartC_Binomial.jpg?raw=true)
+![](images/Part1C_Binomial.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Binomial_Hist.jpg?raw=true)
+![](images/Part1C_Binomial_Hist.jpg?raw=true)
 
 
 
@@ -306,10 +306,10 @@ Spearman: not a very strong relationship between the values; KS: strong similari
 ~~~
 
 Line Plot
-![](images/PartC_Poisson.jpg?raw=true)
+![](images/Part1C_Poisson.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Poisson_Hist.jpg?raw=true)
+![](images/Part1C_Poisson_Hist.jpg?raw=true)
 
 
 
@@ -330,10 +330,10 @@ Spearman: not a very strong relationship between the values; KS: slightly strong
 ~~~
 
 Line Plot
-![](images/PartC_Exponential.jpg?raw=true)
+![](images/Part1C_Exponential.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Exponential_Hist.jpg?raw=true)
+![](images/Part1C_Exponential_Hist.jpg?raw=true)
 
 
 
@@ -352,10 +352,10 @@ Mean: 3.76900
 ~~~
 
 Line Plot
-![](images/PartC_Log.jpg?raw=true)
+![](images/Part1C_Log.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Log_Hist.jpg?raw=true)
+![](images/Part1C_Log_Hist.jpg?raw=true)
 
 
 
@@ -376,11 +376,11 @@ Spearman: not a very strong correlation between the values; KS: strong relations
 ~~~
 
 Line Plot
-![](images/PartC_Gamma.jpg?raw=true)
+![](images/Part1C_Gamma.jpg?raw=true)
 
 
 Histogram 
-![](images/PartC_Gamma_Hist.jpg?raw=true)
+![](images/Part1C_Gamma_Hist.jpg?raw=true)
 
 
 
@@ -401,10 +401,10 @@ Spearman: not a very strong relationship; KS: strong relationship between values
 ~~~
 
 Line Plot
-![](images/PartC_Wei.jpg?raw=true)
+![](images/Part1C_Wei.jpg?raw=true)
 
 Histogram 
-![](images/PartC_Wei_Hist.jpg?raw=true)
+![](images/Part1C_Wei_Hist.jpg?raw=true)
 
 
 
@@ -413,6 +413,13 @@ Histogram
 
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
 
+For N Values:
+First Row - 500
+Second Row - 1500
+Third Row - 2500
+
+
+![](images/Part1D.jpg?raw=true)
 
 
 

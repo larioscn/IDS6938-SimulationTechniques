@@ -49,17 +49,34 @@ int main()
 	//seed = rd();
 	//seed = ss;
 
+	//Distributions
+	std::uniform_real_distribution<> dist(0, 1);  // example of a uniform distribution
+												  //std::normal_distribution<> dist(50, 10);   //0.5, 0.1)// example of a normal distribution
+												  //std::fisher_f_distribution<> dist(12, 6); //f fisher  --trying to put between 0-100
+												  //std::chi_squared_distribution<> dist(10.0);
+												  //std::binomial_distribution<> dist(50.0); // 
+												  //std::poisson_distribution<> dist(50); //mean at 50
+												  //std::exponential_distribution<> dist(0.1);
+												  //std::lognormal_distribution<> dist(1.0, 0.8); 
+												  //std::gamma_distribution<> dist(2.0, 10.0);
+												  //std::weibull_distribution<> dist(2.0, 30.0)
+
+
+
+
+
+
 
 
 	// 3) Play with N
-	unsigned int N = 100000;  // number of values generated
+	unsigned int N = 2500;  // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 
 
 
 	for (unsigned int i = 0; i < N; ++i) {
-		randomValue = 0 + getQuasiRandomNumber(&seed) * 100;
+		randomValue = 0 + getQuasiRandomNumber(&seed); //* 100;
 
 		++hist[std::round(randomValue)]; // count the values
 		raw.push_back(randomValue);  //push the raw values
@@ -68,8 +85,8 @@ int main()
 	for (auto p : hist) {
 
 		// Uncomment if you want to see the values
-		//std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-		//	<< p.first << " -  "<< p.second << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+			<< p.first << " -  "<< p.second << std::endl;
 
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
 			<< p.first << "  " << std::string(p.second / (N / 500), '*') << std::endl;
