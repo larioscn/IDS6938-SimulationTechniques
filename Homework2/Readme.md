@@ -417,7 +417,7 @@ For N Values:
 First Row - 500
 Second Row - 1500
 Third Row - 2500
-
+Uniform Distribution was used for this part.
 
 ![](images/Part1D.jpg?raw=true)
 
