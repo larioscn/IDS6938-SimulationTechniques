@@ -43,13 +43,9 @@ Histogram plots and line plots were used to measure the random generation of num
 
 ~~~
 Spearman RHO: 1.0276e-05
-
 Kolmogorov-Smirnov (KS): 0.9695
-
 Critical Value of KS: 0.0043
-
 Standard DV: 28.86751
-
 Mean: 49.99933
 ~~~
 
@@ -71,13 +67,9 @@ Histogram of Frequency Count Values between 0-100
 
 ~~~
 Spearman RHO: 4.1768e-04
-
 Kolmogorov-Smirnov (KS): 0.9693 
-
 Critical Value of KS: 0.0014
-
 Standard DV: 28.88464 
-
 Mean: 50.01418
 ~~~
 
@@ -98,13 +90,9 @@ Histogram of Frequency Count Values between 0-100
 
 ~~~
 Spearman RHO: 2.7192e-04
-
 Kolmogorov-Smirnov test: 0.9693
-
 Critical Value of KS: 0.0014 
-
 Standard Dv: 28.86350
-
 Mean: 49.92638
 ~~~
 
@@ -124,13 +112,9 @@ Histogram of Frequency Count Values between 0-100
 
 ~~~
 Spearman RHO: -1.6082e-04
-
 Kolmogorov-Smirnov (KS): 0.9698
-
 Critical Value of KS: 0.0014
-
 Standard Dv: 28.85609
-
 Mean: 50.03906
 ~~~
 
@@ -150,13 +134,9 @@ Histogram of Frequency Count Values between 0-100
 
 ~~~
 Spearman RHO: -0.0015
-
 Kolmogorov-Smirnov (KS): 0.9696
-
 Critical Value of KS: 0.0014
-
 Standard Dv: 28.87423
-
 Mean: 49.95904
 ~~~
 
@@ -196,13 +176,9 @@ The following are seven different distributions used for Mersenne Twister random
 
 ~~~
 Spearman RHO: 0.0013
-
 Kolmogorov-Smirnov (KS): 1.0000
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 10.02621
-
 Mean: 50.00305
 
 
@@ -221,13 +197,9 @@ Histogram
 
 ~~~
 Spearman RHO: 1.4367e-04
-
 Kolmogorov-Smirnov (KS): 0.5817
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 1.61137
-
 Mean: 1.49947
 
 Spearman: Strong negative correlation; Kolmogorov-Smirov displays a moderate similarity to the KS distribution.
@@ -245,13 +217,9 @@ Histogram
 
 ~~~
 Spearman RHO: 9.5335e-04
-
 Kolmogorov-Smirnov (KS): 0.9851 
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 4.47145
-
 Mean: 9.98966
 
 Spearman: A strong negative correlation; KS: strong support for similarity to KS distribution
@@ -269,13 +237,9 @@ Histogram
 
 ~~~
 Spearman RHO: -0.0024
-
 Kolmogorov-Smirnov (KS): 1 
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 3.53172
-
 Mean: 24.99208
 
 Spearman: not a strong relationship, KS: strong similiarity to KS distribution curve. 
@@ -293,13 +257,9 @@ Histogram
 
 ~~~
 Spearman RHO: 0.0023
-
 Kolmogorov-Smirnov (KS): 1 
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 7.08603
-
 Mean: 50.03232
 
 Spearman: not a very strong relationship between the values; KS: strong similarity between KS distribution for goodness of fit.
@@ -317,13 +277,9 @@ Histogram
 
 ~~~
 Spearman RHO: 0.0016
-
 Kolmogorov-Smirnov (KS): 0.7991
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 9.99942
-
 Mean: 10.01414
 
 Spearman: not a very strong relationship between the values; KS: slightly strong relationship between KS goodness of fit curve.
@@ -341,13 +297,9 @@ Histogram
 
 ~~~
 Spearman RHO: -0.0026
-
 Kolmogorov-Smirnov (KS): 0.7362
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 3.55935
-
 Mean: 3.76900
 ~~~
 
@@ -363,13 +315,9 @@ Histogram
 
 ~~~
 Spearman RHO: -0.0024
-
 Kolmogorov-Smirnov (KS): 0.9665
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 14.10126
-
 Mean: 19.97375
 
 Spearman: not a very strong correlation between the values; KS: strong relationship between KS goodness of fit curve and values.
@@ -388,13 +336,9 @@ Histogram
 
 ~~~
 Spearman RHO: 0.0019
-
 Kolmogorov-Smirnov (KS): 0.9890
-
 Critical Value of KS: 0.0043
-
 Standard Dv: 13.88102
-
 Mean: 26.55862 
 
 Spearman: not a very strong relationship; KS: strong relationship between values and KS goodness of fit distribution.
