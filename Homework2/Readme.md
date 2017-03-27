@@ -478,7 +478,123 @@ This problem will look at queues and commonly used performance measures. For thi
 When a passanger arrives they have to wait in a queue to present their ID and ticket to the gate agent with all the other passengers. Once approved by the agent they will have to pass through a security check. Since this is Orlando, there are only 3 open metal/screening devices open and again passangers have to wait in a queue. After passing through security you again have to wait in a queue to board your plane.
 
 * **(a) - 4pts:** To start create the senario in the figure above in *main.cpp*. Checkin will have a *mu* of 53 and accept new arrivals, the security gates will have a *mu* of 20, and will not accept new arrivials, boarding will have a *mu* of 80. You will have to set up  the appropriate *MM1_Queue* objects to capture the functionality above.
+
+~~~
+Completed in queues main.cpp file.
+
+
+	   // Starting Queue - ID and ticket check-in
+	   MM1_Queue    IDCHECK;
+	   IDCHECK.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   IDCHECK.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   IDCHECK.set_mu(53);
+	   IDCHECK.initialize();
+	   IDCHECK.set_seed(1, rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   IDCHECK.autogenerate_new_arrivals(true);
+
+	   // 2nd Queue - 1st station metal detector
+	   MM1_Queue    MetalDetector_1;
+	   MetalDetector_1.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_1.set_mu(20);
+	   MetalDetector_1.initialize();
+	   MetalDetector_1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_1.autogenerate_new_arrivals(false);
+
+	   //3rd Queue - 2nd station metal detector
+	   MM1_Queue    MetalDetector_2;
+	   MetalDetector_2.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_2.set_mu(20);
+	   MetalDetector_2.initialize();
+	   MetalDetector_2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_2.autogenerate_new_arrivals(false);
+
+	   //4th Queue - 3rd station metal detector
+	   MM1_Queue    MetalDetector_3;
+	   MetalDetector_3.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_3.set_mu(20);
+	   MetalDetector_3.initialize();
+	   MetalDetector_3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_3.autogenerate_new_arrivals(false);
+
+	   //5th Queue - Boarding
+	   MM1_Queue    Boarding;
+	   Boarding.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   Boarding.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   Boarding.set_mu(80);
+	   Boarding.initialize();
+	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   Boarding.autogenerate_new_arrivals(false);
+
+~~~
+
+
+
 * **(b) - 4pts:** You want to add a check that your process is within an error range *is_within_error_range(float)* where the error range will be 0.002. You also want to process the next event, and add an external arrival where marked.
+
+~~~
+Completed in queues main.cpp file.
+
+	   std::cout << std::endl;
+
+	   std::cout << "IDCheck is within CI:"<< IDCHECK.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_1 is within CI:" << MetalDetector_1.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_2 is within CI:" << MetalDetector_2.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_3 is within CI:" << MetalDetector_3.is_within_confidence_interval() << endl;
+	   std::cout << "Boarding is within CI:" << Boarding.is_within_confidence_interval() << endl;
+
+	   std::cout << "IDCheck is in error range:" << !IDCHECK.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_1 is in error range:" << !MetalDetector_1.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_2 is in error range:" << !MetalDetector_2.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_3 is in error range:" << !MetalDetector_3.is_within_error_range(0.002) << endl;
+	   std::cout << "Boarding is in error range:" << !Boarding.is_within_error_range(0.002) << endl;
+
+	   std::cout << std::endl;
+   for (; 
+		//TODO: add is_within_error_range check
+	   !IDCHECK.is_within_error_range(0.002) || !MetalDetector_1.is_within_error_range(0.002) || !MetalDetector_2.is_within_error_range(0.002) || !MetalDetector_3.is_within_error_range(0.002) || !Boarding.is_within_error_range(0.002)
+       ;)
+   {
+	   Customer cust = IDCHECK.process_next_event()  ;    // =  TODO: process next event;
+	   Customer cust2 = IDCHECK.process_next_event()  ;   // =  TODO: process next event;
+	   Customer cust3 = IDCHECK.process_next_event();   // =  TODO: process next event;
+	   Customer cust4 = IDCHECK.process_next_event();   // =  TODO: process next event;
+	   //TODO: one more process_next_event for the last object.
+
+       if (cust.get_type() == Customer::COMPLETED())
+       {
+          switch(next)
+          {
+            case 0:
+				//TODO add_external_arrival() for your security gates;
+				MetalDetector_1.add_external_arrival();
+				
+				break;
+            case 1:
+				//TODO add_external_arrival() for your security gates;
+				MetalDetector_2.add_external_arrival();
+				break;
+            case 2:
+                //TODO add_external_arrival() for your security gates;
+				MetalDetector_3.add_external_arrival();
+				break;
+          }
+          next++;
+          if (next%3==0) next = 0;
+       }
+       if (cust2.get_type() == Customer::COMPLETED() || cust3.get_type() == Customer::COMPLETED() || cust4.get_type() == Customer::COMPLETED())
+       {
+		   //TODO add_external_arrival(); on your final boarding MM1_Queue object
+		   Boarding.add_external_arrival();
+	   }
+   }
+
+
+~~~
+
+
 * **(c) - 3pts:** in *mm1_queue.cpp* : add code to caculate the expected results for: 
   *  expected_server_utilization 
   *    expected idle prob
@@ -486,12 +602,42 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
   *  expected number customers 
   * expected waiting time
   * expected response time 
+
+~~~
+Completed in mm1_queue.cpp
+
+      expected_server_utilization_ = (lambda_/mu_); 
+      expected_idle_prob_ = 1.0 - expected_server_utilization_;
+      expected_queue_length_ = ((expected_server_utilization_* expected_server_utilization_)/(expected_idle_prob_));
+      expected_number_customers_ = expected_server_utilization_ / expected_idle_prob_;
+      expected_waiting_time_ = expected_server_utilization_/ (lambda_ - mu_);
+      expected_response_time_ = 1.0 / (lambda_ - mu_);
+
+~~~
+
+  
 *  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
+
+
+
+
+
+
+
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
 
 ##Part 4 - Implementing Extra Features (10 pts)
 Implementing 2 features on the extra features list. Pick any feature on the "*extra features*" list below to customize your assignment to fit your interests. Please document this in your writeup. (*Note: These should total 10pts. You could successfully implement a feature worth 10pts or greater. This also fulfills this requirement. The features are assigned points based on difficulty. The 5pt features are more straightforward.*)
+
+
+~~~
+Extra Features: 
+1. I implemented 4 distributions (Exponential, Lognormal, Gamma, and Weibull) in addition to the 5 distributions that were required. A total of 9 distributions were used for Part 1.
+
+2. 
+
+~~~
 
 ##Part 5 - Final Report (10 pts)
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.

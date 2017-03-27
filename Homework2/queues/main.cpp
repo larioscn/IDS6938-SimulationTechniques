@@ -139,13 +139,13 @@ int main(int argc, char* argv[])
 
    //TODO Output statistics airport senario.
    IDCHECK.get_current_time();
-   IDCHECK.output();
    IDCHECK.plot_results_output();
 
-   MetalDetector_1.output();
-   MetalDetector_2.output();
-   MetalDetector_3.output();
-   Boarding.output();
+   IDCHECK.output(); cout << "*********" << endl;
+   MetalDetector_1.output(); cout << "*********" << endl;
+   MetalDetector_2.output(); cout << "*********" << endl;
+   MetalDetector_3.output(); cout << "*********" << endl;
+   Boarding.output(); cout << "*********" << endl;
 
 
 

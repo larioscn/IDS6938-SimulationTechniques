@@ -1,8 +1,8 @@
-int size = 10.0;  //TODO
+int size = 101.0;  //TODO----- 101 x 101 matrix
 Eigen::MatrixXf TransitionMatrix(size, size);
 Eigen::VectorXf v(size);
 
-unsigned int ROLLS = 0; //TODO
+unsigned int ROLLS = 50; //TODO
 
 double prob = 1.0/6.0;  
 

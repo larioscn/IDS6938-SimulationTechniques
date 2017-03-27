@@ -24,9 +24,7 @@ int main() {
 
 	int start = 0;
 	//int steps = 10;
-	//matrix[0][1] = 1;
-	//matrix[1][2] = 1;
-	//matrix[2][0] = 1;
+
 
 	//simulate discrete time Markov Chain
 	unsigned int N = 50;
@@ -35,19 +33,23 @@ int main() {
 	for (unsigned int i = 0; i < N; ++i) {
 		
 		//TODO (add DTMC, and histogram lines.)
-		discreteMC = DTMC(matrix, steps, start);
+		discreteMC = DTMC(TransitionMatrix, ROLLS, start);
 			  ++hist[std::round(discreteMC.back())];
-		  }
+		  
+			  //look at discrete 3 dtmc function and put this here--times you run to win
+			  // Code if you wanted to print out results at each step
+			  for (auto elem : discreteMC)
+				  std::cout << elem << std::endl;
 
+			  //// Print Results to File
+			  //std::ofstream myfile;
+			  //myfile.open("histogram_results.txt");
+			  //for (auto p : hist) {
+				 // myfile << std::fixed << std::setprecision(1) << std::setw(2)
+					//  << p.first << "\t" << p.second << std::endl;
+			  //}
+			  //myfile.close();
 
-
-
-		//look at discrete 3 dtmc function and put this here--times you run to win
-
-
-		// Code if you wanted to print out results at each step
-		for (auto elem : discreteMC)
-			std::cout << elem << std::endl;
 
 	}
 	//Returns an array discreteMC with the states at each step of the discrete-time Markov Chain
