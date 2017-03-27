@@ -373,7 +373,39 @@ Uniform Distribution was used for this part.
 
 * **(e)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different distributions. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines. (See [Random Numbers Webcourse page](https://webcourses.ucf.edu/courses/1246518/pages/random-numbers?module_item_id=10541423) for a rough idea what you should produce.)
 
+~~~
+N Values from Top to Bottom:
+N = 500
+N = 1500
+N = 2500
+~~~
 
+Normal Distribution
+![](images/Part1E_Norm.jpg?raw=true)
+
+Fisher F Distribution
+![](images/Part1E_Fisher.jpg?raw=true)
+
+Chi Square Distribution
+![](images/Part1E_Chi.jpg?raw=true)
+
+Binomial Distribution
+![](images/Part1E_Binomial.jpg?raw=true)
+
+Exponential Distribution
+![](images/Part1E_Exponential.jpg?raw=true)
+
+Poisson Distribution
+![](images/Part1E_Poisson.jpg?raw=true)
+
+Lognormal Distribution
+![](images/Part1E_Log.jpg?raw=true)
+
+Gamma Distribution
+![](images/Part1E_Gamma.jpg?raw=true)
+
+Weibull Distribution
+![](images/Part1E_Weibull.jpg?raw=true)
 
 
 
@@ -403,9 +435,17 @@ The game is **memoryless** - your progression to the next position is independen
 <BR>![](images/null.png?raw=true)<BR>
 From state 0 it is equally probable of landing on squares 1-6. From state 1 t is equally probable of landing on squares 2-7, and so on. Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
 
+
+
+
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
 **(2) Monte Carlo**: he will will use a monte carlo process to solve our Discrete Time Markov Chains. Here (2) use the DTMC project, and utilize the DTMC method similar to what we did in class. <BR><BR>Produce graphs to analyze the results and show how the game evolves over time for both methods. Plot useful statistics of the results such as percentage chance of finishing the game in n-moves, cumulative probability of finishing the game in n-moves, and other ways to convey useful information of the results.
+
+
+
+
+
 
 * **(c) Simulate and analyze the results of Snakes and Ladders -10pts:**  Construct a new transition matrix based on the table:
 
@@ -425,6 +465,9 @@ Ladders From  | Ladders To | |  Snakes From  | Snakes To
 
 
 Run the same simulation and analyze your results similar to part (b) for the proper game of *Snakes and Ladders* for both methods. How often are the snakes and ladders used, how do the probability of finishing change, etc? What is the maximum and expected amount of moves for the game? Use charts and graphs to illustrate these points.
+
+
+
 * **(d) Think - 0pts:** If these games are built entirely on chance, do they require any strategy? Is it really a *game*, would you rather play games of chance or games of strategy?
 
 

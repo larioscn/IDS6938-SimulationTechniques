@@ -24,6 +24,8 @@ for (int i = 0; i < TransitionMatrix.rows() - 6; i++)
 	TransitionMatrix(i, i + 4) = prob;
 	TransitionMatrix(i, i + 5) = prob;
 	TransitionMatrix(i, i + 6) = prob;
+
+}
 	//TransitionMatrix(i, i + 7) = prob;
 	//TransitionMatrix(i, i + 8) = prob;
 	//TransitionMatrix(i, i + 9) = prob;
@@ -119,22 +121,33 @@ for (int i = 0; i < TransitionMatrix.rows() - 6; i++)
 	//TransitionMatrix(i, i + 99) = prob;
 	//TransitionMatrix(i, i + 100) = prob;
 	//TransitionMatrix(i, i + 101) = prob;
- }
-		for (int i = 1; i < TransitionMatrix.rows() - 6; i++)
-		{
 
-			TransitionMatrix(i, i + 1) = prob;
-			TransitionMatrix(i, i + 2) = prob;
-			TransitionMatrix(i, i + 3) = prob;
-			TransitionMatrix(i, i + 4) = prob;
-			TransitionMatrix(i, i + 5) = prob;
-			TransitionMatrix(i, i + 6) = prob;
-			TransitionMatrix(i, i + 7) = prob;
+	
+TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 1) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 2) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 3) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 4) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 5) = prob*2;
 
+TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 1) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 2) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 3) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 4) = prob*3;
 
+TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 1) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 2) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 3) = prob*4;
+
+TransitionMatrix(TransitionMatrix.rows() - 3, TransitionMatrix.rows() - 3 + 1) = prob;
+TransitionMatrix(TransitionMatrix.rows() - 3, TransitionMatrix.rows() - 3 + 2) = prob*5;
+
+TransitionMatrix(TransitionMatrix.rows() - 2, TransitionMatrix.rows() - 2 + 1) = prob*6;
+
+TransitionMatrix(TransitionMatrix.rows() - 1, TransitionMatrix.rows() - 1) = prob*6;
+			
 		std::cout << TransitionMatrix << std::endl;
+		int x;
+		std::cin >> x;
 		exit(1);
 
 	}
-
-}
