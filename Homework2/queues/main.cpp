@@ -34,18 +34,77 @@ int main(int argc, char* argv[])
    {
       
 	   //TODO Create MM1_Queue objects to capture the airport senario.
-
 	   //************************************************************
+	   // Starting Queue - ID and ticket check-in
+	   MM1_Queue    IDCHECK;
+	   IDCHECK.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   IDCHECK.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   IDCHECK.set_mu(53);
+	   IDCHECK.initialize();
+	   IDCHECK.set_seed(1, rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   IDCHECK.autogenerate_new_arrivals(true);
+
+	   // 2nd Queue - 1st station metal detector
+	   MM1_Queue    MetalDetector_1;
+	   MetalDetector_1.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_1.set_mu(20);
+	   MetalDetector_1.initialize();
+	   MetalDetector_1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_1.autogenerate_new_arrivals(false);
+
+	   //3rd Queue - 2nd station metal detector
+	   MM1_Queue    MetalDetector_2;
+	   MetalDetector_2.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_2.set_mu(20);
+	   MetalDetector_2.initialize();
+	   MetalDetector_2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_2.autogenerate_new_arrivals(false);
+
+	   //4th Queue - 3rd station metal detector
+	   MM1_Queue    MetalDetector_3;
+	   MetalDetector_3.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector_3.set_mu(20);
+	   MetalDetector_3.initialize();
+	   MetalDetector_3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector_3.autogenerate_new_arrivals(false);
+
+	   //5th Queue - Boarding
+	   MM1_Queue    Boarding;
+	   Boarding.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   Boarding.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   Boarding.set_mu(80);
+	   Boarding.initialize();
+	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   Boarding.autogenerate_new_arrivals(false);
 
 
+	   std::cout << std::endl;
+
+	   std::cout << "IDCheck is within CI:"<< IDCHECK.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_1 is within CI:" << MetalDetector_1.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_2 is within CI:" << MetalDetector_2.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_3 is within CI:" << MetalDetector_3.is_within_confidence_interval() << endl;
+	   std::cout << "Boarding is within CI:" << Boarding.is_within_confidence_interval() << endl;
+
+	   std::cout << "IDCheck is in error range:" << !IDCHECK.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_1 is in error range:" << !MetalDetector_1.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_2 is in error range:" << !MetalDetector_2.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_3 is in error range:" << !MetalDetector_3.is_within_error_range(0.002) << endl;
+	   std::cout << "Boarding is in error range:" << !Boarding.is_within_error_range(0.002) << endl;
+
+	   std::cout << std::endl;
    for (; 
 		//TODO: add is_within_error_range check
+	   !IDCHECK.is_within_error_range(0.002) || !MetalDetector_1.is_within_error_range(0.002) || !MetalDetector_2.is_within_error_range(0.002) || !MetalDetector_3.is_within_error_range(0.002) || !Boarding.is_within_error_range(0.002)
        ;)
    {
-	   Customer cust  ;    // =  TODO: process next event;
-	   Customer cust2  ;   // =  TODO: process next event;
-	   Customer cust3  ;   // =  TODO: process next event;
-	   Customer cust4  ;   // =  TODO: process next event;
+	   Customer cust = IDCHECK.process_next_event()  ;    // =  TODO: process next event;
+	   Customer cust2 = IDCHECK.process_next_event()  ;   // =  TODO: process next event;
+	   Customer cust3 = IDCHECK.process_next_event();   // =  TODO: process next event;
+	   Customer cust4 = IDCHECK.process_next_event();   // =  TODO: process next event;
 	   //TODO: one more process_next_event for the last object.
 
        if (cust.get_type() == Customer::COMPLETED())
@@ -54,13 +113,17 @@ int main(int argc, char* argv[])
           {
             case 0:
 				//TODO add_external_arrival() for your security gates;
-                 break;
+				MetalDetector_1.add_external_arrival();
+				
+				break;
             case 1:
 				//TODO add_external_arrival() for your security gates;
-                 break;
+				MetalDetector_2.add_external_arrival();
+				break;
             case 2:
                 //TODO add_external_arrival() for your security gates;
-                 break;
+				MetalDetector_3.add_external_arrival();
+				break;
           }
           next++;
           if (next%3==0) next = 0;
@@ -68,12 +131,21 @@ int main(int argc, char* argv[])
        if (cust2.get_type() == Customer::COMPLETED() || cust3.get_type() == Customer::COMPLETED() || cust4.get_type() == Customer::COMPLETED())
        {
 		   //TODO add_external_arrival(); on your final boarding MM1_Queue object
-       }
+		   Boarding.add_external_arrival();
+	   }
    }
 
 
 
    //TODO Output statistics airport senario.
+   IDCHECK.get_current_time();
+   IDCHECK.output();
+   IDCHECK.plot_results_output();
+
+   MetalDetector_1.output();
+   MetalDetector_2.output();
+   MetalDetector_3.output();
+   Boarding.output();
 
 
 
