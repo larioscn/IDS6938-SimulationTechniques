@@ -46,20 +46,20 @@ int main()
 	//uint64_t timeSeed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 	//std::seed_seq ss{ uint32_t(timeSeed & 0xffffffff), uint32_t(timeSeed >> 32) };
 	// 2 different ways to get a random starting seed
-	//seed = rd();
+	//seed = rd() / 1000.0;
 	//seed = ss;
 
 	//Distributions
-	std::uniform_real_distribution<> dist(0, 1);  // example of a uniform distribution
-												  //std::normal_distribution<> dist(50, 10);   //0.5, 0.1)// example of a normal distribution
-												  //std::fisher_f_distribution<> dist(12, 6); //f fisher  --trying to put between 0-100
-												  //std::chi_squared_distribution<> dist(10.0);
-												  //std::binomial_distribution<> dist(50.0); // 
-												  //std::poisson_distribution<> dist(50); //mean at 50
-												  //std::exponential_distribution<> dist(0.1);
-												  //std::lognormal_distribution<> dist(1.0, 0.8); 
-												  //std::gamma_distribution<> dist(2.0, 10.0);
-												  //std::weibull_distribution<> dist(2.0, 30.0)
+	//std::uniform_real_distribution<> dist(0, 1);  // example of a uniform distribution
+	//std::normal_distribution<> dist(.50, .10);   //0.5, 0.1)// example of a normal distribution
+	std::fisher_f_distribution<> dist(1000, 500); //f fisher  --trying to put between 0-100
+    //std::chi_squared_distribution<> dist(10.0);
+    //std::binomial_distribution<> dist(50.0); // 
+    //std::poisson_distribution<> dist(50); //mean at 50
+    //std::exponential_distribution<> dist(0.1);
+    //std::lognormal_distribution<> dist(1.0, 0.8); 
+    //std::gamma_distribution<> dist(2.0, 10.0);
+	//std::weibull_distribution<> dist(2.0, 30.0)
 
 
 
@@ -69,7 +69,7 @@ int main()
 
 
 	// 3) Play with N
-	unsigned int N = 2500;  // number of values generated
+	unsigned int N = 500;  // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 
