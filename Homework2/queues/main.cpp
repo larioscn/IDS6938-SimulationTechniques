@@ -101,8 +101,8 @@ int main(int argc, char* argv[])
 	   !IDCHECK.is_within_error_range(0.002) || !MetalDetector_1.is_within_error_range(0.002) || !MetalDetector_2.is_within_error_range(0.002) || !MetalDetector_3.is_within_error_range(0.002) || !Boarding.is_within_error_range(0.002)
        ;)
    {
-	   Customer cust = IDCHECK.process_next_event()  ;    // =  TODO: process next event;
-	   Customer cust2 = IDCHECK.process_next_event()  ;   // =  TODO: process next event;
+	   Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
+	   Customer cust2 = IDCHECK.process_next_event();   // =  TODO: process next event;
 	   Customer cust3 = IDCHECK.process_next_event();   // =  TODO: process next event;
 	   Customer cust4 = IDCHECK.process_next_event();   // =  TODO: process next event;
 	   //TODO: one more process_next_event for the last object.
@@ -139,9 +139,8 @@ int main(int argc, char* argv[])
 
    //TODO Output statistics airport senario.
    IDCHECK.get_current_time();
+   IDCHECK.output(); cout << "************" << endl;
    IDCHECK.plot_results_output();
-
-   IDCHECK.output(); cout << "*********" << endl;
    MetalDetector_1.output(); cout << "*********" << endl;
    MetalDetector_2.output(); cout << "*********" << endl;
    MetalDetector_3.output(); cout << "*********" << endl;

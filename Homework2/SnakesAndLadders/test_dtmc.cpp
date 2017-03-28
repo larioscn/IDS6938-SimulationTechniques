@@ -23,7 +23,7 @@ int main() {
 	myfile.open("markov_results.txt");
 
 	int start = 0;
-	//int steps = 10;
+	//int steps = 101;
 
 
 	//simulate discrete time Markov Chain
@@ -31,36 +31,31 @@ int main() {
 	std::map<int, int> hist;
 	std::vector<int> discreteMC;
 	for (unsigned int i = 0; i < N; ++i) {
-		
+
 		//TODO (add DTMC, and histogram lines.)
 		discreteMC = DTMC(TransitionMatrix, ROLLS, start);
-			  ++hist[std::round(discreteMC.back())];
-		  
+		++hist[std::round(discreteMC.back())];
+	}
 			  //look at discrete 3 dtmc function and put this here--times you run to win
 			  // Code if you wanted to print out results at each step
-			  for (auto elem : discreteMC)
-				  std::cout << elem << std::endl;
+			for (auto elem : discreteMC)
+			std::cout << elem << std::endl;
 
-			  //// Print Results to File
-			  //std::ofstream myfile;
-			  //myfile.open("histogram_results.txt");
-			  //for (auto p : hist) {
-				 // myfile << std::fixed << std::setprecision(1) << std::setw(2)
-					//  << p.first << "\t" << p.second << std::endl;
-			  //}
-			  //myfile.close();
+			std::cout << std::endl;
+
+			for (auto p : hist) {
+				std::cout << p.first << "\t" << (double)p.second / N << std::endl;
 
 
-	}
+			std::cout << std::endl << "End State is: " << discreteMC.back() << std::endl << std::endl;
+	
 	//Returns an array discreteMC with the states at each step of the discrete-time Markov Chain
 	//The number of transitions is given by steps. The initial state is given by start 
 	//(the states are indexed from 0 to n-1 where n is the number of arrays in transMatrix).
 	//hist is the histogram 
 
-
 	// (double)p.second / N    - (decimal) percentage.
-	for (auto p : hist) {
-		std::cout << p.first << "\t" << (double)p.second / N << std::endl;
+
 	}
 
 	myfile.close();

@@ -58,8 +58,8 @@ int main()
 	//std::poisson_distribution<> dist(50); //mean at 50
 	//std::exponential_distribution<> dist(0.1);
 	//std::lognormal_distribution<> dist(1.0, 0.8); 
-	//std::gamma_distribution<> dist(2.0, 10.0);
-	std::weibull_distribution<> dist(2.0, .10);
+	std::gamma_distribution<> dist(2.0, 10.0);
+	//std::weibull_distribution<> dist(2.0, .10);
 
 
 

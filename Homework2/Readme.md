@@ -440,12 +440,37 @@ From state 0 it is equally probable of landing on squares 1-6. From state 1 t is
 
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
+
+
+
+
+
 **(2) Monte Carlo**: he will will use a monte carlo process to solve our Discrete Time Markov Chains. Here (2) use the DTMC project, and utilize the DTMC method similar to what we did in class. <BR><BR>Produce graphs to analyze the results and show how the game evolves over time for both methods. Plot useful statistics of the results such as percentage chance of finishing the game in n-moves, cumulative probability of finishing the game in n-moves, and other ways to convey useful information of the results.
 
+~~~
+Added DTMC method code to test_DTMC.cpp file.
 
 
+for (unsigned int i = 0; i < N; ++i) {
+		
+		discreteMC = DTMC(TransitionMatrix, ROLLS, start);
+			  ++hist[std::round(discreteMC.back())];
+		  
+			  for (auto elem : discreteMC)
+				  std::cout << elem << std::endl;
+	}
+
+	for (auto p : hist) {
+		std::cout << p.first << "\t" << (double)p.second / N << std::endl;
+	}
+
+	myfile.close();
+
+	return 1;
+}
 
 
+~~~
 
 * **(c) Simulate and analyze the results of Snakes and Ladders -10pts:**  Construct a new transition matrix based on the table:
 
@@ -470,6 +495,9 @@ Run the same simulation and analyze your results similar to part (b) for the pro
 
 * **(d) Think - 0pts:** If these games are built entirely on chance, do they require any strategy? Is it really a *game*, would you rather play games of chance or games of strategy?
 
+~~~
+I do not think that games of chance require any strategy. If anything, it depends on timing and the order of when events occur. So, there may be some luck involved. I would rather play a game of strategy, but playing by chance is also pretty fun because you do not know the outcome and the play can be very fluid. It's interesting seeing what comes up. 
+~~~
 
 ##Part 3 - Discrete Event Simulation - Queue Simulation (30 pts)
 
@@ -625,6 +653,12 @@ Completed in mm1_queue.cpp
 
 
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
+
+
+
+
+
+
 
 
 ##Part 4 - Implementing Extra Features (10 pts)
