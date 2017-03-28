@@ -27,7 +27,7 @@ int main(){
 	v = v.transpose() * TransitionMatrix;
 	
 	std::cout <<  v << std::endl;
-	//myfile << v << std::endl;  //this is just a sample, becareful how you print to file so you can mine useful stats
+	myfile << v << std::endl;  //this is just a sample, becareful how you print to file so you can mine useful stats
 	
 	myfile.close();
 

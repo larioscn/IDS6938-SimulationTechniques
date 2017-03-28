@@ -41,13 +41,9 @@ int main() {
 			for (auto elem : discreteMC)
 			std::cout << elem << std::endl;
 
-			std::cout << std::endl;
-
-			for (auto p : hist) {
-				std::cout << p.first << "\t" << (double)p.second / N << std::endl;
 
 
-			std::cout << std::endl << "End State is: " << discreteMC.back() << std::endl << std::endl;
+			
 	
 	//Returns an array discreteMC with the states at each step of the discrete-time Markov Chain
 	//The number of transitions is given by steps. The initial state is given by start 
@@ -55,7 +51,9 @@ int main() {
 	//hist is the histogram 
 
 	// (double)p.second / N    - (decimal) percentage.
-
+			for (auto p : hist) {
+				std::cout << p.first << "\t" << (double)p.second / N << std::endl;
+				//std::cout << std::endl << "End State is: " << discreteMC.back() << std::endl << std::endl;
 	}
 
 	myfile.close();

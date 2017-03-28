@@ -37,51 +37,53 @@ int main(int argc, char* argv[])
 	   //************************************************************
 	   // Starting Queue - ID and ticket check-in
 	   MM1_Queue    IDCHECK;
-	   IDCHECK.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   IDCHECK.set_file_names("IDCHECK_log.txt", "IDCHECK_wait.txt", "IDCHECK_service.txt");
 	   IDCHECK.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   IDCHECK.set_mu(53);
+	   IDCHECK.autogenerate_new_arrivals(true);
 	   IDCHECK.initialize();
 	   IDCHECK.set_seed(1, rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   IDCHECK.autogenerate_new_arrivals(true);
+	   
 
 	   // 2nd Queue - 1st station metal detector
 	   MM1_Queue    MetalDetector_1;
-	   MetalDetector_1.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_1.set_file_names("MetalDetector_1_log.txt", "MetalDetector_1_wait.txt", "MetalDetector_1_service.txt");
 	   MetalDetector_1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_1.set_mu(20);
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_1.initialize();
 	   MetalDetector_1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_1.autogenerate_new_arrivals(false);
+	   
 
 	   //3rd Queue - 2nd station metal detector
 	   MM1_Queue    MetalDetector_2;
-	   MetalDetector_2.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_2.set_file_names("MetalDetector_2_log.txt", "MetalDetector_2_wait.txt", "MetalDetector_2_service.txt");
 	   MetalDetector_2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_2.set_mu(20);
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_2.initialize();
 	   MetalDetector_2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_2.autogenerate_new_arrivals(false);
 
 	   //4th Queue - 3rd station metal detector
 	   MM1_Queue    MetalDetector_3;
-	   MetalDetector_3.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_3.set_file_names("MetalDetector_3_log.txt", "MetalDetector_3_wait.txt", "MetalDetector_3_service.txt");
 	   MetalDetector_3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_3.set_mu(20);
 	   MetalDetector_3.initialize();
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_3.autogenerate_new_arrivals(false);
 
 	   //5th Queue - Boarding
 	   MM1_Queue    Boarding;
-	   Boarding.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   Boarding.set_file_names("Boarding_log.txt", "Boarding_wait.txt", "Boarding_service.txt");
 	   Boarding.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   Boarding.set_mu(80);
+	   Boarding.autogenerate_new_arrivals(false);
 	   Boarding.initialize();
 	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   Boarding.autogenerate_new_arrivals(false);
 
 
-	   std::cout << std::endl;
+	  std::cout << std::endl;
 
 	   std::cout << "IDCheck is within CI:"<< IDCHECK.is_within_confidence_interval() << endl;
 	   std::cout << "MetalDetector_1 is within CI:" << MetalDetector_1.is_within_confidence_interval() << endl;
@@ -98,7 +100,11 @@ int main(int argc, char* argv[])
 	   std::cout << std::endl;
    for (; 
 		//TODO: add is_within_error_range check
-	   !IDCHECK.is_within_error_range(0.002) || !MetalDetector_1.is_within_error_range(0.002) || !MetalDetector_2.is_within_error_range(0.002) || !MetalDetector_3.is_within_error_range(0.002) || !Boarding.is_within_error_range(0.002)
+	   !IDCHECK.is_within_error_range(0.002) || 
+	   !MetalDetector_1.is_within_error_range(0.002) || 
+	   !MetalDetector_2.is_within_error_range(0.002) || 
+	   !MetalDetector_3.is_within_error_range(0.002) || 
+	   !Boarding.is_within_error_range(0.002)
        ;)
    {
 	   Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
@@ -135,22 +141,22 @@ int main(int argc, char* argv[])
 	   }
    }
 
-
-
    //TODO Output statistics airport senario.
    IDCHECK.get_current_time();
-   IDCHECK.output(); cout << "************" << endl;
+   IDCHECK.output(); cout << "*****************" << endl;
    IDCHECK.plot_results_output();
-   MetalDetector_1.output(); cout << "*********" << endl;
-   MetalDetector_2.output(); cout << "*********" << endl;
-   MetalDetector_3.output(); cout << "*********" << endl;
-   Boarding.output(); cout << "*********" << endl;
 
+   //MetalDetector_1.plot_results_output();
+   //MetalDetector_2.plot_results_output();
+   //MetalDetector_3.plot_results_output();
+   //Boarding.plot_results_output();
 
+   MetalDetector_1.output(); cout << "*****************" << endl;
+   MetalDetector_2.output(); cout << "*****************" << endl;
+   MetalDetector_3.output(); cout << "*****************" << endl;
+   Boarding.output(); cout << "*****************" << endl;
 
    //**************************************************************************
-
-
 
    }
 

@@ -467,7 +467,62 @@ The game is **memoryless** - your progression to the next position is independen
 <BR>![](images/null.png?raw=true)<BR>
 From state 0 it is equally probable of landing on squares 1-6. From state 1 t is equally probable of landing on squares 2-7, and so on. Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
 
+~~~
+The following code I used to generate the Transition Matrix. Have not yet figured out how to write the checks.
 
+int size = 101.0;
+igen::MatrixXf TransitionMatrix(size, size);
+Eigen::VectorXf v(size);
+unsigned int ROLLS = 0;
+double prob = 1.0/6.0;  
+
+void SetTransitionMatrix()
+{
+	TransitionMatrix.setZero();
+
+	//change for int i = 1
+	for (int i = 0; i < TransitionMatrix.rows() - 6; i++)
+	{
+
+		TransitionMatrix(i, i + 1) = prob;
+		TransitionMatrix(i, i + 2) = prob;
+		TransitionMatrix(i, i + 3) = prob;
+		TransitionMatrix(i, i + 4) = prob;
+		TransitionMatrix(i, i + 5) = prob;
+		TransitionMatrix(i, i + 6) = prob;
+	}
+
+		TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 1) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 2) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 3) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 4) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 6, TransitionMatrix.rows() - 6 + 5) = prob * 2;
+
+		TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 1) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 2) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 3) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 5, TransitionMatrix.rows() - 5 + 4) = prob * 3;
+
+		TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 1) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 2) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 4, TransitionMatrix.rows() - 4 + 3) = prob * 4;
+
+		TransitionMatrix(TransitionMatrix.rows() - 3, TransitionMatrix.rows() - 3 + 1) = prob;
+		TransitionMatrix(TransitionMatrix.rows() - 3, TransitionMatrix.rows() - 3 + 2) = prob * 5;
+
+		TransitionMatrix(TransitionMatrix.rows() - 2, TransitionMatrix.rows() - 2 + 1) = prob * 6;
+
+		TransitionMatrix(TransitionMatrix.rows() - 1, TransitionMatrix.rows() - 1) = prob * 6;
+
+		std::cout << TransitionMatrix << std::endl;
+		int x;
+		std::cin >> x;
+		exit(1);
+}
+
+
+
+~~~
 
 
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
@@ -543,50 +598,54 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 Completed in queues main.cpp file.
 
 
-	   // Starting Queue - ID and ticket check-in
+   // Starting Queue - ID and ticket check-in
 	   MM1_Queue    IDCHECK;
-	   IDCHECK.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   IDCHECK.set_file_names("IDCHECK_log.txt", "IDCHECK_wait.txt", "IDCHECK_service.txt");
 	   IDCHECK.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   IDCHECK.set_mu(53);
+	   IDCHECK.autogenerate_new_arrivals(true);
 	   IDCHECK.initialize();
 	   IDCHECK.set_seed(1, rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   IDCHECK.autogenerate_new_arrivals(true);
+	   
 
 	   // 2nd Queue - 1st station metal detector
 	   MM1_Queue    MetalDetector_1;
-	   MetalDetector_1.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_1.set_file_names("MetalDetector_1_log.txt", "MetalDetector_1_wait.txt", "MetalDetector_1_service.txt");
 	   MetalDetector_1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_1.set_mu(20);
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_1.initialize();
 	   MetalDetector_1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_1.autogenerate_new_arrivals(false);
+	   
 
 	   //3rd Queue - 2nd station metal detector
 	   MM1_Queue    MetalDetector_2;
-	   MetalDetector_2.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_2.set_file_names("MetalDetector_2_log.txt", "MetalDetector_2_wait.txt", "MetalDetector_2_service.txt");
 	   MetalDetector_2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_2.set_mu(20);
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_2.initialize();
 	   MetalDetector_2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_2.autogenerate_new_arrivals(false);
 
 	   //4th Queue - 3rd station metal detector
 	   MM1_Queue    MetalDetector_3;
-	   MetalDetector_3.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MetalDetector_3.set_file_names("MetalDetector_3_log.txt", "MetalDetector_3_wait.txt", "MetalDetector_3_service.txt");
 	   MetalDetector_3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector_3.set_mu(20);
 	   MetalDetector_3.initialize();
+	   MetalDetector_1.autogenerate_new_arrivals(false);
 	   MetalDetector_3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   MetalDetector_3.autogenerate_new_arrivals(false);
 
 	   //5th Queue - Boarding
 	   MM1_Queue    Boarding;
-	   Boarding.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   Boarding.set_file_names("Boarding_log.txt", "Boarding_wait.txt", "Boarding_service.txt");
 	   Boarding.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   Boarding.set_mu(80);
+	   Boarding.autogenerate_new_arrivals(false);
 	   Boarding.initialize();
 	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   Boarding.autogenerate_new_arrivals(false);
+
+
 
 ~~~
 
@@ -686,9 +745,7 @@ Completed in mm1_queue.cpp
 
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
-
-
-
+Has been difficult for me to complete. Unable to simulate setup, but was able to formulate a 2D setup for extra credit.
 
 
 
@@ -701,7 +758,8 @@ Implementing 2 features on the extra features list. Pick any feature on the "*ex
 Extra Features: 
 1. I implemented 4 distributions (Exponential, Lognormal, Gamma, and Weibull) in addition to the 5 distributions that were required. A total of 9 distributions were used for Part 1.
 
-2. 
+2. Added 2D visualization to AnyLogic for Part 3 --- it is on the file.
+
 
 ~~~
 
@@ -728,3 +786,14 @@ If you feel like going beyond the scope of the assignment, you should consider i
 * **(10 Points)** - Setup up SmartGrid or a Microgrid System that creates resources of power from wind, solar, and electric grid. Set up various devices in your house to draw power. [Reference 1](http://www.sciencedirect.com/science/article/pii/S1877050916301740),   [Reference 2](http://www.tandfonline.com/doi/full/10.1080/19401493.2013.866695?src=recsys&).
 * **(25 Points)** - Set up a discrete simulation of your choice that uses an approved real-time data source and visualizes the results. (See instructor for approval).
 * **(N Points)** - You are welcome to make suggestions for a feature of your own choosing, but they must be approved by instructor before implementing.
+
+
+
+
+References:
+---
+Abu-Taieh, E., & El Sheikh, A. (2007). Commercial simulation packages: a comparative study. International Journal of Simulation, 8(2), 66-76.
+
+ClassMates: Olivia
+
+Friend: software engineer from cisco.
