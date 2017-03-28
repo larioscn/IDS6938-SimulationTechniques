@@ -408,12 +408,44 @@ Weibull Distribution
 ![](images/Part1E_Weibull.jpg?raw=true)
 
 
-
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
 
+~~~
+N Values from Top to Bottom:
+N = 500
+N = 1500
+N = 2500
+~~~
 
+Uniform Distribution
+![](images/PartF_D_Uniform.jpg?raw=true)
 
+Normal Distribution
+![](images/PartF_D_Norm.jpg?raw=true)
 
+Fisher F Distribution
+![](images/PartF_Fisher.jpg?raw=true)
+
+Chi Square Distribution
+![](images/PartF_Chi.jpg?raw=true)
+
+Binomial Distribution
+![](images/PartF_Binomial.jpg?raw=true)
+
+Exponential Distribution
+![](images/PartF_Exponential.jpg?raw=true)
+
+Poisson Distribution
+![](images/PartF_Poisson.jpg?raw=true)
+
+Lognormal Distribution
+![](images/PartF_Log.jpg?raw=true)
+
+Gamma Distribution
+![](images/PartF_Gamma.jpg?raw=true)
+
+Weibull Distribution
+![](images/PartF_Weibull.jpg?raw=true)
 
 
 
