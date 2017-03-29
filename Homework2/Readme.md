@@ -1073,11 +1073,13 @@ Unable to illustrate all points, has been difficult to graph/plot for me:
 
 The following are for Null Game DTMC:
 
-![](images/DTMC_100.jpg.jpg?raw=true)
+
+
+![](images/DTMC_100.jpg?raw=true)
 
 
 
-![](images/DTMC_100_Prob.jpg.jpg?raw=true)
+![](images/DTMC_100_Prob.jpg?raw=true)
 
 
 
