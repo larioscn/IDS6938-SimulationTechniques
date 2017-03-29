@@ -878,25 +878,25 @@ Variance - 0.0034
 
 Service: 
 Mean - 0.0119
-St Dv -  
-Max - 
-Min -  
-Variance - 
+St Dv -  0.0354
+Max - 1.0764
+Min -  0
+Variance - 0.0013
 
 
 Wait:
 Mean - 0.0533
-St Dv - 
-Max - 
-Min - 
-Variance - 
+St Dv - 0.0530
+Max - 0.4532
+Min - 0
+Variance - 0.0028
 ~~~
 
-![](images/Part3_Metal1.jpg?raw=true)
+![](images/Part3_Metal2.jpg?raw=true)
 
-![](images/Part3_Metal1_Serv.jpg?raw=true)
+![](images/Part3_Metal2_Serv.jpg?raw=true)
 
-![](images/Part3_Metal1_Wait.jpg?raw=true)
+![](images/Part3_Metal2_Wait.jpg?raw=true)
 
 
 ~~~
@@ -958,6 +958,7 @@ Variance - 5.1396e-04
 Has been difficult for me to complete. Unable to simulate setup, but was able to formulate a 2D setup for extra credit.
 
 
+![](images/AnyLogic_2D.jpg?raw=true)
 
 
 ##Part 4 - Implementing Extra Features (10 pts)
