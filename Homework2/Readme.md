@@ -704,12 +704,12 @@ Completed in queues main.cpp file.
 		   ;)
 	   {
 
-	   		Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
+		   Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
 		   Customer cust2 = MetalDetector1.process_next_event();   // =  TODO: process next event;
 		   Customer cust3 = MetalDetector2.process_next_event();   // =  TODO: process next event;
-		   Customer cust4 = Boarding.process_next_event();   // =  TODO: process next event;
+		   Customer cust4 = MetalDetector3.process_next_event();   // =  TODO: process next event;
+		   Customer cust5 = Boarding.process_next_event();   // =  TODO: process next event;
 		   //TODO: one more process_next_event for the last object.
-
 
 
 		   if (cust.get_type() == Customer::COMPLETED())
