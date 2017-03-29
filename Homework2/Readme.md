@@ -1068,11 +1068,12 @@ void ModifyTransitionMatrix() {
 
 Run the same simulation and analyze your results similar to part (b) for the proper game of *Snakes and Ladders* for both methods. How often are the snakes and ladders used, how do the probability of finishing change, etc? What is the maximum and expected amount of moves for the game? Use charts and graphs to illustrate these points.
 
+~~~
 Unable to illustrate all points, has been difficult to graph/plot for me:
 
 
 The following are for Null Game DTMC:
-
+~~~
 
 
 ![](images/DTMC_100.jpg?raw=true)
