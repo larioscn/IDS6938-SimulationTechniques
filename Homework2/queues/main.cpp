@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
    //MetalDetector_3.plot_results_output();
    //Boarding.plot_results_output();
 
-   MetalDetector_1.output(); cout << "*****************" << endl;
+   MetalDetector_1.output(); cout <<  "*****************" << endl;
    MetalDetector_2.output(); cout << "*****************" << endl;
    MetalDetector_3.output(); cout << "*****************" << endl;
    Boarding.output(); cout << "*****************" << endl;

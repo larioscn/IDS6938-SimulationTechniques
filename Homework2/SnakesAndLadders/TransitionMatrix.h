@@ -147,10 +147,10 @@ void SetTransitionMatrix()
 
 		TransitionMatrix(TransitionMatrix.rows() - 1, TransitionMatrix.rows() - 1) = prob * 6;
 
-		std::cout << TransitionMatrix << std::endl;
-		int x;
-		std::cin >> x;
-		exit(1);
+//		std::cout << TransitionMatrix << std::endl;
+//		int x;
+//		std::cin >> x;
+//		exit(1);
 }
 
 

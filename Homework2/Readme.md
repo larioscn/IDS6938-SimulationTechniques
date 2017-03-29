@@ -5,7 +5,10 @@
 [University of Central Florida](http://www.ist.ucf.edu/grad/)
 This is the framework for homework #2. 
 
-The assignment is due: **Tuesday, March 28 at 11:59PM (EST)**
+
+
+Requesting an Extra Day! Using my extra day and/or extra event day: 03/29/2017 due on 11:59PM (EST)
+
 
 asdfasdf
 sadfsad
@@ -528,6 +531,16 @@ void SetTransitionMatrix()
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
 
+
+
+~~~
+
+
+
+
+
+
+~~~
 
 
 
