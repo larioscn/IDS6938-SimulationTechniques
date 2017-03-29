@@ -57,6 +57,4 @@ int main() {
 	}
 
 	myfile.close();
-
-	return 1;
 }

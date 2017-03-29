@@ -17,6 +17,11 @@ int main(){
 	//Output Vector
 	v.setZero();
 	v(0) = 1.0;
+	//v(1) = 1.0*(1.0/6.0);
+	//v(2) = (1.0/6.0)*(1.0/6.0);
+	//v(3) = (1.0/6.0)*(1.0/6.0)*(1.0/6.0);
+	//v(4) = (1.0 / 6.0)*(1.0 / 6.0)*(1.0 / 6.0)*(1.0 / 6.0);
+
 
 	// Print Results to File
 	std::ofstream myfile;
@@ -30,7 +35,4 @@ int main(){
 	myfile << v << std::endl;  //this is just a sample, becareful how you print to file so you can mine useful stats
 	
 	myfile.close();
-
-
-  return 1;
 }

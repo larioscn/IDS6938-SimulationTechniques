@@ -27,8 +27,8 @@ You can think of the assignment broken up to 4 major parts:
 The goal of this assignment is to become familiar with the concepts in the second third of the class. You will be expected to compose a *final report* which demonstrates your understanding on the material in each section of the assignment. Be visual! - Pictures say a thousand words so you do not have to. Show off your different configurations and really explore the assignment.
 
 # Assignment
-##Part 0 - Getting Started
-Read the assignment. Sync your fork with the [main IDS6938 repository](https://github.com/hepcatjk/IDS6938-SimulationTechniques). Use CMake to create project files for the Homework 2 assignment (*Hint: and Discrete Lecture folders*). Set your *startup project* to the correct project. Test building and executing the homework 2 project. Look over and understand the framework and find the functions you need to edit for the assignment.
+~##Part 0 - Getting Started
+Read the assignment. Sync your fork with the [main IDS6938 repository](https://github.com/hepcatjk/IDS6938-SimulationTechniques). Use CMake to create project files for the Homework 2 assignment (*Hint: and Discrete Lecture folders*). Set your *startup project* to the correct project. Test building and executing the homework 2 project. Look over and understand the framework and find the functions you need to edit for the assignment.~
 
 
 
@@ -461,10 +461,10 @@ We all love board games. A board game can be viewed mathematically as a Markov c
 | ------------- | ------------- |
 | ![](images/snake1.jpg?raw=true)  | ![](images/snake2.jpg?raw=true) |
 
-##### Background
+~##### Background
 The classic game has 100 positions on the board. You toss one die, and move squares based on the result of the die. If you land on a ladder you move up the ladder to a higher numbered square. If you land on a snake's mouth, you descend to a lower numbered square. For purposes of simulation, we will add one extra square 0 (starting position). So there are 101 positions on the board.
 
-The game is **memoryless** - your progression to the next position is independent of how you arrived there (opposed to Blackjack or Candyland where your progression is based on what cards have been drawn). A Markov Chain defines the probability of a move from state *i* to state *j* by a **Transition Matrix**, *T*. So in the case of *Snakes and Ladders* the dimensions of a transition matrix is 101x101.
+The game is **memoryless** - your progression to the next position is independent of how you arrived there (opposed to Blackjack or Candyland where your progression is based on what cards have been drawn). A Markov Chain defines the probability of a move from state *i* to state *j* by a **Transition Matrix**, *T*. So in the case of *Snakes and Ladders* the dimensions of a transition matrix is 101x101.~
 
 * **(a) Null State Game transition matrix - 10pts:** The *null state game* is defined by a game with no snakes and no ladders. This simplifies the game to just the moves of the two dice rolls. Create the transition matrix for the null state game. The Transition Matrix would be decided by the roll of a fair, six-sided die, so it would start to look like:
 <BR>![](images/null.png?raw=true)<BR>
@@ -517,27 +517,40 @@ void SetTransitionMatrix()
 
 		TransitionMatrix(TransitionMatrix.rows() - 1, TransitionMatrix.rows() - 1) = prob * 6;
 
-		std::cout << TransitionMatrix << std::endl;
-		int x;
-		std::cin >> x;
-		exit(1);
 }
 
-
-
 ~~~
 
 
-* **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
+* **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. 
+
+
+
+**(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
 
-
-
 ~~~
+int main(){
 
+	SetTransitionMatrix();
 
+	//Output Vector
+	v.setZero();
+	v(0) = 1.0;
 
+	// Print Results to File
+	std::ofstream myfile;
+	myfile.open("markov_results.txt");
 
+	
+   // TODO add Markov vector - Matrix multiplication //v(k+1) = v(k) T.
+	v = v.transpose() * TransitionMatrix;
+	
+	std::cout <<  v << std::endl;
+	myfile << v << std::endl; 
+	
+	myfile.close();
+}
 
 
 ~~~
@@ -723,8 +736,24 @@ Completed in queues main.cpp file.
 	   }
    }
 
+~~~
 
 ~~~
+Output of these Checks:
+IDCheck is within CI:0
+MetalDetector_1 is within CI:0
+MetalDetector_2 is within CI:0
+MetalDetector_3 is within CI:0
+Boarding is within CI:0
+IDCheck is in error range:1
+MetalDetector_1 is in error range:1
+MetalDetector_2 is in error range:1
+MetalDetector_3 is in error range:1
+Boarding is in error range:1
+
+~~~
+
+
 
 
 * **(c) - 3pts:** in *mm1_queue.cpp* : add code to caculate the expected results for: 
@@ -750,9 +779,73 @@ Completed in mm1_queue.cpp
   
 *  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
 
+~~~
+Code:
+	   IDCHECK.get_current_time();
+	   IDCHECK.output(); cout << "*****************" << endl;
+	   IDCHECK.plot_results_output();
+
+	   MetalDetector1.plot_results_output();
+	   MetalDetector2.plot_results_output();
+	   MetalDetector3.plot_results_output();
+	   Boarding.plot_results_output();
+
+	   MetalDetector1.output(); cout << "*****************" << endl;
+	   MetalDetector2.output(); cout << "*****************" << endl;
+	   MetalDetector3.output(); cout << "*****************" << endl;
+	   Boarding.output(); cout << "*****************" << endl;
+
+
+Graphs:
+
+1) Overall
+
+Service:
+Mean - 0.0021
+St Dv - 0.0086
+Max - 0.1549
+Min - 0
+Variance - 7.4550e-05
+
+
+Wait:
+Mean - 0.0191
+St Dv - 0.0192
+Max - 0.2753
+Min - 1.0000e-06
+Variance - 3.6782e-04
 
 
 
+![](images/Part3_Overall.jpg?raw=true)
+
+
+
+2) IDCheck
+
+Service:
+Mean - 0.0022
+St Dv -  0.0089
+Max - 0.1658
+Min - 0 
+Variance - 8.0093e-05
+
+
+Wait:
+Mean - 0.0191
+St Dv - 0.0192
+Max - 0.2188
+Min - 0
+Variance - 3.7040e-04
+
+
+![](images/Part3_IDCheck.jpg?raw=true)
+
+
+
+
+
+~~~
 
 
 

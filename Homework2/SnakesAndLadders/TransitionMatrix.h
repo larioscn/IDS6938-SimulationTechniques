@@ -4,11 +4,9 @@ Eigen::VectorXf v(size);
 Eigen::MatrixXf SnakesLaddersTransitionMatrix(size, size);
 Eigen::VectorXf v_SnakesLadder(size);
 
-unsigned int ROLLS = 0; //TODO
+unsigned int ROLLS = 10; //TODO
 
-double prob = 1.0/6.0;  
-
-//TODO
+double prob = (1.0/6.0);  
 
 
 void SetTransitionMatrix()
@@ -17,7 +15,6 @@ void SetTransitionMatrix()
 
 	//TODO
 
-	//change for int i = 1
 	for (int i = 0; i < TransitionMatrix.rows() - 6; i++)
 	{
 
@@ -147,129 +144,125 @@ void SetTransitionMatrix()
 
 		TransitionMatrix(TransitionMatrix.rows() - 1, TransitionMatrix.rows() - 1) = prob * 6;
 
-//		std::cout << TransitionMatrix << std::endl;
-//		int x;
-//		std::cin >> x;
-//		exit(1);
 }
 
 
 
-void SetSnakesLaddersTransitionMatrix()
-{
-	//SnakesLaddersTransitionMatrix.setZero();
-	SnakesLaddersTransitionMatrix = TransitionMatrix;
-
-	for (int i = 0; i < size; i++)
-	{
-		if (SnakesLaddersTransitionMatrix(i, 3) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 3) = 0;
-			SnakesLaddersTransitionMatrix(i, 19) = prob; //step into
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 15) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 15) = 0;
-			SnakesLaddersTransitionMatrix(i, 37) = prob; //step into
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 22) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 22) = 0;
-			SnakesLaddersTransitionMatrix(i, 42) = prob; //step into
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 25) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 25) = 0;
-			SnakesLaddersTransitionMatrix(i, 64) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 41) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 41) = 0;
-			SnakesLaddersTransitionMatrix(i, 73) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 53) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 53) = 0;
-			SnakesLaddersTransitionMatrix(i, 74) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 63) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 63) = 0;
-			SnakesLaddersTransitionMatrix(i, 86) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 76) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 3) = 0;
-			SnakesLaddersTransitionMatrix(i, 91) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 84) > 0) //ladder
-		{
-			SnakesLaddersTransitionMatrix(i, 84) = 0;
-			SnakesLaddersTransitionMatrix(i, 98) = prob;
-		}
-
-		//~~~~~~~~~ Snakes -- numbers decrease
-		if (SnakesLaddersTransitionMatrix(i, 11) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 11) = 0;
-			SnakesLaddersTransitionMatrix(i, 7) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 18) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 18) = 0;
-			SnakesLaddersTransitionMatrix(i, 13) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 28) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 28) = 0;
-			SnakesLaddersTransitionMatrix(i, 12) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 36) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 36) = 0;
-			SnakesLaddersTransitionMatrix(i, 34) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 77) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 77) = 0;
-			SnakesLaddersTransitionMatrix(i, 16) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 47) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 47) = 0;
-			SnakesLaddersTransitionMatrix(i, 26) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 83) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 83) = 0;
-			SnakesLaddersTransitionMatrix(i, 39) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 92) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 92) = 0;
-			SnakesLaddersTransitionMatrix(i, 75) = prob;
-		}
-
-		if (SnakesLaddersTransitionMatrix(i, 99) > 0) // would it be > or <...
-		{
-			SnakesLaddersTransitionMatrix(i, 99) = 0;
-			SnakesLaddersTransitionMatrix(i, 70) = prob;
-		}
-
-	}
-}
+//void SetSnakesLaddersTransitionMatrix()
+//{
+//	//SnakesLaddersTransitionMatrix.setZero();
+//	SnakesLaddersTransitionMatrix = TransitionMatrix;
+//
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (SnakesLaddersTransitionMatrix(i, 3) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 3) = 0;
+//			SnakesLaddersTransitionMatrix(i, 19) = prob; //step into
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 15) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 15) = 0;
+//			SnakesLaddersTransitionMatrix(i, 37) = prob; //step into
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 22) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 22) = 0;
+//			SnakesLaddersTransitionMatrix(i, 42) = prob; //step into
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 25) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 25) = 0;
+//			SnakesLaddersTransitionMatrix(i, 64) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 41) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 41) = 0;
+//			SnakesLaddersTransitionMatrix(i, 73) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 53) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 53) = 0;
+//			SnakesLaddersTransitionMatrix(i, 74) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 63) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 63) = 0;
+//			SnakesLaddersTransitionMatrix(i, 86) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 76) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 3) = 0;
+//			SnakesLaddersTransitionMatrix(i, 91) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 84) > 0) //ladder
+//		{
+//			SnakesLaddersTransitionMatrix(i, 84) = 0;
+//			SnakesLaddersTransitionMatrix(i, 98) = prob;
+//		}
+//
+//		//~~~~~~~~~ Snakes -- numbers decrease
+//		if (SnakesLaddersTransitionMatrix(i, 11) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 11) = 0;
+//			SnakesLaddersTransitionMatrix(i, 7) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 18) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 18) = 0;
+//			SnakesLaddersTransitionMatrix(i, 13) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 28) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 28) = 0;
+//			SnakesLaddersTransitionMatrix(i, 12) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 36) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 36) = 0;
+//			SnakesLaddersTransitionMatrix(i, 34) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 77) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 77) = 0;
+//			SnakesLaddersTransitionMatrix(i, 16) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 47) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 47) = 0;
+//			SnakesLaddersTransitionMatrix(i, 26) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 83) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 83) = 0;
+//			SnakesLaddersTransitionMatrix(i, 39) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 92) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 92) = 0;
+//			SnakesLaddersTransitionMatrix(i, 75) = prob;
+//		}
+//
+//		if (SnakesLaddersTransitionMatrix(i, 99) > 0) // would it be > or <...
+//		{
+//			SnakesLaddersTransitionMatrix(i, 99) = 0;
+//			SnakesLaddersTransitionMatrix(i, 70) = prob;
+//		}
+//
+//	}
+//}
