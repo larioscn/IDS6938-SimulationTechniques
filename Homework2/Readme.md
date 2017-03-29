@@ -793,7 +793,7 @@ Code:
 	   MetalDetector3.output(); cout << "*****************" << endl;
 	   Boarding.output(); cout << "*****************" << endl;
 
-~~
+~~~
 
 Graphs:
 
