@@ -461,10 +461,10 @@ We all love board games. A board game can be viewed mathematically as a Markov c
 | ------------- | ------------- |
 | ![](images/snake1.jpg?raw=true)  | ![](images/snake2.jpg?raw=true) |
 
-~##### Background
-The classic game has 100 positions on the board. You toss one die, and move squares based on the result of the die. If you land on a ladder you move up the ladder to a higher numbered square. If you land on a snake's mouth, you descend to a lower numbered square. For purposes of simulation, we will add one extra square 0 (starting position). So there are 101 positions on the board.
+~##### Background~
+~The classic game has 100 positions on the board. You toss one die, and move squares based on the result of the die. If you land on a ladder you move up the ladder to a higher numbered square. If you land on a snake's mouth, you descend to a lower numbered square. For purposes of simulation, we will add one extra square 0 (starting position). So there are 101 positions on the board.~
 
-The game is **memoryless** - your progression to the next position is independent of how you arrived there (opposed to Blackjack or Candyland where your progression is based on what cards have been drawn). A Markov Chain defines the probability of a move from state *i* to state *j* by a **Transition Matrix**, *T*. So in the case of *Snakes and Ladders* the dimensions of a transition matrix is 101x101.~
+~The game is **memoryless** - your progression to the next position is independent of how you arrived there (opposed to Blackjack or Candyland where your progression is based on what cards have been drawn). A Markov Chain defines the probability of a move from state *i* to state *j* by a **Transition Matrix**, *T*. So in the case of *Snakes and Ladders* the dimensions of a transition matrix is 101x101.~
 
 * **(a) Null State Game transition matrix - 10pts:** The *null state game* is defined by a game with no snakes and no ladders. This simplifies the game to just the moves of the two dice rolls. Create the transition matrix for the null state game. The Transition Matrix would be decided by the roll of a fair, six-sided die, so it would start to look like:
 <BR>![](images/null.png?raw=true)<BR>
@@ -578,8 +578,6 @@ for (unsigned int i = 0; i < N; ++i) {
 	}
 
 	myfile.close();
-
-	return 1;
 }
 
 
@@ -795,9 +793,11 @@ Code:
 	   MetalDetector3.output(); cout << "*****************" << endl;
 	   Boarding.output(); cout << "*****************" << endl;
 
+~~
 
 Graphs:
 
+~~~
 1) Overall
 
 Service:
@@ -814,13 +814,13 @@ St Dv - 0.0192
 Max - 0.2753
 Min - 1.0000e-06
 Variance - 3.6782e-04
-
+~~~
 
 
 ![](images/Part3_Overall.jpg?raw=true)
 
 
-
+~~~
 2) IDCheck
 
 Service:
@@ -837,15 +837,10 @@ St Dv - 0.0192
 Max - 0.2188
 Min - 0
 Variance - 3.7040e-04
-
+~~~
 
 ![](images/Part3_IDCheck.jpg?raw=true)
 
-
-
-
-
-~~~
 
 
 
