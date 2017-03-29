@@ -612,9 +612,9 @@ I do not think that games of chance require any strategy. If anything, it depend
 
 ##Part 3 - Discrete Event Simulation - Queue Simulation (30 pts)
 
-This problem will look at queues and commonly used performance measures. For this problem we will look to design a simple airport security check. We will make the following assumptions: (1) there is only one airline - Southwest; (2) passengers' interarrival times are independent and identically distributed (IID) with an exponential distribution with mean 1 / lambda. The service times are also assumed to be IID and exponentially distributed random variables with mean 1 / mu.
+~This problem will look at queues and commonly used performance measures. For this problem we will look to design a simple airport security check. We will make the following assumptions: (1) there is only one airline - Southwest; (2) passengers' interarrival times are independent and identically distributed (IID) with an exponential distribution with mean 1 / lambda. The service times are also assumed to be IID and exponentially distributed random variables with mean 1 / mu.~
 <BR>![](images/queue.png?raw=true)<BR>
-When a passanger arrives they have to wait in a queue to present their ID and ticket to the gate agent with all the other passengers. Once approved by the agent they will have to pass through a security check. Since this is Orlando, there are only 3 open metal/screening devices open and again passangers have to wait in a queue. After passing through security you again have to wait in a queue to board your plane.
+~When a passanger arrives they have to wait in a queue to present their ID and ticket to the gate agent with all the other passengers. Once approved by the agent they will have to pass through a security check. Since this is Orlando, there are only 3 open metal/screening devices open and again passangers have to wait in a queue. After passing through security you again have to wait in a queue to board your plane.~
 
 * **(a) - 4pts:** To start create the senario in the figure above in *main.cpp*. Checkin will have a *mu* of 53 and accept new arrivals, the security gates will have a *mu* of 20, and will not accept new arrivials, boarding will have a *mu* of 80. You will have to set up  the appropriate *MM1_Queue* objects to capture the functionality above.
 
@@ -622,7 +622,6 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 Completed in queues main.cpp file.
 
 
-   // Starting Queue - ID and ticket check-in
 	   MM1_Queue    IDCHECK;
 	   IDCHECK.set_file_names("IDCHECK_log.txt", "IDCHECK_wait.txt", "IDCHECK_service.txt");
 	   IDCHECK.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
@@ -630,35 +629,35 @@ Completed in queues main.cpp file.
 	   IDCHECK.autogenerate_new_arrivals(true);
 	   IDCHECK.initialize();
 	   IDCHECK.set_seed(1, rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   
+
 
 	   // 2nd Queue - 1st station metal detector
-	   MM1_Queue    MetalDetector_1;
-	   MetalDetector_1.set_file_names("MetalDetector_1_log.txt", "MetalDetector_1_wait.txt", "MetalDetector_1_service.txt");
-	   MetalDetector_1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
-	   MetalDetector_1.set_mu(20);
-	   MetalDetector_1.autogenerate_new_arrivals(false);
-	   MetalDetector_1.initialize();
-	   MetalDetector_1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
-	   
+	   MM1_Queue    MetalDetector1;
+	   MetalDetector1.set_file_names("MetalDetector1_log.txt", "MetalDetector1_wait.txt", "MetalDetector1_service.txt");
+	   MetalDetector1.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector1.set_mu(20);
+	   MetalDetector1.autogenerate_new_arrivals(false);
+	   MetalDetector1.initialize();
+	   MetalDetector1.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+
 
 	   //3rd Queue - 2nd station metal detector
-	   MM1_Queue    MetalDetector_2;
-	   MetalDetector_2.set_file_names("MetalDetector_2_log.txt", "MetalDetector_2_wait.txt", "MetalDetector_2_service.txt");
-	   MetalDetector_2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
-	   MetalDetector_2.set_mu(20);
-	   MetalDetector_1.autogenerate_new_arrivals(false);
-	   MetalDetector_2.initialize();
-	   MetalDetector_2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MM1_Queue    MetalDetector2;
+	   MetalDetector2.set_file_names("MetalDetector2_log.txt", "MetalDetector2_wait.txt", "MetalDetector2_service.txt");
+	   MetalDetector2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector2.set_mu(20);
+	   MetalDetector1.autogenerate_new_arrivals(false);
+	   MetalDetector2.initialize();
+	   MetalDetector2.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 	   //4th Queue - 3rd station metal detector
-	   MM1_Queue    MetalDetector_3;
-	   MetalDetector_3.set_file_names("MetalDetector_3_log.txt", "MetalDetector_3_wait.txt", "MetalDetector_3_service.txt");
-	   MetalDetector_3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
-	   MetalDetector_3.set_mu(20);
-	   MetalDetector_3.initialize();
-	   MetalDetector_1.autogenerate_new_arrivals(false);
-	   MetalDetector_3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MM1_Queue    MetalDetector3;
+	   MetalDetector3.set_file_names("MetalDetector3_log.txt", "MetalDetector3_wait.txt", "MetalDetector3_service.txt");
+	   MetalDetector3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MetalDetector3.set_mu(20);
+	   MetalDetector3.initialize();
+	   MetalDetector1.autogenerate_new_arrivals(false);
+	   MetalDetector3.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 	   //5th Queue - Boarding
 	   MM1_Queue    Boarding;
@@ -667,7 +666,7 @@ Completed in queues main.cpp file.
 	   Boarding.set_mu(80);
 	   Boarding.autogenerate_new_arrivals(false);
 	   Boarding.initialize();
-	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   Boarding.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 
 
@@ -680,59 +679,66 @@ Completed in queues main.cpp file.
 ~~~
 Completed in queues main.cpp file.
 
-	   std::cout << std::endl;
+   std::cout << std::endl;
 
-	   std::cout << "IDCheck is within CI:"<< IDCHECK.is_within_confidence_interval() << endl;
-	   std::cout << "MetalDetector_1 is within CI:" << MetalDetector_1.is_within_confidence_interval() << endl;
-	   std::cout << "MetalDetector_2 is within CI:" << MetalDetector_2.is_within_confidence_interval() << endl;
-	   std::cout << "MetalDetector_3 is within CI:" << MetalDetector_3.is_within_confidence_interval() << endl;
+	   std::cout << "IDCheck is within CI:" << IDCHECK.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_1 is within CI:" << MetalDetector1.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_2 is within CI:" << MetalDetector2.is_within_confidence_interval() << endl;
+	   std::cout << "MetalDetector_3 is within CI:" << MetalDetector3.is_within_confidence_interval() << endl;
 	   std::cout << "Boarding is within CI:" << Boarding.is_within_confidence_interval() << endl;
 
 	   std::cout << "IDCheck is in error range:" << !IDCHECK.is_within_error_range(0.002) << endl;
-	   std::cout << "MetalDetector_1 is in error range:" << !MetalDetector_1.is_within_error_range(0.002) << endl;
-	   std::cout << "MetalDetector_2 is in error range:" << !MetalDetector_2.is_within_error_range(0.002) << endl;
-	   std::cout << "MetalDetector_3 is in error range:" << !MetalDetector_3.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_1 is in error range:" << !MetalDetector1.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_2 is in error range:" << !MetalDetector2.is_within_error_range(0.002) << endl;
+	   std::cout << "MetalDetector_3 is in error range:" << !MetalDetector3.is_within_error_range(0.002) << endl;
 	   std::cout << "Boarding is in error range:" << !Boarding.is_within_error_range(0.002) << endl;
 
 	   std::cout << std::endl;
-   for (; 
-		//TODO: add is_within_error_range check
-	   !IDCHECK.is_within_error_range(0.002) || !MetalDetector_1.is_within_error_range(0.002) || !MetalDetector_2.is_within_error_range(0.002) || !MetalDetector_3.is_within_error_range(0.002) || !Boarding.is_within_error_range(0.002)
-       ;)
-   {
-	   Customer cust = IDCHECK.process_next_event()  ;    // =  TODO: process next event;
-	   Customer cust2 = IDCHECK.process_next_event()  ;   // =  TODO: process next event;
-	   Customer cust3 = IDCHECK.process_next_event();   // =  TODO: process next event;
-	   Customer cust4 = IDCHECK.process_next_event();   // =  TODO: process next event;
-	   //TODO: one more process_next_event for the last object.
+	   for (;
+		   //TODO: add is_within_error_range check
+		   !IDCHECK.is_within_error_range(0.002) ||
+		   !MetalDetector1.is_within_error_range(0.002) ||
+		   !MetalDetector2.is_within_error_range(0.002) ||
+		   !MetalDetector3.is_within_error_range(0.002) ||
+		   !Boarding.is_within_error_range(0.002)
+		   ;)
+	   {
 
-       if (cust.get_type() == Customer::COMPLETED())
-       {
-          switch(next)
-          {
-            case 0:
-				//TODO add_external_arrival() for your security gates;
-				MetalDetector_1.add_external_arrival();
-				
-				break;
-            case 1:
-				//TODO add_external_arrival() for your security gates;
-				MetalDetector_2.add_external_arrival();
-				break;
-            case 2:
-                //TODO add_external_arrival() for your security gates;
-				MetalDetector_3.add_external_arrival();
-				break;
-          }
-          next++;
-          if (next%3==0) next = 0;
-       }
-       if (cust2.get_type() == Customer::COMPLETED() || cust3.get_type() == Customer::COMPLETED() || cust4.get_type() == Customer::COMPLETED())
-       {
-		   //TODO add_external_arrival(); on your final boarding MM1_Queue object
-		   Boarding.add_external_arrival();
+	   		Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
+		   Customer cust2 = MetalDetector1.process_next_event();   // =  TODO: process next event;
+		   Customer cust3 = MetalDetector2.process_next_event();   // =  TODO: process next event;
+		   Customer cust4 = Boarding.process_next_event();   // =  TODO: process next event;
+		   //TODO: one more process_next_event for the last object.
+
+
+
+		   if (cust.get_type() == Customer::COMPLETED())
+		   {
+			   switch (next)
+			   {
+			   case 0:
+				   //TODO add_external_arrival() for your security gates;
+				   MetalDetector1.add_external_arrival();
+
+				   break;
+			   case 1:
+				   //TODO add_external_arrival() for your security gates;
+				   MetalDetector2.add_external_arrival();
+				   break;
+			   case 2:
+				   //TODO add_external_arrival() for your security gates;
+				   MetalDetector3.add_external_arrival();
+				   break;
+			   }
+			   next++;
+			   if (next % 3 == 0) next = 0;
+		   }
+		   if (cust2.get_type() == Customer::COMPLETED() || cust3.get_type() == Customer::COMPLETED() || cust4.get_type() == Customer::COMPLETED())
+		   {
+			   //TODO add_external_arrival(); on your final boarding MM1_Queue object
+			   Boarding.add_external_arrival();
+		   }
 	   }
-   }
 
 ~~~
 
@@ -769,8 +775,8 @@ Completed in mm1_queue.cpp
       expected_idle_prob_ = 1.0 - expected_server_utilization_;
       expected_queue_length_ = ((expected_server_utilization_* expected_server_utilization_)/(expected_idle_prob_));
       expected_number_customers_ = expected_server_utilization_ / expected_idle_prob_;
-      expected_waiting_time_ = expected_server_utilization_/ (lambda_ - mu_);
-      expected_response_time_ = 1.0 / (lambda_ - mu_);
+      expected_waiting_time_ = expected_server_utilization_*expected_idle_prob_* (1/expected_idle_prob_* expected_idle_prob_);
+      expected_response_time_ = 1.0 / (mu_ - lambda_);
 
 ~~~
 
@@ -841,6 +847,109 @@ Variance - 3.7040e-04
 
 ![](images/Part3_IDCheck.jpg?raw=true)
 
+~~~
+3) Metal Detector 1
+
+Service:
+Mean - 0.0147
+St Dv -  0.0359
+Max - 0.4613
+Min -  0
+Variance - 0.0013
+
+
+Wait:
+Mean - 0.0553
+St Dv - 0.0584
+Max - 0.4430
+Min - 7.0000e-06
+Variance - 0.0034
+~~~
+
+![](images/Part3_Metal1.jpg?raw=true)
+
+![](images/Part3_Metal1_Serv.jpg?raw=true)
+
+![](images/Part3_Metal1_Wait.jpg?raw=true)
+
+
+~~~
+3) Metal Detector 2
+
+Service: 
+Mean - 0.0119
+St Dv -  
+Max - 
+Min -  
+Variance - 
+
+
+Wait:
+Mean - 0.0533
+St Dv - 
+Max - 
+Min - 
+Variance - 
+~~~
+
+![](images/Part3_Metal1.jpg?raw=true)
+
+![](images/Part3_Metal1_Serv.jpg?raw=true)
+
+![](images/Part3_Metal1_Wait.jpg?raw=true)
+
+
+~~~
+3) Metal Detector 3
+
+Service: 
+Mean - 0.0170
+St Dv - 0.0395
+Max - 0.3721
+Min -  0
+Variance - 0.0016
+ 
+
+Wait:
+Mean - 0.0571
+St Dv - 0.0596
+Max - 0.5407
+Min - 3.2000e-05
+Variance - 0.0036
+~~~
+
+![](images/Part3_Metal3.jpg?raw=true)
+
+![](images/Part3_Metal3_Serv.jpg?raw=true)
+
+![](images/Part3_Metal3_Wait.jpg?raw=true)
+
+~~~
+3) Boarding
+
+Service: 
+Mean - 0.0065
+St Dv -  0.0349
+Max - 1.1860
+Min -  0
+Variance - 0.0012
+
+
+Wait:
+Mean - 0.0198
+St Dv - 0.0227
+Max - 0.1972
+Min - 1.0000e-06
+Variance - 5.1396e-04
+~~~
+
+![](images/Part3_Board.jpg?raw=true)
+
+![](images/Part3_Board_Serv.jpg?raw=true)
+
+![](images/Part3_Board_Wait.jpg?raw=true)
+
+
 
 
 
@@ -860,6 +969,9 @@ Extra Features:
 1. I implemented 4 distributions (Exponential, Lognormal, Gamma, and Weibull) in addition to the 5 distributions that were required. A total of 9 distributions were used for Part 1.
 
 2. Added 2D visualization to AnyLogic for Part 3 --- it is on the file.
+
+
+
 
 
 ~~~

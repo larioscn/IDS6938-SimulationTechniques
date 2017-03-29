@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 	   MetalDetector1.set_mu(20);
 	   MetalDetector1.autogenerate_new_arrivals(false);
 	   MetalDetector1.initialize();
-	   MetalDetector1.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector1.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 
 	   //3rd Queue - 2nd station metal detector
@@ -60,9 +60,9 @@ int main(int argc, char* argv[])
 	   MetalDetector2.set_file_names("MetalDetector2_log.txt", "MetalDetector2_wait.txt", "MetalDetector2_service.txt");
 	   MetalDetector2.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector2.set_mu(20);
-	   MetalDetector1.autogenerate_new_arrivals(false);
+	   MetalDetector2.autogenerate_new_arrivals(false);
 	   MetalDetector2.initialize();
-	   MetalDetector2.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector2.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 	   //4th Queue - 3rd station metal detector
 	   MM1_Queue    MetalDetector3;
@@ -70,8 +70,8 @@ int main(int argc, char* argv[])
 	   MetalDetector3.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
 	   MetalDetector3.set_mu(20);
 	   MetalDetector3.initialize();
-	   MetalDetector1.autogenerate_new_arrivals(false);
-	   MetalDetector3.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   MetalDetector3.autogenerate_new_arrivals(false);
+	   MetalDetector3.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 	   //5th Queue - Boarding
 	   MM1_Queue    Boarding;
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
 	   Boarding.set_mu(80);
 	   Boarding.autogenerate_new_arrivals(false);
 	   Boarding.initialize();
-	   Boarding.set_seed(1, (rd(), rd()));   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
+	   Boarding.set_seed(rd(), rd());   // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 
 	   std::cout << std::endl;
@@ -108,9 +108,9 @@ int main(int argc, char* argv[])
 		   ;)
 	   {
 		   Customer cust = IDCHECK.process_next_event();    // =  TODO: process next event;
-		   Customer cust2 = IDCHECK.process_next_event();   // =  TODO: process next event;
-		   Customer cust3 = IDCHECK.process_next_event();   // =  TODO: process next event;
-		   Customer cust4 = IDCHECK.process_next_event();   // =  TODO: process next event;
+		   Customer cust2 = MetalDetector1.process_next_event();   // =  TODO: process next event;
+		   Customer cust3 = MetalDetector2.process_next_event();   // =  TODO: process next event;
+		   Customer cust4 = Boarding.process_next_event();   // =  TODO: process next event;
 		   //TODO: one more process_next_event for the last object.
 
 		   if (cust.get_type() == Customer::COMPLETED())
@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
 	   MetalDetector3.plot_results_output();
 	   Boarding.plot_results_output();
 
-	   MetalDetector1.output(); cout << endl << endl;
+	   MetalDetector1.output(); cout << "*****************" << endl;
 	   MetalDetector2.output(); cout << "*****************" << endl;
 	   MetalDetector3.output(); cout << "*****************" << endl;
 	   Boarding.output(); cout << "*****************" << endl;

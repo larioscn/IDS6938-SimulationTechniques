@@ -80,8 +80,8 @@ void MM1_Queue::initialize()
       expected_idle_prob_ = 1.0 - expected_server_utilization_;
       expected_queue_length_ = ((expected_server_utilization_* expected_server_utilization_)/(expected_idle_prob_));
       expected_number_customers_ = expected_server_utilization_ / expected_idle_prob_;
-      expected_waiting_time_ = expected_server_utilization_/ (lambda_ - mu_);
-      expected_response_time_ = 1.0 / (lambda_ - mu_);
+      expected_waiting_time_ = expected_server_utilization_*expected_idle_prob_* (1/expected_idle_prob_* expected_idle_prob_);
+      expected_response_time_ = 1.0 / (mu_ - lambda_);
       // ------------------------------------------------
 
       rnd_arrival.set_rate(lambda_);
