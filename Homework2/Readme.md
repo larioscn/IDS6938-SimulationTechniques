@@ -1,4 +1,4 @@
-#Homework 2 :  Discrete-Event Simulation Assignment
+# Homework 2 :  Discrete-Event Simulation Assignment
 
 ## IDS6938-Simulation Techniques - [University of Central Florida](http://www.ist.ucf.edu/grad/)
 
@@ -6,9 +6,12 @@
 This is the framework for homework #2. 
 
 
+<<<<<<< HEAD
 
 Requesting an Extra Day! Using my extra day and/or extra event day: 03/29/2017 due on 11:59PM (EST)
 
+=======
+>>>>>>> cb3c7e0f67557661bfe81c7f2daab929467cdb71
 
 # Introduction
 A Discrete-event Model simulates a complex system as an ordered sequence of well-defined events. Mathematically Discrete-event models use Markov Processes, Queuing systems, events, probability / statistics, and random variables. The purpose of this assignment is to learn the mathematical foundations, how to program these models, and how to simulate them. The assignment is due Tuesday, March 28, 2017 at 11:59 P.M.
@@ -23,6 +26,7 @@ You can think of the assignment broken up to 4 major parts:
 The goal of this assignment is to become familiar with the concepts in the second third of the class. You will be expected to compose a *final report* which demonstrates your understanding on the material in each section of the assignment. Be visual! - Pictures say a thousand words so you do not have to. Show off your different configurations and really explore the assignment.
 
 # Assignment
+<<<<<<< HEAD
 ~##Part 0 - Getting Started
 Read the assignment. Sync your fork with the [main IDS6938 repository](https://github.com/hepcatjk/IDS6938-SimulationTechniques). Use CMake to create project files for the Homework 2 assignment (*Hint: and Discrete Lecture folders*). Set your *startup project* to the correct project. Test building and executing the homework 2 project. Look over and understand the framework and find the functions you need to edit for the assignment.~
 
@@ -153,6 +157,16 @@ Histogram of Frequency Count Values between 0-100
 
 
 
+=======
+## Part 0 - Getting Started
+Read the assignment. Sync your fork with the [main IDS6938 repository](https://github.com/hepcatjk/IDS6938-SimulationTechniques). Use CMake to create project files for the Homework 2 assignment (*Hint: and Discrete Lecture folders*). Set your *startup project* to the correct project. Test building and executing the homework 2 project. Look over and understand the framework and find the functions you need to edit for the assignment.
+
+
+
+## Part 1: Empirical Tests of Randomness (20 pts).
+We looked at different ways to generate [pseudo-random numbers](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) and [quasi random numbers](https://en.wikipedia.org/wiki/Low-discrepancy_sequence). Generating random numbers are crucial to Discrete-Event simulations which rely on random variables and stochastic processes. This problem explores different random number generators, distributions, and statistics. Different [C++ pseudo-random numbers engines are instantiated](http://www.cplusplus.com/reference/random/) already for you. Also a a wide variety of standard distributions are implemented. Two quasi random number generators are also provided. - One must be the Sobel - quasi random number generator.
+* **(a) - 3pts:** Output the results of five different random number engines, using a uniform distribution for values between [0-100]. Generate useful charts and statistics from the output to analyze how uniform these values truly are. You are expected to look at some advanced statistics and test, for example: tests like the Kolmogorov-Smirnov test, Chi-square test, Autocorrelation test, and Spearman’s Rank Correlation Coefficient are a few examples of ones your could use.)
+>>>>>>> cb3c7e0f67557661bfe81c7f2daab929467cdb71
 * **(b) - 2pts:**  Vary *N* (amount of samples). How do things change.
 
 Original: N = 100,000
@@ -409,6 +423,7 @@ Weibull Distribution
 
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
 
+<<<<<<< HEAD
 ~~~
 N Values from Top to Bottom:
 N = 500
@@ -450,6 +465,9 @@ Weibull Distribution
 
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
+=======
+## Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
+>>>>>>> cb3c7e0f67557661bfe81c7f2daab929467cdb71
 
 We all love board games. A board game can be viewed mathematically as a Markov chain, where the probability of moving to the next position depends only on the position you are currently at and the chances provided by tossing a dice. For this part of the homework we will simulate the game "*Snakes and Ladders*" (This goes by other names: Chutes and Ladders, Moksha Patam but all essentially the same gameplay.)
 
@@ -1086,7 +1104,7 @@ The following are for Null Game DTMC:
 I do not think that games of chance require any strategy. If anything, it depends on timing and the order of when events occur. So, there may be some luck involved. I would rather play a game of strategy, but playing by chance is also pretty fun because you do not know the outcome and the play can be very fluid. It's interesting seeing what comes up. 
 ~~~
 
-##Part 3 - Discrete Event Simulation - Queue Simulation (30 pts)
+## Part 3 - Discrete Event Simulation - Queue Simulation (30 pts)
 
 ~This problem will look at queues and commonly used performance measures. For this problem we will look to design a simple airport security check. We will make the following assumptions: (1) there is only one airline - Southwest; (2) passengers' interarrival times are independent and identically distributed (IID) with an exponential distribution with mean 1 / lambda. The service times are also assumed to be IID and exponentially distributed random variables with mean 1 / mu.~
 <BR>![](images/queue.png?raw=true)<BR>
@@ -1437,9 +1455,10 @@ Has been difficult for me to complete. Unable to simulate setup, but was able to
 ![](images/AnyLogic_2D.JPG?raw=true)
 
 
-##Part 4 - Implementing Extra Features (10 pts)
+## Part 4 - Implementing Extra Features (10 pts)
 Implementing 2 features on the extra features list. Pick any feature on the "*extra features*" list below to customize your assignment to fit your interests. Please document this in your writeup. (*Note: These should total 10pts. You could successfully implement a feature worth 10pts or greater. This also fulfills this requirement. The features are assigned points based on difficulty. The 5pt features are more straightforward.*)
 
+<<<<<<< HEAD
 
 ~~~
 Extra Features: 
@@ -1454,10 +1473,13 @@ Extra Features:
 ~~~
 
 ##Part 5 - Final Report (10 pts)
+=======
+## Part 5 - Final Report (10 pts)
+>>>>>>> cb3c7e0f67557661bfe81c7f2daab929467cdb71
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.
 
 
-##Extra Features (Extra Credit - 25pts)
+## Extra Features (Extra Credit - 25pts)
 You have to implement two features from this list for Part 4. You may choose any two features you wish from this list. (Please explicitly note them in your *Readme.md*)
 
 If you feel like going beyond the scope of the assignment, you should consider implementing more of the following extra features. *Get the assignment working without them first.* You can get a maximum of 25 points in extra credit. Simply implementing these things doesn't guarantee you a 25; you really need to go above and beyond to get the full amount. (*The instructor reserves the right to hand out extra credit as his he sees fit.*)
@@ -1476,6 +1498,7 @@ If you feel like going beyond the scope of the assignment, you should consider i
 * **(10 Points)** - Setup up SmartGrid or a Microgrid System that creates resources of power from wind, solar, and electric grid. Set up various devices in your house to draw power. [Reference 1](http://www.sciencedirect.com/science/article/pii/S1877050916301740),   [Reference 2](http://www.tandfonline.com/doi/full/10.1080/19401493.2013.866695?src=recsys&).
 * **(25 Points)** - Set up a discrete simulation of your choice that uses an approved real-time data source and visualizes the results. (See instructor for approval).
 * **(N Points)** - You are welcome to make suggestions for a feature of your own choosing, but they must be approved by instructor before implementing.
+<<<<<<< HEAD
 
 
 
@@ -1487,3 +1510,5 @@ Abu-Taieh, E., & El Sheikh, A. (2007). Commercial simulation packages: a compara
 ClassMates: Olivia
 
 Friend: software engineer from cisco, Derek!!!
+=======
+>>>>>>> cb3c7e0f67557661bfe81c7f2daab929467cdb71
