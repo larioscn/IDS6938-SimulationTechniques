@@ -242,16 +242,28 @@ void SIMAgent::InitValues()
 	KCohesion = 0.0;
 }
 
-/*
-*	You should apply the control rules given desired velocity vd and desired orientation thetad.
-*/
 void SIMAgent::Control()
 {
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+	/*
+	* You should apply the control rules given desired velocity vd and desired orientation thetad.
+	* Velocity control: input[0] = f = m * Kv0 * (vd - v)
+	* Heading control: input[1] = tau = I * ( -Kv1 * thetaDot - Kp1 * theta + Kp1 * thetad)
+	* This function sets input[0] and input[1] appropriately after being called.
+	*/
 
+		Truncate(vd, -SIMAgent::MaxVelocity, SIMAgent::MaxVelocity);
+		input[0] = SIMAgent::Mass * SIMAgent::Kv0 * (vd - state[2]);
+		Truncate(input[0], -SIMAgent::MaxForce, SIMAgent::MaxForce);
+
+		double dangle = AngleDiff(state[1], thetad);
+		input[1] = SIMAgent::Inertia * (Kp1 * dangle - Kv1 * state[3]);
+		Truncate(input[1], -SIMAgent::MaxTorque, SIMAgent::MaxTorque);
 }
+
+
 
 /*
 *	Compute derivative vector given input and state vectors
@@ -265,18 +277,35 @@ void SIMAgent::FindDeriv()
 
 }
 
-/*
-*	Update the state vector given derivative vector
-*  Compute global position and store it in GPos
-*  Perform validation check to make sure all values are within MAX values
-*/
 void SIMAgent::UpdateState()
 {
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+	/*
+	*	Update the state vector given derivative vector
+	*  Compute global position and store it in GPos
+	*  Perform validation check to make sure all values are within MAX values
+	*/
+		for (int i = 0; i < dimState; i++) {
+			state[i] += deriv[i] * deltaT;
+		}
+		state[0] = 0.0;
 
+		Clamp(state[1], -M_PI, M_PI);
+		Truncate(state[2], -SIMAgent::MaxVelocity, SIMAgent::MaxVelocity);
+
+		vec2 GVelocity;
+		GVelocity[0] = state[2] * cos(state[1]);
+		GVelocity[1] = state[2] * sin(state[1]);
+		GPos += GVelocity;
+
+		Truncate(GPos[0], -1.0 * env->groundSize, env->groundSize);
+		Truncate(GPos[1], -1.0 * env->groundSize, env->groundSize);
+
+		Truncate(state[3], -SIMAgent::MaxAngVel, SIMAgent::MaxAngVel);
 }
+
 
 /*
 *	Seek behavior
