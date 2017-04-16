@@ -274,6 +274,10 @@ void SIMAgent::FindDeriv()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+	deriv[0] = 0;
+	deriv[1] = state[3]; /*torque in local body corrdinates divided by inertia is equal to angular velocity */
+	deriv[2] = (input[0] / Mass); /*force in local body divided by mass */
+	deriv[3] = (input[1] / Inertia) - state[3]; /*torque divided by (inertia minus angular velocity) */
 
 }
 
@@ -292,7 +296,7 @@ void SIMAgent::UpdateState()
 		}
 		state[0] = 0.0;
 
-		Clamp(state[1], -M_PI, M_PI);
+		ClampAngle(state[1]);
 		Truncate(state[2], -SIMAgent::MaxVelocity, SIMAgent::MaxVelocity);
 
 		vec2 GVelocity;
@@ -302,7 +306,7 @@ void SIMAgent::UpdateState()
 
 		Truncate(GPos[0], -1.0 * env->groundSize, env->groundSize);
 		Truncate(GPos[1], -1.0 * env->groundSize, env->groundSize);
-
+		
 		Truncate(state[3], -SIMAgent::MaxAngVel, SIMAgent::MaxAngVel);
 }
 
@@ -320,9 +324,11 @@ vec2 SIMAgent::Seek()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
-
-	return tmp;
+	vec2 tmp = goal - GPos; /*Vd = goal - position, global goal position minus agent global position--moves closer to target*/
+	tmp.Normalize(); 
+	thetad = atan2(tmp[1], tmp[0]); /*theta d is equal to arctan (Vdy, and Vdx */
+	double vd = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
+	return vec2(cos(thetad)*vd, sin(thetad)*vd); /*cos thetad times vd, sin theta d tims vd*/
 }
 
 /*
@@ -338,9 +344,16 @@ vec2 SIMAgent::Flee()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+	/*same as Seek except you  need to add 180 degree to the seek desired velocity angle theta d
+	theta d = theta d + pi*/
 
-	return tmp;
+	vec2 tmp = goal - GPos; /*Vd = goal - position, global goal position minus agent global position--moves closer to target*/
+	tmp.Normalize();	
+	thetad = atan2(tmp[1], tmp[0]); /*theta d is equal to arctan (Vdy, and Vdx */
+	thetad = thetad + M_PI; /*woudl above thetad be take out????*/
+	double Vd = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
+	return vec2(cos(thetad)*Vd, sin(thetad)*Vd); /*cos thetad times vd, sin theta d tims vd*/
+
 }
 
 /*
@@ -357,8 +370,25 @@ vec2 SIMAgent::Arrival()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
 
+	vec2 tmp = goal - GPos; /*Vd = goal - position*/
+	tmp.Normalize();
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
+	
+	double vd = SIMAgent::MaxVelocity;
+	vd = tmp.Length() *KArrival;
+
+	double Vn = SIMAgent::MaxVelocity * (vd / radius); /* max velocity, distance and radius*/
+	
+	if (tmp.Length() > 0.0)
+	{
+		return vec2(cos(thetad)*Vn, sin(thetad)*Vn);
+}
+	else {
+
+		return vec2(cos(thetad)*vd, sin(thetad) * vd);
+	}
+	
 	return tmp;
 }
 
@@ -376,10 +406,29 @@ vec2 SIMAgent::Departure()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+
+	/* similar to arrival but departure needs to be in */
+	vec2 tmp = goal - GPos; /*Vd = goal - position*/
+	tmp.Normalize();
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
+
+	double vd = SIMAgent::MaxVelocity;
+	vd = tmp.Length() *KDeparture;
+
+	double Vn = SIMAgent::MaxVelocity * (vd / radius); /* max velocity, distance and radius*/
+
+	if (tmp.Length() > 0.0)
+	{
+		return vec2(cos(thetad)*vd, sin(thetad)*vd);
+	}
+	else {
+
+		return vec2(cos(thetad)*Vn, sin(thetad) * Vn);
+	}
 
 	return tmp;
 }
+
 
 /*
 *	Wander behavior
