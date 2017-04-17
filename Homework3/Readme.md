@@ -7,12 +7,6 @@ This is the framework for homework #3.
 
 The assignment is due: **Monday, April  24 at 11:59PM (EST)**
 
-# Introduction
-The goal of this assignment is to enable the behavioral animation of vehicle-like walking agents. 
-
-You will be expected to compose a *final report* which demonstrates your understanding on the material in each section of the assignment. Be visual! - Pictures say a thousand words so you do not have to. Show off your different configurations and really explore the assignment.
-
-
 ### Part 1: Behaviors
 
 The goal of this assignment is to enable the steering behavioral animation of agents.
@@ -79,7 +73,31 @@ Statistics:
 
 **(b) - 20 points**: Create a maze. Generate the pdm, stats, and animations like before. Vary [parameters in your agents](https://help.anylogic.com/index.jsp?topic=/com.xj.anylogic.help/html/_PL/reference/Attributes.html) to give them different behaviors and show the pedistrians change how they navigate the maze.
 
+
+The map used in this exercise was Tolman's Maze (Tolman & Honzik, 1930; Tolman, 1948), originally used for psychology experiments of rats.  
+
+Using AnyLogic, the image below displays 2D, 3D animations, as well as the Pedestrian Density Map. 
+
+![](images/PDM_3D.JPG?raw=true)
+
+
+
+As seen below, 8 "False Paths" were given to the pedestrians with varying degrees of probabilities for taking the false paths and true path. 
+![](images/Output1.JPG?raw=true)
+
+![](images/Output2.JPG?raw=true)
+
+~~~
+Stats in the works
+~~~
+
 **(c) - 30 points**: Model and analyze a building (or floor/outdoor space/stadium) on campus. (There is help on piazza how to find rough building plans - we expect something plausible). Create a senario: evacuation, daily office routine, special event, normal egress.... etc., and model and design your own experiment to determine if the building design suits the needs of its users. Start with photographs of your site, describe your site, describe your senario and hypothesis. Then use an agent-based pedistrian simulation to visualize your experiment's results.
 
 
+### References
 
+McLeod, S. A. (2013). Tolman - Latent Learning. Retrieved from www.simplypsychology.org/tolman.html
+
+Tolman, E. C., & Honzik, C. H. (1930). Introduction and removal of reward, and maze performance in rats. University of California Publications in Psychology.
+
+Tolman, E. C. (1948). Cognitive maps in rats and men. Psychological review, 55(4), 189.
