@@ -161,53 +161,52 @@ As seen below, 8 "False Paths" were given to the pedestrians with varying degree
 Stats in the works
 ~~~
 
-**(c) - 30 points**: Model and analyze a building (or floor/outdoor space/stadium) on campus. (There is help on piazza how to find rough building plans - we expect something plausible). Create a senario: evacuation, daily office routine, special event, normal egress.... etc., and model and design your own experiment to determine if the building design suits the needs of its users. Start with photographs of your site, describe your site, describe your senario and hypothesis. Then use an agent-based pedistrian simulation to visualize your experiment's results.
-
+**(c) - 30 points**: 
 
 Th model that is analyzed in this assignment is the Harris Corporation Engineering Center at the University of Central Florida. Below are simulated images of the building's front view from close-up and aerial. 
 
 
 (I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
-![](images/sim1.JPG?raw=true)
+![](images/sim1.jpg?raw=true)
 
 (I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
-![](images/sim2.JPG?raw=true)
+![](images/sim2.jpg?raw=true)
 
 My aim was to observe the floor plan in the first floor. The following two images display the entire floor plan of the first floor:
 
-![](images/layout1.JPG?raw=true)
+![](images/layout1.jpg?raw=true)
 
-![](images/layout2.JPG?raw=true)
+![](images/layout2.jpg?raw=true)
 
 On closer inspection, I decided to analyze the second layout (image above this text, left-hand side corner). The scenario that we will observe is an emergency exit route for the following rooms:
 
-  ![](images/primarylayout.JPG?raw=true)
+  ![](images/primarylayout.jpg?raw=true)
 
 I took images of the outside of both exits, as well as the inside.
 
 
 First Exit:
-![](images/scenario1prim.JPG?raw=true)
+![](images/scenario1prim.jpg?raw=true)
 
 
 Side View of First Exit:
-![](images/scenario2.JPG?raw=true)
+![](images/scenario2.jpg?raw=true)
 
 Inside First Exit (hallway from Dean's Conference Room)
-![](images/scenario4.JPG?raw=true)
+![](images/scenario4.jpg?raw=true)
 
 Hallway (looking at First Exit):
-![](images/scenario6.JPG?raw=true)
+![](images/scenario6.jpg?raw=true)
 
 Second Exit:
-![](images/scenario3.JPG?raw=true)
+![](images/scenario3.jpg?raw=true)
 
 Hallway (looking at Second Exit):
-![](images/scenario5.JPG?raw=true)
+![](images/scenario5.jpg?raw=true)
 
 Observing the Emergency Exit Route again, I estimated that on a given day, there are about 20 individuals in the yellow portion and about 12 individuals in the blue portion:
 
-![](images/primarylayout.JPG?raw=true)
+![](images/primarylayout.jpg?raw=true)
 
 I do realize that this Emergencency Exit Route is designed to help faculty and reception area individuals from exiting the building. If other rooms are taken into consideration, i.e., classroom 111, classroom 117, and classroom 118, and Maintenance Rooms, the Emergency Route Exits may not be as viable. I will first model what is on the Emergency Exit Route. 
 
