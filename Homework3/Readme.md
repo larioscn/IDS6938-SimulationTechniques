@@ -122,16 +122,26 @@ SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgen
 
 # Part 2 - Simulating a simple pedestrian flow
 
-**(a) - 0 points**: Follow the Anylogic example for the [Subway Entrance example](https://help.anylogic.com/index.jsp?topic=/com.xj.anylogic.help/html/_PL/tutorial/Subway_Entrance.html). Create the appropriate [boundaries and walls](https://help.anylogic.com/index.jsp?topic=/com.xj.anylogic.help/html/markup/Wall.html), and the display ther pedestrian density map, [statistics](https://help.anylogic.com/index.jsp?nav=/4_1_5), [2D and 3D animations](https://help.anylogic.com/index.jsp?topic=/com.xj.anylogic.help/html/_PL/reference/Animation.html).
+**(a) - 0 points**:
 
+Phase 1: Simulating a Simple Pedestrian Flow
 
 ![](images/Subway_pt1.JPG?raw=true)
 
+
+Phase 2: Adding Fare Gates
+
 ![](images/Subway_Fares.JPG?raw=true)
+
+Phase 2: PDM
 
 ![](images/Subway_Density.JPG?raw=true)
 
+Phase 3: Adding Ticket Vending Machines
+
 ![](images/Subway_Vending.JPG?raw=true)
+
+3D Animation and Comparison with 2D PDM
 
 ![](images/Subway_3D.JPG?raw=true)
 
@@ -186,22 +196,28 @@ I took images of the outside of both exits, as well as the inside.
 
 
 First Exit:
+
 ![](images/scenario1prim.jpg?raw=true)
 
 
 Side View of First Exit:
+
 ![](images/scenario2.jpg?raw=true)
 
 Inside First Exit (hallway from Dean's Conference Room)
+
 ![](images/scenario4.jpg?raw=true)
 
 Hallway (looking at First Exit):
+
 ![](images/scenario6.jpg?raw=true)
 
 Second Exit:
+
 ![](images/scenario3.jpg?raw=true)
 
 Hallway (looking at Second Exit):
+
 ![](images/scenario5.jpg?raw=true)
 
 Observing the Emergency Exit Route again, I estimated that on a given day, there are about 20 individuals in the yellow portion and about 12 individuals in the blue portion:
