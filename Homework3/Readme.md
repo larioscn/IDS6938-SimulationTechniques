@@ -15,31 +15,101 @@ We represent an agent as a two-dimensional disk with mass (**m**) and moment-of-
 
 ![](images/behavior.png?raw=true)
 
-**(a) - 10 points** : Compute derivative vector given input and state vectors. Implement the function *SIMAgent::FindDeriv()*. This function sets derive vector to appropriate values after being called.
+**(a) - 10 points** :
 
-Description of agent state vector and input vector:  
-* state[0] is the position of the agent in local body coordinates (almost useless in this project);  
-* state[1] is the orientation angle of the agent with respect to world (i.e. global) coordinates;  
-* state[2] is the velocity of the agent  in local body coordinates.  
-* state[3] is the angular velocity of the agent in world coordinates. 
-* input[0] is the force in local body coordinates;  
-* input[1] is the torque in local body coordinates
+~~~
+Notes are included in the Agent.cpp file.
 
-You will need to set deriv[0], deriv[1], deriv[2], deriv[3]. Compute derivative vector given input and state vectors. This function sets derive vector to appropriate values after being called. 
-* deriv[2] is the velocity of the agent  in local body coordinates
-* deriv[3] is the angular velocity of the agent in world coordinates
-* deriv[0] is the force in local body coordinates divided by the mass.
-* deriv[1] is the torque in local body coordinates divided by the inertia.
+void SIMAgent::FindDeriv()
+{
+	
+	deriv[0] = (input[0] / Mass);
+	deriv[1] = (input[1] / Inertia); 
+	deriv[2] = state[2]; 
+	deriv[3] = state[3]; 
+
+}
+
+~~~
 
 You also must implement *SIMAgent::InitValues()*: Try to figure out appropriate values for control and behavior settings. You need to find out appropriate values for: *SIMAgent::Kv0, SIMAgent::Kp1, SIMAgent::Kv1, SIMAgent::KArrival, SIMAgent::KDeparture,
 SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgent::RNeighborhood, SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.*
 
 
-**(b) - 20 points**: In this part of the assignment you will need to implement 6 types of individual behaviors and 5 types of group behaviors. Create the following behaviors through appropriate computation of V<sub> d</sub>  and θ<sub>d</sub>  commands:
+**(b) - 20 points**: 
+
 * Seek
+~~~
+
+	vec2 tmp;
+	double thetad;
+	tmp = goal - GPos;
+	tmp.Normalize(); 
+	thetad = atan2(tmp[1], tmp[0]);
+	double vn = SIMAgent::MaxVelocity; 
+	return vec2(cos(thetad)*vn, sin(thetad)*vn);
+~~~
+
 * Flee
+~~~
+	vec2 tmp;
+	double thetad;
+	tmp = goal - GPos; 
+	tmp.Normalize();	
+	thetad = atan2(tmp[1], tmp[0]); 
+	thetad = thetad + M_PI; 
+	float vn = SIMAgent::MaxVelocity; 
+	return vec2(cos(thetad)*vn, sin(thetad)*vn);
+~~~
+
 * Arrival
+~~~
+	vec2 tmp = goal - GPos; /*Vd = goal - position*/
+	tmp.Normalize();
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; 
+
+	double vn = SIMAgent::MaxVelocity;
+	vn = tmp.Length() *KArrival;
+
+	double vd = SIMAgent::MaxVelocity * (vn/ radius); 
+
+	if (tmp.Length() > 0.0)
+	{
+		return vec2(cos(thetad)*vd, sin(thetad)*vd);
+	}
+	else {
+
+		return vec2(cos(thetad)*vn, sin(thetad) * vn);
+	}
+
+	return tmp;
+}
+~~~
+
 * Departure
+~~~
+	vec2 tmp = goal - GPos; 
+	tmp.Normalize();
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; 
+
+	double vn = SIMAgent::MaxVelocity;
+	vn = tmp.Length() *KDeparture;
+
+	double vd = SIMAgent::MaxVelocity * (vn / radius); 
+
+	if (tmp.Length() > 0.0)
+	{
+		return vec2(cos(thetad)*vn, sin(thetad)*vn);
+	}
+	else {
+
+		return vec2(cos(thetad)*vd, sin(thetad) * vd);
+	}
+
+	return tmp;
+}
+~~~
+
 * Wander
 * Obstacle Avoidance
 
@@ -94,7 +164,61 @@ Stats in the works
 **(c) - 30 points**: Model and analyze a building (or floor/outdoor space/stadium) on campus. (There is help on piazza how to find rough building plans - we expect something plausible). Create a senario: evacuation, daily office routine, special event, normal egress.... etc., and model and design your own experiment to determine if the building design suits the needs of its users. Start with photographs of your site, describe your site, describe your senario and hypothesis. Then use an agent-based pedistrian simulation to visualize your experiment's results.
 
 
+Th model that is analyzed in this assignment is the Harris Corporation Engineering Center at the University of Central Florida. Below are simulated images of the building's front view from close-up and aerial. 
+
+
+(I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
+![](images/sim1.JPG?raw=true)
+
+(I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
+![](images/sim2.JPG?raw=true)
+
+My aim was to observe the floor plan in the first floor. The following two images display the entire floor plan of the first floor:
+
+![](images/layout1.JPG?raw=true)
+
+![](images/layout2.JPG?raw=true)
+
+On closer inspection, I decided to analyze the second layout (image above this text, left-hand side corner). The scenario that we will observe is an emergency exit route for the following rooms:
+
+  ![](images/primarylayout.JPG?raw=true)
+
+I took images of the outside of both exits, as well as the inside.
+
+
+First Exit:
+![](images/scenario1prim.JPG?raw=true)
+
+
+Side View of First Exit:
+![](images/scenario2.JPG?raw=true)
+
+Inside First Exit (hallway from Dean's Conference Room)
+![](images/scenario4.JPG?raw=true)
+
+Hallway (looking at First Exit):
+![](images/scenario6.JPG?raw=true)
+
+Second Exit:
+![](images/scenario3.JPG?raw=true)
+
+Hallway (looking at Second Exit):
+![](images/scenario5.JPG?raw=true)
+
+Observing the Emergency Exit Route again, I estimated that on a given day, there are about 20 individuals in the yellow portion and about 12 individuals in the blue portion:
+
+![](images/primarylayout.JPG?raw=true)
+
+I do realize that this Emergencency Exit Route is designed to help faculty and reception area individuals from exiting the building. If other rooms are taken into consideration, i.e., classroom 111, classroom 117, and classroom 118, and Maintenance Rooms, the Emergency Route Exits may not be as viable. I will first model what is on the Emergency Exit Route. 
+
+
+
+
 ### References
+
+https://map.ucf.edu/locations/116/harris-corporation-engineering-center-hec/
+
+https://3dwarehouse.sketchup.com/model.html?id=6888378c9c3beed3dd417b8d039eee23
 
 McLeod, S. A. (2013). Tolman - Latent Learning. Retrieved from www.simplypsychology.org/tolman.html
 
