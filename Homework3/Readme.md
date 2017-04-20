@@ -177,10 +177,12 @@ Th model that is analyzed in this assignment is the Harris Corporation Engineeri
 
 
 (I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
-![](images/sim1.jpg?raw=true)
+
+![](images/sim1.JPG?raw=true)
 
 (I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
-![](images/sim2.jpg?raw=true)
+
+![](images/sim2.JPG?raw=true)
 
 My aim was to observe the floor plan in the first floor. The following two images display the entire floor plan of the first floor:
 
@@ -220,16 +222,100 @@ Hallway (looking at Second Exit):
 
 ![](images/scenario5.jpg?raw=true)
 
-Observing the Emergency Exit Route again, I estimated that on a given day, there are about 20 individuals in the yellow portion and about 12 individuals in the blue portion:
+Observing the Emergency Exit Route again, I estimated that on a given day, there are 21 individuals in the yellow portion and 12 individuals in the blue portion (Total 33):
 
 ![](images/primarylayout.jpg?raw=true)
 
-I do realize that this Emergencency Exit Route is designed to help faculty and reception area individuals from exiting the building. If other rooms are taken into consideration, i.e., classroom 111, classroom 117, and classroom 118, and Maintenance Rooms, the Emergency Route Exits may not be as viable. I will first model what is on the Emergency Exit Route. 
+I do realize that this Emergencency Exit Route is designed to help faculty/students/reception area individuals from exiting the building. If other rooms are taken into consideration, i.e., classroom 111, classroom 117, and classroom 118, and Maintenance Rooms, the Emergency Route Exits may not be as viable. I will first model what is on the Emergency Exit Route. 
+
+You will notice that I drew walls across some open areas. I am simulating the scenario to assume that the only way to exit would be through the yellow and blue routes instead of through windows/other doors. 
+
+~~~
+Scenario: Faculties are all in their offices and a conference meeting is being held in the dean's conference room. Students are getting advice in the reception area or are studying in certain rooms. A Fire Alarm was sounded, indicating an evacuation in progress. The following indicates the rooms and how many individuals are getting out:
+
+Yellow Area: 9 target lines, 21 people
+114C - 1
+114D - 1
+114E - 1
+114B - 1
+114A - 1
+Reception Area 114 - 5
+Dean's Conference Room 113 - 11 
+
+Blue Area:9 target lines, 12 people
+115D - 1
+115C - 1
+115E - 2
+115F - 1
+115B - 1
+115A - 1
+115I Storage - 1
+115H - 1
+115G Students - 3
+~~~
+ 
+Original Model with starting lines, exits, and pathway markers:
+
+![](images/route.JPG?raw=true)
+
+
+PDM:
+
+![](images/PDM_route.JPG?raw=true)
+
+
+3D Animation:
+
+![](images/3D_route.JPG?raw=true)
+
+
+Statistics and Graphs - For this portion I used time as a component to measure when an individual from a certain room exited the building. If there was more than 1 person in a number, I calculated the final time when he last individual crossed the exit line.
+
+
+![](images/yellow.jpg?raw=true)
+
+
+Statistics for Yellow Region:
+
+![](images/statsyellow.JPG?raw=true)
+
+
+![](images/Blue.jpg?raw=true)
+
+
+Statistics for Blue Region:
+
+![](images/statsblue.JPG?raw=true)
+
+
+![](images/Overall.JPG?raw=true)
+
+
+Statistics for All Routes:
+
+![](images/statsoverall.JPG?raw=true)
+
+
+From these analyses, we conclude that the yellow region was more faster at reaching the exit than the blue region, though all evacuation plans seem to relatively level out. In terms of overall time to evacuate the building, according to University of Central Florida's Office of Emergency Management (2015), a time less than 5 minutes is a "prompt and orderly evacuation" as seen below.
+
+(I do not claim ownership to this image. See references)
+
+![](images/Fire2.JPG?raw=true)
+
+Typically, a fire may get out of control "in three to five minutes" and a fire extinguisher can be dishcharged in "less than one minute" (2015). See below.
+
+(I do not claim ownership to this image. See references.)
+
+![](images/Fire1.JPG?raw=true)
+
+Therefore, we can conclude with such evidence that this Emergency Evacuation plan may be successful. 
 
 
 
 
 ### References
+
+University of Central Florida Office of Emergency Management. (2015). http://emergency.ucf.edu/Plans/Fire%20Plan.pdf
 
 https://map.ucf.edu/locations/116/harris-corporation-engineering-center-hec/
 

@@ -223,23 +223,24 @@ void SIMAgent::InitValues()
 	// TODO: Add code here
 	Set initial value for control and behavior settings
 	You need to find out appropriate values for:
+
 	SIMAgent::Kv0, SIMAgent::Kp1, SIMAgent::Kv1, SIMAgent::KArrival, SIMAgent::KDeparture,
 	SIMAgent::KNoise, SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgent::RNeighborhood,
 	SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.
 	*********************************************/
-	Kv0 = 0.0;
-	Kp1 = 0.0;
-	Kv1 = 0.0;
-	KArrival = 0.0;
-	KDeparture = 0.0;
-	KNoise = 0.0;
-	KWander = 0.0;
-	KAvoid = 0.0;
-	TAvoid = 0.0;
-	RNeighborhood = 0.0;
-	KSeparate = 0.0;
-	KAlign = 0.0;
-	KCohesion = 0.0;
+	Kv0 = 12.0;
+	Kp1 = 150.0;
+	Kv1 = 25.0;
+	KArrival = 0.1;
+	KDeparture = 7000.0;
+	KNoise = 15.0;
+	KWander = 3.0;
+	KAvoid = 0.5;
+	TAvoid = 10.0;
+	RNeighborhood = 500.0;
+	KSeparate = 900.0;
+	KAlign = 15.0;
+	KCohesion = 0.015;
 }
 
 void SIMAgent::Control()
@@ -447,8 +448,11 @@ vec2 SIMAgent::Wander()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-
-	return tmp;
+	double vn = SIMAgent::MaxVelocity;
+	vec2 Vdesired = v0 + vWander; /*computation of desired velocity*/
+	Vdesired.Normalize(); /*normalizing vdesired*/
+	thetad = atan2(Vdesired[1], Vdesired[0]); /*desired orientation*/
+	return vec2(cos(thetad)*vn, sin(thetad)*vn);
 }
 
 /*
