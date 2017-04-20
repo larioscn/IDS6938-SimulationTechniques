@@ -124,6 +124,8 @@ SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgen
 
 **(a) - 0 points**:
 
+AnyLogic Model Available on files:
+
 Phase 1: Simulating a Simple Pedestrian Flow
 
 ![](images/Subway_pt1.JPG?raw=true)
@@ -151,8 +153,9 @@ Statistics:
  - working on Excel sheet
 ~~~
 
-**(b) - 20 points**: Create a maze. Generate the pdm, stats, and animations like before. Vary [parameters in your agents](https://help.anylogic.com/index.jsp?topic=/com.xj.anylogic.help/html/_PL/reference/Attributes.html) to give them different behaviors and show the pedistrians change how they navigate the maze.
+**(b) - 20 points**: 
 
+AnyLogic Model Available on files:
 
 The map used in this exercise was Tolman's Maze (Tolman & Honzik, 1930; Tolman, 1948), originally used for psychology experiments of rats.  
 
@@ -173,7 +176,9 @@ Stats in the works
 
 **(c) - 30 points**: 
 
-Th model that is analyzed in this assignment is the Harris Corporation Engineering Center at the University of Central Florida. Below are simulated images of the building's front view from close-up and aerial. 
+AnyLogic Model Available on files:
+
+The model that is analyzed in this assignment is the Harris Corporation Engineering Center at the University of Central Florida. Below are simulated images of the building's front view from close-up and aerial. 
 
 
 (I claim no rights to this image, This image was produced by UCF and 3D Warehouse software. See references)
@@ -269,7 +274,7 @@ PDM:
 ![](images/3D_route.JPG?raw=true)
 
 
-Statistics and Graphs - For this portion I used time as a component to measure when an individual from a certain room exited the building. If there was more than 1 person in a number, I calculated the final time when he last individual crossed the exit line.
+Statistics and Graphs - For this portion I used time as a component to measure when an individual from a certain room exited the building. If there was more than 1 person in a room, I calculated the final time when the last individual (from that room) crossed the exit line.
 
 
 ![](images/yellow.jpg?raw=true)
