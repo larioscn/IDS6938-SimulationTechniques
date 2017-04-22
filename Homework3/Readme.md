@@ -355,14 +355,14 @@ Statistics and Graphs - Again, I used time as a variable to measure exit times. 
 
 Yellow Region:
 
-![](images/yellownew.JPG?raw=true)
+![](images/yellow-new.JPG?raw=true)
 
 ![](images/yellowstatsnew.JPG?raw=true)
 
 
 Blue Region:
 
-![](images/bluenew.JPG?raw=true)
+![](images/blue-new.JPG?raw=true)
 
 ![](images/bluestatsnew.JPG?raw=true)
 
