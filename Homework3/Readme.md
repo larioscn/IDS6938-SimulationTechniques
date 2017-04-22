@@ -238,7 +238,7 @@ You will notice that I drew walls across some open areas. I am simulating the sc
 ~~~
 Scenario: Faculties are all in their offices and a conference meeting is being held in the dean's conference room. Students are getting advice in the reception area or are studying in certain rooms. A Fire Alarm was sounded, indicating an evacuation in progress. The following indicates the rooms and how many individuals are getting out:
 
-Yellow Area: 9 target lines, 21 people
+Yellow Area - Exit 1: 9 target lines, 21 people
 114C - 1
 114D - 1
 114E - 1
@@ -247,7 +247,7 @@ Yellow Area: 9 target lines, 21 people
 Reception Area 114 - 5
 Dean's Conference Room 113 - 11 
 
-Blue Area:9 target lines, 12 people
+Blue Area - Exit 2: 9 target lines, 12 people
 115D - 1
 115C - 1
 115E - 2
@@ -269,34 +269,36 @@ PDM:
 ![](images/PDM_route.JPG?raw=true)
 
 
+Video of PDM:
+
+https://www.youtube.com/watch?v=YI_aCFKoDA0
+
+
 3D Animation:
 
 ![](images/3D_route.JPG?raw=true)
 
 
-Statistics and Graphs - For this portion I used time as a component to measure when an individual from a certain room exited the building. If there was more than 1 person in a room, I calculated the final time when the last individual (from that room) crossed the exit line.
-
-
-![](images/yellow.jpg?raw=true)
+Statistics and Graphs - For this portion, I used time as a component to measure when an individual from a certain room exited the building. If there was more than 1 person in a room, I calculated the final time when the last individual (from that room) crossed the exit line.
 
 
 Statistics for Yellow Region:
 
+![](images/yellow.jpg?raw=true)
+
 ![](images/statsyellow.JPG?raw=true)
-
-
-![](images/Blue.jpg?raw=true)
 
 
 Statistics for Blue Region:
 
+![](images/Blue.jpg?raw=true)
+
 ![](images/statsblue.JPG?raw=true)
 
 
-![](images/Overall.JPG?raw=true)
-
-
 Statistics for All Routes:
+
+![](images/Overall.JPG?raw=true)
 
 ![](images/statsoverall.JPG?raw=true)
 
@@ -316,6 +318,60 @@ Typically, a fire may get out of control "in three to five minutes" and a fire e
 Therefore, we can conclude with such evidence that this Emergency Evacuation plan may be successful. 
 
 
+
+
+Let's initialize more individuals for the Server Room 116, ClassRoom 117, and Classroom 111. 
+~~~
+For this scenario, I added a few constraints, such as arrival time of 
+inividuals. Due to the setup of the floor plan, most individuals would be 
+inclined to go to Exit 1. Further, this Exit 1 is lit up and has lots of lighting due to the glass structure, while Exit 2 seems a bit obscure (look at real life images again). 
+
+Server Room - 5 people - Exit 2
+
+ClassRoom 117 - 50 people - 30 go to Exit 2, 20 go to Exit 1 (I split these because naturally - students will exit these two doors and search for the nearest exit)
+
+ClassRoom 111 - 40 people - Exit 1
+
+~~~
+
+AnyLogic target lines in rooms, pathfinders, and Exit lines:
+
+![](images/Addroute.JPG?raw=true)
+
+PDM of the map:
+
+![](images/pdm_newroute.JPG?raw=true)
+
+Video of PDM:
+
+https://www.youtube.com/watch?v=NhYpF3Pnv5c
+
+3D Animation Layout:
+
+![](images/3d_newroute.JPG?raw=true)
+
+
+Statistics and Graphs - Again, I used time as a variable to measure exit times. If there was more than 1 person in a room, I calculated the final time when the last individual (from that room) crossed the exit line. 
+
+Yellow Region:
+
+![](images/yellownew.JPG?raw=true)
+
+![](images/yellowstatsnew.JPG?raw=true)
+
+
+Blue Region:
+
+![](images/bluenew.JPG?raw=true)
+
+![](images/bluestatsnew.JPG?raw=true)
+
+
+The yellow area took less time to exit the building than the blue area, even though the yellow area had more assigned people.  
+
+Based on these analyses, it took these rooms a little less than 2 minutes to get out of the building. These conditions detail an optimal exit plan. In more realistic scenarios, I would imagine that it would take between 5-15 minutes to evacuate this emergency floor plan because it is not often that all individuals exit at once. Human behavior varies, with some people walking much slower than others, and other individuals running to the exit. Therefore, this model would need to add wait times to people. 
+
+This Emergency Route will probably work in the case of a real emergency, but other areas need to be taken into account.
 
 
 ### References
