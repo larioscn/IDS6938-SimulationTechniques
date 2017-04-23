@@ -149,9 +149,17 @@ Phase 3: Adding Ticket Vending Machines
 
 ~~~
 
-Statistics:
- - working on Excel sheet
+Statistics
+
+Minimum Time to Reach Subway: 0:06 seconds
+
+Maximum Time to Reach Subway: 46:13 minutes
+
 ~~~
+
+
+![](images/agents_time.JPG?raw=true)
+
 
 **(b) - 20 points**: 
 
@@ -169,6 +177,7 @@ Video of PDM:
 https://www.youtube.com/watch?v=2jj73xjnmZs
 
 As seen below, 8 "False Paths" (outlined in red) were given to the pedestrians with varying degrees of probabilities for taking the false paths and true path. The green lines indicate the Start and Exit (Food Box) of the maze path. Note: 'Door' and 'Curtain' are not used for this analyses, nor do they indicate anything on this simulation example.   
+
 
 ![](images/originaltolman.JPG?raw=true)
 
