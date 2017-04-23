@@ -164,15 +164,55 @@ Using AnyLogic, the image below displays 2D, 3D animations, as well as the Pedes
 ![](images/PDM_3D.JPG?raw=true)
 
 
+Video of PDM:
 
-As seen below, 8 "False Paths" were given to the pedestrians with varying degrees of probabilities for taking the false paths and true path. 
+https://www.youtube.com/watch?v=2jj73xjnmZs
+
+As seen below, 8 "False Paths" (outlined in red) were given to the pedestrians with varying degrees of probabilities for taking the false paths and true path. The green lines indicate the Start and Exit (Food Box) of the maze path. Note: 'Door' and 'Curtain' are not used for this analyses, nor do they indicate anything on this simulation example.   
+
+![](images/originaltolman.JPG?raw=true)
+
 ![](images/Output1.JPG?raw=true)
 
 ![](images/Output2.JPG?raw=true)
 
+Probabilities for each false path line and true path line was changed as pedestrians moved through the maze. The simulation was timed for an hour. 
+
 ~~~
-Stats in the works
+Statistics:
+
+Total number of pedestrians in the simulation : 1,030
+Total number of pedestrians that DID NOT make it out of the maze: 111 
+Total number of pedestrians that made it out of the maze: 919
+
+Those Who Took the False Path:
+Min: False Path 1 - 308
+Max: False path 4 - 813
+
+Those Who Took the Right Path:
+Min: True Path 4 (where false path 4 is) - 208
+Max: True Path 9 (final end line) - 942
+
+Pedestrians who were on Wait Queue (end of simulation):
+Min: False Path 2 - 2
+Max: False Path 4 - 27
+
+
+We can safely say that False Path 4 had the maximum number of pedestrians who took it's path, resulting in higher wait queues, less number of pedestrians who took the right path. Ultimatedly, out of 1,030, 919 made it out of the maze.   
 ~~~
+
+![](images/output_maze.JPG?raw=true)
+
+
+![](images/setpath.jpg?raw=true)
+
+
+![](images/rightpath.JPG?raw=true)
+
+
+![](images/wrongpath.JPG?raw=true)
+
+
 
 **(c) - 30 points**: 
 
