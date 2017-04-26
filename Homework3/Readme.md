@@ -109,6 +109,7 @@ I can't say this is really 'departure'. The agents stay a bit close to the point
 
 ![](images/Departure.JPG?raw=true)
 
+
 * Wander
 
 ~~~
