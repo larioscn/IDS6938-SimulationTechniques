@@ -6,6 +6,8 @@
 This is the framework for homework #3. 
 
 The assignment is due: **Monday, April  24 at 11:59PM (EST)**
+Using Extra Day: Due April 25, 11:59PM EST
+
 
 ### Part 1: Behaviors
 
