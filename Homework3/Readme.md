@@ -5,19 +5,14 @@
 [University of Central Florida](http://www.ist.ucf.edu/grad/)
 This is the framework for homework #3. 
 
-The assignment is due: **Monday, April  24 at 11:59PM (EST)**
-Using Extra Days: Due April 26
+Using Extra Days: Due April 26; 1:00PM EST
 
 
 ### Part 1: Behaviors
 
-The goal of this assignment is to enable the steering behavioral animation of agents.
-
-We represent an agent as a two-dimensional disk with mass (**m**) and moment-of-inertia (**I**) that is capable of generating a force **F** along body x-axis with a torque about the z-axis. For this assignment assume that the agent only translates in the world x-y plane and rotates about the body z-axis.
-
-![](images/behavior.png?raw=true)
-
 **(a) - 10 points** :
+
+Note: One of the biggest issues in Part 1 for me is that my agents keep going around in circles whenever they perform any of the behaviors (e.g., they arrive at the point, but they do 360s along the way). There is definitely something wrong in the coding that I did, but I cannot identify where it is coming from. 
 
 ~~~
 Notes are included in the Agent.cpp file.
@@ -67,17 +62,24 @@ void SIMAgent::FindDeriv()
 	return vec2(cos(thetad)*vd, sin(thetad)*vd);
 ~~~
 
+
+![](images/Seek.JPG?raw=true)
+
+
+
 * Flee
 ~~~
 	vec2 tmp;
 	double thetad;
 	tmp = goal - GPos; 
 	tmp.Normalize();	
-	thetad = atan2(tmp[1], tmp[0]); 
-	thetad = thetad + M_PI; 
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; 
 	float vd = SIMAgent::MaxVelocity; 
 	return vec2(cos(thetad)*vd, sin(thetad)*vd);
 ~~~
+
+![](images/Flee.JPG?raw=true)
+
 
 * Arrival
 ~~~
@@ -94,6 +96,8 @@ https://www.youtube.com/watch?v=q0I3CN_xKck
 
 
 * Departure
+
+I can't say this is really 'departure'. The agents stay a bit close to the point, but nonetheless, I tried.
 ~~~
 	vec2 Vn = goal - GPos; /*Vn = goal - position*/
 	Vn.Normalize();
@@ -102,6 +106,8 @@ https://www.youtube.com/watch?v=q0I3CN_xKck
 	vd = Vn.Length() *KDeparture;
 	return vec2(cos(thetad) *vd, sin(thetad) *vd);
 ~~~
+
+![](images/Departure.JPG?raw=true)
 
 * Wander
 
@@ -124,23 +130,203 @@ https://www.youtube.com/watch?v=q0I3CN_xKck
 Video of Wander:
 https://www.youtube.com/watch?v=EUovMz7aeAo
 
-(sorry for background Bengali voice!)
+(sorry for the background Bengali voice! that was my husband talking on the phone)
 
 
 * Obstacle Avoidance
+~~~
+
+	vec2 tmp;
+	vec2 vd;
+	vec2 vvoid1;
+	vec2 vvoid2;
 
 
+	for (int i = 0; i < env->obstaclesNum; i++)
+	{
+		vd[0] = env->obstacles[i][0];
+		vd[1] = env->obstacles[i][1];
 
+		float distfir = (vd - vvoid1).Length();
+		float distsec = (vd - vvoid2).Length();
 
+		if (distfir <= env->obstacles[i][2] || distsec <= env->obstacles[i][2])
+		{
+			thetad = thetad + TAvoid;
+			double vd = SIMAgent::MaxVelocity;
+			return vec2(cos(thetad)*vd, sin(thetad)*vd);
+		}
+
+		else
+		{
+			return tmp;
+		}
+	}
+}
+
+~~~
+
+Agents avoided the circle objects on the ground:
+
+![](images/Avoid.JPG?raw=true)
 
 
 
 **(c) - 20 points**: Implement the functions for the following group behaviors: 
-* Seperation
+cisco bud help with these portions
+
+* Separation
+
+~~~
+	vec2 agentV = vec2(0.0, 0.0);
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 velseparation;
+
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
+
+
+		if (((agentx != 0.0) || (agenty != -0.0)) && (agentvecpos.Length() < RNeighborhood))
+		{
+			agentV[0] += (agentx / (agentvecpos.Length() * agentvecpos.Length()));
+			agentV[1] += (agenty / (agentvecpos.Length() * agentvecpos.Length()));
+
+		}
+
+	}
+
+	velseparation = KSeparate * agentV;
+
+	thetad = atan2(velseparation[1], velseparation[0]);
+	vd = velseparation.Length();
+	return vec2 (cos(thetad) *vd, sin(thetad) *vd);
+}
+~~~
+
+Agents come very close to each other, but then back away.
+(it's as if they are dancing!)
+
+![](images/Separation.JPG?raw=true)
+
+
+
 * Cohesion 
+
+~~~
+	vec2 agentv = vec2(0.0, 0.0);
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 veccoh;
+
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
+
+		if (agentvecpos.Length() < RNeighborhood)
+		{
+			agentv[0] += GPos[0] - agents[i]->GPos[0];
+			agentv[1] += GPos[1] - agents[i]->GPos[1];
+
+		}
+	}
+
+	veccoh = KCohesion * (agentv / agents.size() - GPos);
+
+	thetad = atan2(veccoh[1], veccoh[0]);
+	vd = veccoh.Length();
+
+	return vec2 (cos(thetad)*vd, sin (thetad) *vd);
+		}
+~~~
+
+They move cohesively, again it looks as though they dance!
+
+![](images/Cohesion.JPG?raw=true)
+
+
 * Alignment 
+
+~~~
+	vec2 agentv = Arrival();
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 velalignment;
+	vec2 agentnorm;
+
+	/*similar to above*/
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
+
+		if (((agentx != 0.0) || (agenty != -.0)) && (agentvecpos.Length() < RNeighborhood))
+		{
+			agentv[0] += cos(agents[i]->state[1]) * agents[i]->state[2];
+			agentv[1] += sin(agents[i]->state[1]) * agents[i]->state[2];
+
+
+			agentnorm += agentv.Normalize();
+		}
+
+		velalignment = KAlign * agentnorm;
+		thetad = atan2(velalignment[1], velalignment[0]);
+
+		vd = velalignment.Length();
+		return vec2(cos(thetad) *vd, sin(thetad) *vd);
+	}
+}
+~~~
+
+This one was tough for me because again, the agents move in a circular manner. But once they come around, they align perfectly. 
+
+![](images/Alignment.JPG?raw=true)
+
+
 * Flocking
+
+~~~
+	vec2 vecflock;
+
+	vecflock = KSeparate * Separation() + KCohesion * Cohesion() + KAlign * Alignment();
+	thetad = atan2(vecflock[1], vecflock[0]);
+
+	double vd = vecflock.Length();
+
+	return vec2(cos(thetad) *vd, sin (thetad) *vd);
+~~~
+
+Four of the agents flock while 1 stays behind:
+
+![](images/Flocking.JPG?raw=true)
+
+
 * Leader Following
+
+~~~
+vec2 vecleader;
+
+	vecleader = KSeparate * Separation() + KArrival * Arrival();
+	thetad = atan2(vecleader[1], vecleader[0]);
+	
+	double vd = vecleader.Length();
+	return vec2(cos(thetad) *vd, sin (thetad) * vd);
+~~~
+
+I wouldn't say they follow the leader.., but they do copy it's movements until eventually they become stationary moving back and forth.
+
+![](images/Leader.JPG?raw=true)
+
+
 
 # Part 2 - Simulating a simple pedestrian flow
 
@@ -446,6 +632,8 @@ This Emergency Route will probably work in the case of a real emergency, but oth
 
 
 ### References
+
+Students: I had a bit of help from Ashley and of course, from my cisco buddy Derek.
 
 University of Central Florida Office of Emergency Management. (2015). http://emergency.ucf.edu/Plans/Fire%20Plan.pdf
 

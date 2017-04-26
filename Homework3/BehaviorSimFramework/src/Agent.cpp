@@ -353,8 +353,7 @@ vec2 SIMAgent::Flee()
 	double thetad;
 	tmp = goal - GPos; /*Vd = goal - position, global goal position minus agent global position--moves closer to target*/
 	tmp.Normalize();	
-	thetad = atan2(tmp[1], tmp[0]); /*theta d is equal to arctan (Vdy, and Vdx */
-	thetad = thetad + M_PI; 
+	thetad = atan2(tmp[1], tmp[0]) + M_PI; /*theta d is equal to arctan (Vdy, and Vdx */ 
 	float vd = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
 	return vec2(cos(thetad)*vd, sin(thetad)*vd); /*cos thetad times vd, sin theta d tims vd*/
 
@@ -454,8 +453,31 @@ vec2 SIMAgent::Avoid()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-	
-	return tmp;
+	vec2 vd;
+	vec2 vvoid1;
+	vec2 vvoid2;
+
+
+	for (int i = 0; i < env->obstaclesNum; i++)
+	{
+		vd[0] = env->obstacles[i][0];
+		vd[1] = env->obstacles[i][1];
+
+		float distfir = (vd - vvoid1).Length();
+		float distsec = (vd - vvoid2).Length();
+
+		if (distfir <= env->obstacles[i][2] || distsec <= env->obstacles[i][2])
+		{
+			thetad = thetad + TAvoid;
+			double vd = SIMAgent::MaxVelocity;
+			return vec2(cos(thetad)*vd, sin(thetad)*vd);
+		}
+
+		else
+		{
+			return tmp;
+		}
+	}
 }
 
 /*
@@ -486,7 +508,7 @@ vec2 SIMAgent::Separation()
 		agentvecpos = vec2(agentx, agenty);
 
 
-		if (((agentx += 0.0) || (agenty += -0.0)) && (agentvecpos.Length() < RNeighborhood))
+		if (((agentx != 0.0) || (agenty != -0.0)) && (agentvecpos.Length() < RNeighborhood))
 		{
 			agentV[0] += (agentx / (agentvecpos.Length() * agentvecpos.Length()));
 			agentV[1] += (agenty / (agentvecpos.Length() * agentvecpos.Length()));
@@ -515,34 +537,35 @@ vec2 SIMAgent::Alignment()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 agentv = vec2(0.0,0.0);
+	vec2 agentv = Arrival();
 	double agentx = 0.0;
 	double agenty = 0.0;
 	vec2 agentvecpos;
 	vec2 velalignment;
 	vec2 agentnorm;
 
-/*similar to above*/
-		for (int i = 0; i < agents.size(); i++)
+	/*similar to above*/
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
+
+		if (((agentx != 0.0) || (agenty != -.0)) && (agentvecpos.Length() < RNeighborhood))
 		{
-			agentx = GPos[0] - agents[i]->GPos[0];
-			agenty = GPos[1] - agents[i]->GPos[1];
-			agentvecpos = vec2(agentx, agenty);
-
-			if (((agentx += 0.0) || (agenty += -.0)) && (agentvecpos.Length() < RNeighborhood))
-			{
-				agentv[0] += cos(agents[i]->state[1]) * agents[i]->state[2];
-				agentv[1] += sin(agents[i]->state[1]) * agents[i]->state[2];
+			agentv[0] += cos(agents[i]->state[1]) * agents[i]->state[2];
+			agentv[1] += sin(agents[i]->state[1]) * agents[i]->state[2];
 
 
-				agentnorm += agentv.Normalize();
-			}
+			agentnorm += agentv.Normalize();
+		}
 
-			velalignment = KAlign * agentnorm;
-			thetad = atan2(velalignment[1], velalignment[0]);
+		velalignment = KAlign * agentnorm;
+		thetad = atan2(velalignment[1], velalignment[0]);
 
-			vd = velalignment.Length();
-			return vec2 (cos(thetad) *vd, sin(thetad) *vd);
+		vd = velalignment.Length();
+		return vec2(cos(thetad) *vd, sin(thetad) *vd);
+	}
 }
 
 /*
@@ -553,18 +576,18 @@ vec2 SIMAgent::Alignment()
 *  Store them into vd and thetad respectively
 *  return a vec2 that represents the goal velocity with its direction being thetad and its norm being vd
 */
-
 vec2 SIMAgent::Cohesion()
-{
-	/*********************************************
-	// TODO: Add code here
-	*********************************************/
+		{
+			/*********************************************
+			// TODO: Add code here
+			*********************************************/
+			
 	vec2 agentv = vec2(0.0, 0.0);
 	double agentx = 0.0;
 	double agenty = 0.0;
 	vec2 agentvecpos;
-	vec2 VCohesion;
-	
+	vec2 veccoh;
+
 	for (int i = 0; i < agents.size(); i++)
 	{
 		agentx = GPos[0] - agents[i]->GPos[0];
@@ -577,13 +600,16 @@ vec2 SIMAgent::Cohesion()
 			agentv[1] += GPos[1] - agents[i]->GPos[1];
 
 		}
-
-		VCohesion = KCohesion * (agentv / agents.size() - GPos);
-		thetad = atan2(VCohesion[1], VCohesion[0]);
-
-		return vec2(cos(thetad) * vd, sin(thetad) *vd);
 	}
 
+	veccoh = KCohesion * (agentv / agents.size() - GPos);
+
+	thetad = atan2(veccoh[1], veccoh[0]);
+	vd = veccoh.Length();
+
+	return vec2 (cos(thetad)*vd, sin (thetad) *vd);
+		}
+		
 /*
 *	Flocking behavior
 *  Utilize the Separation, Cohesion and Alignment behaviors to determine the desired velocity vector
@@ -596,6 +622,7 @@ vec2 SIMAgent::Flocking()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+
 	vec2 vecflock;
 
 	vecflock = KSeparate * Separation() + KCohesion * Cohesion() + KAlign * Alignment();
@@ -614,6 +641,7 @@ vec2 SIMAgent::Flocking()
 *  Store them into vd and thetad respectively
 *  return a vec2 that represents the goal velocity with its direction being thetad and its norm being vd
 */
+
 vec2 SIMAgent::Leader()
 {
 	/*********************************************
