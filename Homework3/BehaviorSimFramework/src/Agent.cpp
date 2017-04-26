@@ -275,10 +275,10 @@ void SIMAgent::FindDeriv()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	deriv[0] = (input[0] / Mass);
-	deriv[1] = (input[1] / Inertia); /*torque in local body corrdinates divided by inertia is equal to angular velocity */
-	deriv[2] = state[2]; /*force in local body divided by mass */
-	deriv[3] = state[3]; /*torque divided by (inertia minus angular velocity) */
+	deriv[2] = (input[0] / Mass); /*the force local body coordinates need to be divied by the mass*/
+	deriv[3] = (input[1] / Inertia); /*torque in local body corrdinates divided by inertia is equal to angular velocity */
+	deriv[0] = state[2]; /*velocity of the agent(s) using the local body coordinates*/
+	deriv[1] = state[3]; /*the angular velocity of the agent among the world coordinates*/
 
 }
 
@@ -330,8 +330,8 @@ vec2 SIMAgent::Seek()
 	tmp = goal - GPos; /*Vd = goal - position, global goal position minus agent global position--moves closer to target*/
 	tmp.Normalize(); 
 	thetad = atan2(tmp[1], tmp[0]); /*theta d is equal to arctan (Vdy, and Vdx */
-	double vn = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
-	return vec2(cos(thetad)*vn, sin(thetad)*vn); /*cos thetad times vd, sin theta d tims vd*/
+	double vd = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
+	return vec2(cos(thetad)*vd, sin(thetad)*vd); /*cos thetad times vd, sin theta d tims vd*/
 }
 
 /*
@@ -355,8 +355,8 @@ vec2 SIMAgent::Flee()
 	tmp.Normalize();	
 	thetad = atan2(tmp[1], tmp[0]); /*theta d is equal to arctan (Vdy, and Vdx */
 	thetad = thetad + M_PI; 
-	float vn = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
-	return vec2(cos(thetad)*vn, sin(thetad)*vn); /*cos thetad times vd, sin theta d tims vd*/
+	float vd = SIMAgent::MaxVelocity; /*vd = maxvelocity*/
+	return vec2(cos(thetad)*vd, sin(thetad)*vd); /*cos thetad times vd, sin theta d tims vd*/
 
 }
 
@@ -374,25 +374,12 @@ vec2 SIMAgent::Arrival()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp = goal - GPos; /*Vd = goal - position*/
-	tmp.Normalize();
-	thetad = atan2(tmp[1], tmp[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
+	vec2 Vn;
+	Vn = goal - GPos; /*Vd = goal - position*/
+	thetad = atan2(Vn[1], Vn[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
 
-	double vn = SIMAgent::MaxVelocity;
-	vn = tmp.Length() *KArrival;
-
-	double vd = SIMAgent::MaxVelocity * (vn/ radius); /* max velocity, distance and radius*/
-
-	if (tmp.Length() > 0.0)
-	{
-		return vec2(cos(thetad)*vd, sin(thetad)*vd);
-	}
-	else {
-
-		return vec2(cos(thetad)*vn, sin(thetad) * vn);
-	}
-
-	return tmp;
+	vd = Vn.Length() *KArrival;
+	return -vec2(cos(thetad)*vd, sin(thetad) * vd);
 }
 
 /*
@@ -411,25 +398,12 @@ vec2 SIMAgent::Departure()
 	*********************************************/
 
 	/* similar to arrival but departure needs to be in */
-	vec2 tmp = goal - GPos; /*Vd = goal - position*/
-	tmp.Normalize();
-	thetad = atan2(tmp[1], tmp[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
-
-	double vn = SIMAgent::MaxVelocity;
-	vn = tmp.Length() *KDeparture;
-
-	double vd = SIMAgent::MaxVelocity * (vn / radius); /* max velocity, distance and radius*/
-
-	if (tmp.Length() > 0.0)
-	{
-		return vec2(cos(thetad)*vn, sin(thetad)*vn);
-	}
-	else {
-
-		return vec2(cos(thetad)*vd, sin(thetad) * vd);
-	}
-
-	return tmp;
+	vec2 Vn = goal - GPos; /*Vd = goal - position*/
+	Vn.Normalize();
+	thetad = atan2(Vn[1], Vn[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
+	
+	vd = Vn.Length() *KDeparture;
+	return vec2(cos(thetad) *vd, sin(thetad) *vd);
 }
 
 
@@ -447,12 +421,19 @@ vec2 SIMAgent::Wander()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
-	double vn = SIMAgent::MaxVelocity;
-	vec2 Vdesired = v0 + vWander; /*computation of desired velocity*/
-	Vdesired.Normalize(); /*normalizing vdesired*/
-	thetad = atan2(Vdesired[1], Vdesired[0]); /*desired orientation*/
-	return vec2(cos(thetad)*vn, sin(thetad)*vn);
+	vec2 Outer;
+	vec2 Inner;
+	double vd = SIMAgent::MaxVelocity;
+
+	float largetheta = float(rand() % 360 - 180 / 180 *M_PI);
+	float tinytheta = float(rand() % 360 - 180 / 180 * M_PI);
+
+	Inner = vec2(cos(largetheta)* vd, sin(largetheta)*vd);
+	Outer = vec2(cos(tinytheta)*vd, sin(tinytheta)*vd);
+
+	vec2 VDis = 2.0 * (Outer + Inner);
+	thetad = atan2(VDis[1], VDis[0]);
+	return VDis;
 }
 
 /*
@@ -490,9 +471,35 @@ vec2 SIMAgent::Separation()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+	/*Cisco bud help*/
+	
+	vec2 agentV = vec2(0.0, 0.0);
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 velseparation;
 
-	return tmp;
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
+
+
+		if (((agentx += 0.0) || (agenty += -0.0)) && (agentvecpos.Length() < RNeighborhood))
+		{
+			agentV[0] += (agentx / (agentvecpos.Length() * agentvecpos.Length()));
+			agentV[1] += (agenty / (agentvecpos.Length() * agentvecpos.Length()));
+
+		}
+
+	}
+
+	velseparation = KSeparate * agentV;
+
+	thetad = atan2(velseparation[1], velseparation[0]);
+	vd = velseparation.Length();
+	return vec2 (cos(thetad) *vd, sin(thetad) *vd);
 }
 
 /*
@@ -508,9 +515,34 @@ vec2 SIMAgent::Alignment()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+	vec2 agentv = vec2(0.0,0.0);
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 velalignment;
+	vec2 agentnorm;
 
-	return tmp;
+/*similar to above*/
+		for (int i = 0; i < agents.size(); i++)
+		{
+			agentx = GPos[0] - agents[i]->GPos[0];
+			agenty = GPos[1] - agents[i]->GPos[1];
+			agentvecpos = vec2(agentx, agenty);
+
+			if (((agentx += 0.0) || (agenty += -.0)) && (agentvecpos.Length() < RNeighborhood))
+			{
+				agentv[0] += cos(agents[i]->state[1]) * agents[i]->state[2];
+				agentv[1] += sin(agents[i]->state[1]) * agents[i]->state[2];
+
+
+				agentnorm += agentv.Normalize();
+			}
+
+			velalignment = KAlign * agentnorm;
+			thetad = atan2(velalignment[1], velalignment[0]);
+
+			vd = velalignment.Length();
+			return vec2 (cos(thetad) *vd, sin(thetad) *vd);
 }
 
 /*
@@ -521,16 +553,36 @@ vec2 SIMAgent::Alignment()
 *  Store them into vd and thetad respectively
 *  return a vec2 that represents the goal velocity with its direction being thetad and its norm being vd
 */
+
 vec2 SIMAgent::Cohesion()
 {
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+	vec2 agentv = vec2(0.0, 0.0);
+	double agentx = 0.0;
+	double agenty = 0.0;
+	vec2 agentvecpos;
+	vec2 VCohesion;
+	
+	for (int i = 0; i < agents.size(); i++)
+	{
+		agentx = GPos[0] - agents[i]->GPos[0];
+		agenty = GPos[1] - agents[i]->GPos[1];
+		agentvecpos = vec2(agentx, agenty);
 
+		if (agentvecpos.Length() < RNeighborhood)
+		{
+			agentv[0] += GPos[0] - agents[i]->GPos[0];
+			agentv[1] += GPos[1] - agents[i]->GPos[1];
 
-	return tmp;
-}
+		}
+
+		VCohesion = KCohesion * (agentv / agents.size() - GPos);
+		thetad = atan2(VCohesion[1], VCohesion[0]);
+
+		return vec2(cos(thetad) * vd, sin(thetad) *vd);
+	}
 
 /*
 *	Flocking behavior
@@ -544,9 +596,14 @@ vec2 SIMAgent::Flocking()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
+	vec2 vecflock;
 
-	return tmp;
+	vecflock = KSeparate * Separation() + KCohesion * Cohesion() + KAlign * Alignment();
+	thetad = atan2(vecflock[1], vecflock[0]);
+
+	double vd = vecflock.Length();
+
+	return vec2(cos(thetad) *vd, sin (thetad) *vd);
 }
 
 /*
@@ -562,7 +619,12 @@ vec2 SIMAgent::Leader()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
-	vec2 tmp;
 
-	return tmp;
+	vec2 vecleader;
+
+	vecleader = KSeparate * Separation() + KArrival * Arrival();
+	thetad = atan2(vecleader[1], vecleader[0]);
+	
+	double vd = vecleader.Length();
+	return vec2(cos(thetad) *vd, sin (thetad) * vd);
 }

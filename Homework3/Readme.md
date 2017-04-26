@@ -6,7 +6,7 @@
 This is the framework for homework #3. 
 
 The assignment is due: **Monday, April  24 at 11:59PM (EST)**
-Using Extra Day: Due April 25, 11:59PM EST
+Using Extra Days: Due April 26
 
 
 ### Part 1: Behaviors
@@ -25,17 +25,32 @@ Notes are included in the Agent.cpp file.
 void SIMAgent::FindDeriv()
 {
 	
-	deriv[0] = (input[0] / Mass);
-	deriv[1] = (input[1] / Inertia); 
-	deriv[2] = state[2]; 
-	deriv[3] = state[3]; 
+	deriv[2] = (input[0] / Mass);
+	deriv[3] = (input[1] / Inertia); 
+	deriv[0] = state[2]; 
+	deriv[1] = state[3]; 
 
 }
 
 ~~~
 
-You also must implement *SIMAgent::InitValues()*: Try to figure out appropriate values for control and behavior settings. You need to find out appropriate values for: *SIMAgent::Kv0, SIMAgent::Kp1, SIMAgent::Kv1, SIMAgent::KArrival, SIMAgent::KDeparture,
-SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgent::RNeighborhood, SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.*
+*SIMAgent::InitValues()*: Try to figure out appropriate values for control and behavior settings. You need to find out appropriate values for: *SIMAgent::Kv0, SIMAgent::Kp1, SIMAgent::Kv1, SIMAgent::KArrival, SIMAgent::KDeparture,SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgent::RNeighborhood, SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.*
+
+~~~
+	Kv0 = 12.0;
+	Kp1 = 150.0;
+	Kv1 = 25.0;
+	KArrival = 0.1;
+	KDeparture = 7000.0;
+	KNoise = 15.0;
+	KWander = 3.0;
+	KAvoid = 0.5;
+	TAvoid = 10.0;
+	RNeighborhood = 500.0;
+	KSeparate = 900.0;
+	KAlign = 15.0;
+	KCohesion = 0.015;
+~~~
 
 
 **(b) - 20 points**: 
@@ -48,8 +63,8 @@ SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgen
 	tmp = goal - GPos;
 	tmp.Normalize(); 
 	thetad = atan2(tmp[1], tmp[0]);
-	double vn = SIMAgent::MaxVelocity; 
-	return vec2(cos(thetad)*vn, sin(thetad)*vn);
+	double vd = SIMAgent::MaxVelocity;
+	return vec2(cos(thetad)*vd, sin(thetad)*vd);
 ~~~
 
 * Flee
@@ -60,60 +75,65 @@ SIMAgent::KNoise,	SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgen
 	tmp.Normalize();	
 	thetad = atan2(tmp[1], tmp[0]); 
 	thetad = thetad + M_PI; 
-	float vn = SIMAgent::MaxVelocity; 
-	return vec2(cos(thetad)*vn, sin(thetad)*vn);
+	float vd = SIMAgent::MaxVelocity; 
+	return vec2(cos(thetad)*vd, sin(thetad)*vd);
 ~~~
 
 * Arrival
 ~~~
-	vec2 tmp = goal - GPos; /*Vd = goal - position*/
-	tmp.Normalize();
-	thetad = atan2(tmp[1], tmp[0]) + M_PI; 
+	vec2 Vn;
+	Vn = goal - GPos; /*Vn = goal - position (new vd)*/
+	thetad = atan2(Vn[1], Vn[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
 
-	double vn = SIMAgent::MaxVelocity;
-	vn = tmp.Length() *KArrival;
-
-	double vd = SIMAgent::MaxVelocity * (vn/ radius); 
-
-	if (tmp.Length() > 0.0)
-	{
-		return vec2(cos(thetad)*vd, sin(thetad)*vd);
-	}
-	else {
-
-		return vec2(cos(thetad)*vn, sin(thetad) * vn);
-	}
-
-	return tmp;
-}
+	vd = Vn.Length() *KArrival;
+	return -vec2(cos(thetad)*vd, sin(thetad) * vd);
 ~~~
+
+Video of Arrival:
+https://www.youtube.com/watch?v=q0I3CN_xKck
+
 
 * Departure
 ~~~
-	vec2 tmp = goal - GPos; 
-	tmp.Normalize();
-	thetad = atan2(tmp[1], tmp[0]) + M_PI; 
-
-	double vn = SIMAgent::MaxVelocity;
-	vn = tmp.Length() *KDeparture;
-
-	double vd = SIMAgent::MaxVelocity * (vn / radius); 
-
-	if (tmp.Length() > 0.0)
-	{
-		return vec2(cos(thetad)*vn, sin(thetad)*vn);
-	}
-	else {
-
-		return vec2(cos(thetad)*vd, sin(thetad) * vd);
-	}
-
-	return tmp;
-}
+	vec2 Vn = goal - GPos; /*Vn = goal - position*/
+	Vn.Normalize();
+	thetad = atan2(Vn[1], Vn[0]) + M_PI; /*theta d = arctan (vdy, vdx)*/
+	
+	vd = Vn.Length() *KDeparture;
+	return vec2(cos(thetad) *vd, sin(thetad) *vd);
 ~~~
 
 * Wander
+
+~~~
+	vec2 Outer;
+	vec2 Inner;
+	double vd = SIMAgent::MaxVelocity;
+
+	float largetheta = float(rand() % 360 - 180 / 180 *M_PI);
+	float tinytheta = float(rand() % 360 - 180 / 180 * M_PI);
+
+	Inner = vec2(cos(largetheta)* vd, sin(largetheta)*vd);
+	Outer = vec2(cos(tinytheta)*vd, sin(tinytheta)*vd);
+
+	vec2 VDis = 2.0 * (Outer + Inner);
+	thetad = atan2(VDis[1], VDis[0]);
+	return VDis;
+~~~
+
+Video of Wander:
+https://www.youtube.com/watch?v=EUovMz7aeAo
+
+(sorry for background Bengali voice!)
+
+
 * Obstacle Avoidance
+
+
+
+
+
+
 
 **(c) - 20 points**: Implement the functions for the following group behaviors: 
 * Seperation
