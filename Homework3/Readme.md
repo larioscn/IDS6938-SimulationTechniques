@@ -2,9 +2,6 @@
 
 ## IDS6938-Simulation Techniques - [University of Central Florida](http://www.ist.ucf.edu/grad/)
 
-[University of Central Florida](http://www.ist.ucf.edu/grad/)
-This is the framework for homework #3. 
-
 Using Extra Days: Due April 26; 1:00PM EST
 
 
